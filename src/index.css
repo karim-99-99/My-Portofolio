@@ -2,16 +2,17 @@
 @tailwind components;
 @tailwind utilities;
 
-
 @layer base {
   body {
-    @apply bg-custom-blue;
+    @apply bg-gray-950;
+    cursor: none;
   }
 }
+
 @keyframes scroll {
-  /* 0% {
+  0% {
     transform: translateX(100%);
-  } */
+  }
   100% {
     transform: translateX(-100%);
   }
@@ -19,4 +20,63 @@
 
 .animate-scroll {
   animation: scroll 20s linear infinite;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* Custom cursor */
+.custom-cursor {
+  width: 20px;
+  height: 20px;
+  background: rgba(255, 255, 255, 0.5);
+  border-radius: 50%;
+  position: fixed;
+  pointer-events: none;
+  z-index: 9999;
+  transition: transform 0.2s ease;
+  transform: translate(-50%, -50%);
+  mix-blend-mode: difference;
+}
+
+.custom-cursor.active {
+  transform: translate(-50%, -50%) scale(1.5);
+  background: rgba(255, 255, 255, 0.8);
+}
+
+/* Spotlight effect */
+.spotlight-overlay {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 50;
+  background: radial-gradient(
+    circle 100px at var(--x, 50vw) var(--y, 50vh),
+    rgba(255, 255, 255, 0.15) 0%,
+    rgba(255, 255, 255, 0.1) 40px,
+    rgba(7, 0, 60, 0.1) 70px,
+    rgba(7, 0, 60, 0.2) 100px,
+    transparent 150px
+  );
+  transition: background 0.1s;
+  mix-blend-mode: normal;
+}
+
+/* Show default cursor on interactive elements */
+a,
+button,
+input,
+textarea,
+[role="button"] {
+  cursor: none;
+}
+
+a:hover ~ .custom-cursor,
+button:hover ~ .custom-cursor,
+input:hover ~ .custom-cursor,
+textarea:hover ~ .custom-cursor,
+[role="button"]:hover ~ .custom-cursor {
+  transform: translate(-50%, -50%) scale(1.5);
+  background: rgba(255, 255, 255, 0.8);
 }

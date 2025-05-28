@@ -4,13 +4,13 @@ function About() {
   return (
     <div className="text-white">
       <div>
-        <h2 className="text-4xl font-bold mb-5 ">ABOUT ME</h2>
+        <h2 className="text-4xl font-bold mb-5 mt-14 ">ABOUT ME</h2>
         <p className="text-xl font-light mb-10"> 
           Here you will find more information about me, what I do, and my
           current skills mostly in terms of programming and technology
         </p>
       </div>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
       <div>
         <h3 className="text-3xl justify-items-start flex mb-9">Get To Know Me</h3>
         <p className=" text-left mb-10">
@@ -25,7 +25,7 @@ function About() {
           can contribute, learn and grow. If you have a good opportunity that
           matches my skills and experience then don't hesitate
         </p>
-        <a className=" border-none p-2 rounded text-2xl bg-teal-800 bg-opacity-50 text-teal-300 hover:text-teal-100 shadow hover:bg-teal-600 " href="#">Contact Me</a>
+        <a className=" border-none p-2 rounded text-2xl bg-teal-800 bg-opacity-50 text-teal-300 hover:text-teal-100 shadow hover:bg-teal-600 " href="#contact">Contact Me</a>
       </div>
       
       <div className="md:ml-20">
