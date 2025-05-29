@@ -1,12 +1,12 @@
-import { useRef, useState , useEffect} from "react";
+import { useRef, useState, useEffect } from "react";
 function Projects() {
   const videoRef1 = useRef(null);
   const videoRef2 = useRef(null);
   const videoRef3 = useRef(null);
   const [selectedProject, setSelectedProject] = useState(null);
 
-   // 🛠️ Lock scroll when sidebar is open
-   useEffect(() => {
+  // 🛠️ Lock scroll when sidebar is open
+  useEffect(() => {
     if (selectedProject) {
       document.body.classList.add("overflow-hidden");
     } else {
@@ -15,8 +15,6 @@ function Projects() {
     // Clean up just in case
     return () => document.body.classList.remove("overflow-hidden");
   }, [selectedProject]);
-
-
 
   const handleVideoClick = (project) => {
     setSelectedProject(project);
@@ -39,12 +37,13 @@ function Projects() {
       title: "E-Commerce",
       description:
         "Simulation of real e-commerce site with fake API and session storage.",
-        About:"This project is a simulation of a real e-commerce site. It uses a fake API to fetch product data and allows users to add items to their cart. The cart data is stored in session storage, making it easy to manage the shopping experience.",
+      About:
+        "This project is a simulation of a real e-commerce site. It uses a fake API to fetch product data and allows users to add items to their cart. The cart data is stored in session storage, making it easy to manage the shopping experience.",
       video: "/video1.mp4",
-        technologies: ["React.js", "Tailwind.css"],
-      Website: "https://e-commerce-git-main-kareems-projects-28d3146b.vercel.app",
+      technologies: ["React.js", "Tailwind.css"],
+      Website:
+        "https://e-commerce-git-main-kareems-projects-28d3146b.vercel.app",
       GitHub: "https://github.com/karim-99-99/E-commerce.git",
-
     },
     {
       title: "Add Quotes",
@@ -54,15 +53,18 @@ function Projects() {
         "This project is a small site for generating random quotes based on categories. It also allows users to add their special quotes with specific categories.",
       video: "/add Quote.mp4",
       technologies: ["HTML", "CSS", "JavaScript"],
-      Website: "https://alxejavascript-ji4f5mwo8-kareems-projects-28d3146b.vercel.app/",
-      GitHub: "https://github.com/karim-99-99/alx_fe_javascript/tree/main/dom-manipulation",
+      Website:
+        "https://alxejavascript-ji4f5mwo8-kareems-projects-28d3146b.vercel.app/",
+      GitHub:
+        "https://github.com/karim-99-99/alx_fe_javascript/tree/main/dom-manipulation",
     },
     {
       title: "To Do List",
       description:
         "Create your special to-do list. Add and remove items easily.",
-      About:"This project is a simple to-do list application that allows users to create and manage their tasks. Users can add and remove items from their list easily.",
-      video: "/to do list.mp4", 
+      About:
+        "This project is a simple to-do list application that allows users to create and manage their tasks. Users can add and remove items from their list easily.",
+      video: "/to do list.mp4",
       technologies: ["HTML", "CSS", "JavaScript"],
       Website: "https://leafy-pegasus-fb9709.netlify.app/",
       GitHub: "https://github.com/karim-99-99/dynamic-to-do-list-js.git",
@@ -85,9 +87,11 @@ function Projects() {
           <video
             ref={videoRef1}
             src="/video1.mp4"
-            className="  object-fill h-full w-full"
+            className="object-fill h-full w-full"
             muted
             loop
+            autoPlay
+            playsInline
           />
 
           {/* Overlay */}
@@ -121,6 +125,8 @@ function Projects() {
             className="w-full h-full object-fill"
             muted
             loop
+            autoPlay
+            playsInline
           />
 
           {/* Overlay */}
@@ -158,6 +164,8 @@ function Projects() {
             className="w-full h-full object-fill"
             muted
             loop
+            autoPlay
+            playsInline
           />
 
           {/* Overlay */}
@@ -216,7 +224,7 @@ function Projects() {
                 </span>
               ))}
             </div>
-            <p className="mt-3 mb-2 text-lg" >WebSite</p>
+            <p className="mt-3 mb-2 text-lg">WebSite</p>
             <a
               href={selectedProject.Website}
               target="_blank"
