@@ -80,3 +80,26 @@ textarea:hover ~ .custom-cursor,
   transform: translate(-50%, -50%) scale(1.5);
   background: rgba(255, 255, 255, 0.8);
 }
+
+/* Mobile styles */
+@media (max-width: 768px) {
+  body {
+    cursor: auto;
+  }
+
+  .custom-cursor {
+    display: none;
+  }
+
+  .spotlight-overlay {
+    display: none;
+  }
+
+  a,
+  button,
+  input,
+  textarea,
+  [role="button"] {
+    cursor: auto;
+  }
+}
