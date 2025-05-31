@@ -54,7 +54,7 @@ function Projects() {
       video: "/add Quote.mp4",
       technologies: ["HTML", "CSS", "JavaScript"],
       Website:
-        "https://alxejavascript-ji4f5mwo8-kareems-projects-28d3146b.vercel.app/",
+        "https://alxejavascript.vercel.app/",
       GitHub:
         "https://github.com/karim-99-99/alx_fe_javascript/tree/main/dom-manipulation",
     },
