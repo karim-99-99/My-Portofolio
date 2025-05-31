@@ -4,11 +4,10 @@
 
 @layer base {
   body {
-    @apply bg-gray-950;
-    cursor: none;
+    @apply bg-slate-400 dark:bg-gray-950;
   }
 }
-
+/* 
 @keyframes scroll {
   0% {
     transform: translateX(100%);
@@ -24,10 +23,10 @@
 
 html {
   scroll-behavior: smooth;
-}
+} */
 
 /* Custom cursor */
-.custom-cursor {
+/* .custom-cursor {
   width: 20px;
   height: 20px;
   background: rgba(255, 255, 255, 0.5);
@@ -43,10 +42,10 @@ html {
 .custom-cursor.active {
   transform: translate(-50%, -50%) scale(1.5);
   background: rgba(255, 255, 255, 0.8);
-}
+} */
 
 /* Spotlight effect */
-.spotlight-overlay {
+/* .spotlight-overlay {
   position: fixed;
   inset: 0;
   pointer-events: none;
@@ -61,10 +60,10 @@ html {
   );
   transition: background 0.1s;
   mix-blend-mode: normal;
-}
+} */
 
 /* Show default cursor on interactive elements */
-a,
+/* a,
 button,
 input,
 textarea,
@@ -79,10 +78,10 @@ textarea:hover ~ .custom-cursor,
 [role="button"]:hover ~ .custom-cursor {
   transform: translate(-50%, -50%) scale(1.5);
   background: rgba(255, 255, 255, 0.8);
-}
+} */
 
 /* Mobile styles */
-@media (max-width: 768px) {
+/* @media (max-width: 768px) {
   body {
     cursor: auto;
   }
@@ -102,4 +101,4 @@ textarea:hover ~ .custom-cursor,
   [role="button"] {
     cursor: auto;
   }
-}
+} */
