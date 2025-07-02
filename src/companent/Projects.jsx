@@ -3,6 +3,7 @@ function Projects() {
   const videoRef1 = useRef(null);
   const videoRef2 = useRef(null);
   const videoRef3 = useRef(null);
+  const videoRef4 = useRef(null);
   const [selectedProject, setSelectedProject] = useState(null);
 
   // 🛠️ Lock scroll when sidebar is open
@@ -68,7 +69,17 @@ function Projects() {
       technologies: ["HTML", "CSS", "JavaScript"],
       Website: "https://leafy-pegasus-fb9709.netlify.app/",
       GitHub: "https://github.com/karim-99-99/dynamic-to-do-list-js.git",
-    },
+    }, {
+      title: "My Dashboard",
+      description:
+        "Create My special dashboard. use inteactive callender to reserve an appointment with me.",
+      About:
+        "Create My special dashboard. choose and reserve any time of any date to have an appointment with me and it connected with my Gmail to receive email from you that describe with time do you reserve and your name and what for.",
+      video: "/myDashboard.mp4",
+      technologies: ["React.js", "Tailwind.css"],
+      Website: "https://e-commerce-swwh-git-main-kareems-projects-28d3146b.vercel.app",
+      GitHub: "https://github.com/karim-99-99/myDashboard",
+    }
   ];
 
   return (
@@ -137,12 +148,12 @@ function Projects() {
               also can add you specail quotes with special categories .
             </p>
             <div className="flex gap-3 mt-4">
-              <span className="border-none p-2 rounded-full text-sm bg-teal-400 text-teal-50">
-                React.js
+             <span className="border-none p-2 rounded-full text-sm bg-teal-400 text-teal-50">
+                HTML
               </span>
               <span className="border-none p-2 rounded-full text-sm bg-teal-400 text-teal-50">
                 {" "}
-                tailwind.css
+                CSS
               </span>
               <span className="border-none p-2 rounded-full text-sm bg-teal-400 text-teal-50">
                 {" "}
@@ -166,14 +177,12 @@ function Projects() {
             loop
             autoPlay
             playsInline
-          />
-
-          {/* Overlay */}
+          />'=
+            {/* Overlay */}
           <div className="absolute inset-0 bg-black/30 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-center items-center text-white text-center px-4">
-            <h3 className="text-2xl font-semibold mb-2 mt-64">To Do List</h3>
+            <h3 className="text-2xl font-semibold mb-2 mt-64 ">To Do List</h3>
             <p className="text-sm">
-              Small site to make your Special list with capability to add and
-              remove what you want .
+        "Create your special to-do list. Add and remove items easily.",
             </p>
             <div className="flex gap-3 mt-4">
               <span className="border-none p-2 rounded-full text-sm bg-teal-400 text-teal-50">
@@ -185,8 +194,43 @@ function Projects() {
               </span>
               <span className="border-none p-2 rounded-full text-sm bg-teal-400 text-teal-50">
                 {" "}
-                Java Scribt
+                Java Script
               </span>
+             
+            </div>
+          </div>
+        </div>
+        {/* //video4 */}
+        <div
+          className="relative group w-[300px] h-[300px] md:w-[350px] md:h-[350px] lg:w-[450px] lg:h-[450px] overflow-hidden rounded-xl shadow-lg xl:mr-32"
+          onMouseEnter={() => handleMouseEnter(videoRef4)}
+          onMouseLeave={() => handleMouseLeave(videoRef4)}
+          onClick={() => handleVideoClick(projects[3])}
+        >
+          <video
+            ref={videoRef4}
+            src="/myDashboard.mp4"
+            className="w-full h-full object-fill"
+            muted
+            loop
+            autoPlay
+            playsInline
+          />
+          {/* Overlay */}
+          <div className="absolute inset-0 bg-black/30 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-center items-center text-white text-center px-4">
+            <h3 className="text-2xl font-semibold mb-2 mt-64">My Dashboard</h3>
+            <p className="text-sm">
+              "Create My special dashboard. choose and reserve any time of any date to have an appointment with me and it connected with my Gmail to receive email from you that describe with time do you reserve and your name and what for.",
+            </p>
+            <div className="flex gap-3 mt-4">
+               <span className="border-none p-2 rounded-full text-sm bg-teal-400 text-teal-50">
+                React.js
+              </span>
+              <span className="border-none p-2 rounded-full text-sm bg-teal-400 text-teal-50">
+                {" "}
+                tailwind.css
+              </span>
+             
             </div>
           </div>
         </div>
