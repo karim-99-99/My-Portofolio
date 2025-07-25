@@ -1,4 +1,5 @@
 import { useState } from "react";
+import emailjs from '@emailjs/browser';
 
 const Contact = () => {
   const [input, setInput] = useState({ username: "", email: "", message: "" });
@@ -26,7 +27,25 @@ const Contact = () => {
 
     if (Object.keys(newErrors).length === 0) {
       // Handle form submission here
-      console.log("Form submitted:", input);
+      emailjs.send(
+      'service_sh4gzxq',
+      'template_pou7v88',
+      {
+        username: input.username,
+        email: input.email,
+        message: input.message,
+      },
+      'dHwqTwGg-uzPAVPWN'
+    )
+    .then(
+      () => {
+        alert('Message sent successfully!');
+        setInput({ username: "", email: "", message: "" });
+      },
+      (error) => {
+        alert('Failed to send message. Please try again.');
+        console.error(error);
+      // console.log("Form submitted:", input);
     }
   };
 
