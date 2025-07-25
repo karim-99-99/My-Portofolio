@@ -26,26 +26,26 @@ const Contact = () => {
     setErrors(newErrors);
 
     if (Object.keys(newErrors).length === 0) {
-      // Handle form submission here
       emailjs.send(
-      'service_sh4gzxq',
-      'template_pou7v88',
-      {
-        username: input.username,
-        email: input.email,
-        message: input.message,
-      },
-      'dHwqTwGg-uzPAVPWN'
-    )
-    .then(
-      () => {
-        alert('Message sent successfully!');
-        setInput({ username: "", email: "", message: "" });
-      },
-      (error) => {
-        alert('Failed to send message. Please try again.');
-        console.error(error);
-      // console.log("Form submitted:", input);
+        'service_sh4gzxq',
+        'template_pou7v88',
+        {
+          username: input.username,
+          email: input.email,
+          message: input.message,
+        },
+        'dHwqTwGg-uzPAVPWN'
+      )
+      .then(
+        () => {
+          alert('Message sent successfully!');
+          setInput({ username: "", email: "", message: "" });
+        },
+        (error) => {
+          alert('Failed to send message. Please try again.');
+          console.error(error);
+        }
+      );
     }
   };
 
