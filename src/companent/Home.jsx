@@ -128,7 +128,7 @@ const Home = () => {
               />
             </a>
             <a
-              href="https://www.linkedin.com/in/karim-khamis-3b6620327/"
+              href="hhttps://www.linkedin.com/in/kareem-khamis-software-engineering6/"
               target="_blank"
               rel="noopener noreferrer"
               className="hover:text-gray-300"
