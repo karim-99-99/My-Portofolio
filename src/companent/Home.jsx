@@ -26,7 +26,7 @@ const Home = () => {
             <a href="#about" className="hover:text-gray-300">
               About
             </a>
-            <a href="#projects" className="hover:text-gray-300">
+            <a href="#project2" className="hover:text-gray-300">
               Projects
             </a>
             <a href="#contact" className="hover:text-gray-300">
@@ -74,7 +74,7 @@ const Home = () => {
               </a>
               <a
                 onClick={handleBar}
-                href="#projects"
+                href="#project2"
                 className="hover:text-gray-400 border-b pb-4"
               >
                 Projects
@@ -110,7 +110,7 @@ const Home = () => {
               className="hover:text-gray-300"
             >
               <img
-                src="https://fancyplugins.de/assets/discord-debe1da1.png"
+                src="https://wallpapers.com/images/hd/discord-logo-6ou1mvwsuho6umqh.jpg"
                 alt="Discord"
                 className="w-6 h-6 lg:w-12 md:h-12 rounded mt-2 ml-2 hover:bg-slate-300 p-2 cursor-pointer hover:shadow-xl transition-shadow"
               />
@@ -150,7 +150,7 @@ const Home = () => {
             </p>
             <a
               className="border-none p-4 rounded text-3xl bg-teal-800 bg-opacity-50 text-teal-300 hover:text-teal-100 shadow hover:bg-teal-600"
-              href="#projects"
+              href="#project2"
             >
               My Project
             </a>
