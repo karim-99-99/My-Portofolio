@@ -5,6 +5,7 @@ function Projects() {
   const videoRef2 = useRef(null);
   const videoRef3 = useRef(null);
   const videoRef4 = useRef(null);
+  const videoRef5 = useRef(null);
   const [selectedProject, setSelectedProject] = useState(null);
 
   // 🛠️ Lock scroll when sidebar is open
@@ -47,7 +48,7 @@ function Projects() {
       technologies: ["React.js", "Tailwind.css"],
       Website: "https://e-commerce-git-main-kareems-projects-28d3146b.vercel.app",
       GitHub: "https://github.com/karim-99-99/E-commerce.git",
-      poster: "/video1-poster.png", // 
+      poster: "/video1-poster.png", 
     },
     {
       title: "Add Quotes",
@@ -78,7 +79,17 @@ function Projects() {
       Website: "https://e-commerce-swwh-git-main-kareems-projects-28d3146b.vercel.app",
       GitHub: "https://github.com/karim-99-99/myDashboard",
       poster: "/dashboard-poster.png",
-    }
+    },
+    {
+      title: "youbloom",
+      description: "Simulation of real app using accounts with fake API and session storage.",
+      About: "This project is a simulation of a real application with login page with phone number for any country in the world also sign up page for user using data for every user and dinamic route between pages",
+      video: "/youbloom project.mp4",
+      technologies: ["React.js", "Tailwind.css"],
+      Website: "https://youbloom-project.vercel.app/login",
+      GitHub: "https://github.com/karim-99-99/youbloom_project",
+      poster: "/youbloom project-poster.png", 
+    },
   ];
 
   return (
@@ -87,6 +98,7 @@ function Projects() {
         My Projects.
       </h2>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6 justify-items-center">
+        
         {/* Project 1 */}
         <div
           className="relative group w-[300px] h-[300px] md:w-[350px] md:h-[350px] lg:w-[450px] lg:h-[450px] overflow-hidden rounded-xl shadow-lg xl:ml-32 cursor-pointer"
@@ -106,22 +118,12 @@ function Projects() {
             <source src="/video1.mp4" type="video/mp4" />
             Your browser does not support the video tag.
           </video>
-
-          {/* Overlay */}
           <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500 flex flex-col justify-end items-start text-white p-6">
-            <h3 className="text-2xl font-bold mb-2 transform translate-y-6 group-hover:translate-y-0 transition-transform duration-500">
-              E-Commerce
-            </h3>
-            <p className="text-sm mb-4 transform translate-y-6 group-hover:translate-y-0 transition-transform duration-500 delay-100">
-              Simulation of real e-commerce site with fake API and session storage.
-            </p>
-            <div className="flex gap-3 transform translate-y-6 group-hover:translate-y-0 transition-transform duration-500 delay-200">
-              <span className="border border-teal-400 px-3 py-1 rounded-full text-xs bg-teal-400/20 text-teal-200">
-                React.js
-              </span>
-              <span className="border border-teal-400 px-3 py-1 rounded-full text-xs bg-teal-400/20 text-teal-200">
-                Tailwind.css
-              </span>
+            <h3 className="text-2xl font-bold mb-2">E-Commerce</h3>
+            <p className="text-sm mb-4">Simulation of real e-commerce site with fake API and session storage.</p>
+            <div className="flex gap-3">
+              <span className="border border-teal-400 px-3 py-1 rounded-full text-xs bg-teal-400/20 text-teal-200">React.js</span>
+              <span className="border border-teal-400 px-3 py-1 rounded-full text-xs bg-teal-400/20 text-teal-200">Tailwind.css</span>
             </div>
           </div>
         </div>
@@ -143,27 +145,14 @@ function Projects() {
             poster={projects[1].poster}
           >
             <source src="/add Quote.mp4" type="video/mp4" />
-            Your browser does not support the video tag.
           </video>
-
-          {/* Overlay */}
           <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500 flex flex-col justify-end items-start text-white p-6">
-            <h3 className="text-2xl font-bold mb-2 transform translate-y-6 group-hover:translate-y-0 transition-transform duration-500">
-              Add Quotes
-            </h3>
-            <p className="text-sm mb-4 transform translate-y-6 group-hover:translate-y-0 transition-transform duration-500 delay-100">
-              Random quotes generation based on category. Also add your special quotes.
-            </p>
-            <div className="flex gap-2 transform translate-y-6 group-hover:translate-y-0 transition-transform duration-500 delay-200">
-              <span className="border border-teal-400 px-3 py-1 rounded-full text-xs bg-teal-400/20 text-teal-200">
-                HTML
-              </span>
-              <span className="border border-teal-400 px-3 py-1 rounded-full text-xs bg-teal-400/20 text-teal-200">
-                CSS
-              </span>
-              <span className="border border-teal-400 px-3 py-1 rounded-full text-xs bg-teal-400/20 text-teal-200">
-                JavaScript
-              </span>
+            <h3 className="text-2xl font-bold mb-2">Add Quotes</h3>
+            <p className="text-sm mb-4">Random quotes generation based on category. Also add your special quotes.</p>
+            <div className="flex gap-2">
+              <span className="border px-3 py-1 rounded-full text-xs bg-teal-400/20 text-teal-200">HTML</span>
+              <span className="border px-3 py-1 rounded-full text-xs bg-teal-400/20 text-teal-200">CSS</span>
+              <span className="border px-3 py-1 rounded-full text-xs bg-teal-400/20 text-teal-200">JavaScript</span>
             </div>
           </div>
         </div>
@@ -185,27 +174,14 @@ function Projects() {
             poster={projects[2].poster}
           >
             <source src="/to do list.mp4" type="video/mp4" />
-            Your browser does not support the video tag.
           </video>
-
-          {/* Overlay */}
           <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500 flex flex-col justify-end items-start text-white p-6">
-            <h3 className="text-2xl font-bold mb-2 transform translate-y-6 group-hover:translate-y-0 transition-transform duration-500">
-              To Do List
-            </h3>
-            <p className="text-sm mb-4 transform translate-y-6 group-hover:translate-y-0 transition-transform duration-500 delay-100">
-              Create your special to-do list. Add and remove items easily.
-            </p>
-            <div className="flex gap-2 transform translate-y-6 group-hover:translate-y-0 transition-transform duration-500 delay-200">
-              <span className="border border-teal-400 px-3 py-1 rounded-full text-xs bg-teal-400/20 text-teal-200">
-                HTML
-              </span>
-              <span className="border border-teal-400 px-3 py-1 rounded-full text-xs bg-teal-400/20 text-teal-200">
-                CSS
-              </span>
-              <span className="border border-teal-400 px-3 py-1 rounded-full text-xs bg-teal-400/20 text-teal-200">
-                JavaScript
-              </span>
+            <h3 className="text-2xl font-bold mb-2">To Do List</h3>
+            <p className="text-sm mb-4">Create your special to-do list. Add and remove items easily.</p>
+            <div className="flex gap-2">
+              <span className="border px-3 py-1 rounded-full text-xs bg-teal-400/20 text-teal-200">HTML</span>
+              <span className="border px-3 py-1 rounded-full text-xs bg-teal-400/20 text-teal-200">CSS</span>
+              <span className="border px-3 py-1 rounded-full text-xs bg-teal-400/20 text-teal-200">JavaScript</span>
             </div>
           </div>
         </div>
@@ -227,27 +203,45 @@ function Projects() {
             poster={projects[3].poster}
           >
             <source src="/myDashboard.mp4" type="video/mp4" />
-            Your browser does not support the video tag.
           </video>
-
-          {/* Overlay */}
           <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500 flex flex-col justify-end items-start text-white p-6">
-            <h3 className="text-2xl font-bold mb-2 transform translate-y-6 group-hover:translate-y-0 transition-transform duration-500">
-              My Dashboard
-            </h3>
-            <p className="text-sm mb-4 transform translate-y-6 group-hover:translate-y-0 transition-transform duration-500 delay-100">
-              Create My special dashboard. Use interactive calendar to reserve an appointment.
-            </p>
-            <div className="flex gap-2 transform translate-y-6 group-hover:translate-y-0 transition-transform duration-500 delay-200">
-              <span className="border border-teal-400 px-3 py-1 rounded-full text-xs bg-teal-400/20 text-teal-200">
-                React.js
-              </span>
-              <span className="border border-teal-400 px-3 py-1 rounded-full text-xs bg-teal-400/20 text-teal-200">
-                Tailwind.css
-              </span>
+            <h3 className="text-2xl font-bold mb-2">My Dashboard</h3>
+            <p className="text-sm mb-4">Create My special dashboard. Use interactive calendar to reserve an appointment.</p>
+            <div className="flex gap-2">
+              <span className="border px-3 py-1 rounded-full text-xs bg-teal-400/20 text-teal-200">React.js</span>
+              <span className="border px-3 py-1 rounded-full text-xs bg-teal-400/20 text-teal-200">Tailwind.css</span>
             </div>
           </div>
         </div>
+
+        {/* ✅ Project 5 (Fixed placement) */}
+        <div
+          className="relative group w-[300px] h-[300px] md:w-[350px] md:h-[350px] lg:w-[450px] lg:h-[450px] overflow-hidden rounded-xl shadow-lg xl:ml-32 cursor-pointer"
+          onMouseEnter={() => handleMouseEnter(videoRef5)}
+          onMouseLeave={() => handleMouseLeave(videoRef5)}
+          onClick={() => handleVideoClick(projects[4])}
+        >
+          <video
+            ref={videoRef5}
+            className="object-cover h-full w-full"
+            muted
+            loop
+            playsInline
+            preload="none"
+            poster={projects[4].poster}
+          >
+            <source src="/youbloom project.mp4" type="video/mp4" />
+          </video>
+          <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500 flex flex-col justify-end items-start text-white p-6">
+            <h3 className="text-2xl font-bold mb-2">Youbloom</h3>
+            <p className="text-sm mb-4">Simulation of real app using accounts with fake API and session storage.</p>
+            <div className="flex gap-3">
+              <span className="border px-3 py-1 rounded-full text-xs bg-teal-400/20 text-teal-200">React.js</span>
+              <span className="border px-3 py-1 rounded-full text-xs bg-teal-400/20 text-teal-200">Tailwind.css</span>
+            </div>
+          </div>
+        </div>
+
       </div>
 
       {/* Sidebar */}
