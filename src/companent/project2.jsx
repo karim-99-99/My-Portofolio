@@ -46,8 +46,8 @@ function Projects() {
       About: "This project is a simulation of a real e-commerce site. It uses a fake API to fetch product data and allows users to add items to their cart. The cart data is stored in session storage, making it easy to manage the shopping experience.",
       video: "/video1.mp4",
       technologies: ["React.js", "Tailwind.css"],
-      Website: "https://e-commerce-git-main-kareems-projects-28d3146b.vercel.app",
-      GitHub: "https://github.com/karim-99-99/E-commerce.git",
+      Website: "https://ecommerce-full-stack-hcxzrofr4-kareems-projects-28d3146b.vercel.app/",
+      GitHub: "https://github.com/karim-99-99/Ecommerce-fullStack.git",
       poster: "/video1-poster.png", 
     },
     {
