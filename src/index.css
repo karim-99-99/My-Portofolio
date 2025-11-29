@@ -5,5 +5,87 @@
 @layer base {
   body {
     @apply bg-slate-500 dark:bg-gray-900;
+    scroll-behavior: smooth;
+  }
+
+  * {
+    @apply transition-colors duration-200;
+  }
+}
+
+@layer utilities {
+  /* Smooth video fade transitions */
+  video {
+    transition: opacity 0.6s ease-in-out;
+  }
+
+  /* Custom animations for video cards */
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .video-card-enter {
+    animation: fadeIn 0.5s ease-out;
+  }
+
+  /* Smooth scale animation */
+  @keyframes scaleIn {
+    from {
+      transform: scale(0.95);
+      opacity: 0;
+    }
+    to {
+      transform: scale(1);
+      opacity: 1;
+    }
+  }
+
+  .scale-in {
+    animation: scaleIn 0.4s ease-out;
+  }
+
+  /* Slide down animation for mobile menu */
+  @keyframes slideDown {
+    from {
+      opacity: 0;
+      transform: translateY(-20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .animate-slideDown {
+    animation: slideDown 0.3s ease-out;
+  }
+
+  /* Smooth scroll behavior */
+  html {
+    scroll-behavior: smooth;
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 10px;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-slate-800;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-teal-500 rounded-full;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-teal-400;
   }
 }
