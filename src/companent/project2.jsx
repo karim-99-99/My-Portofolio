@@ -48,7 +48,7 @@ function Projects() {
       technologies: ["React.js", "Tailwind.css"],
       Website: "https://e-commerce-git-main-kareems-projects-28d3146b.vercel.app?_vercel_share=3gyIbpz6Cc9axVFuv0xLRA9iOd4fNodw",
       GitHub: "https://github.com/karim-99-99/Ecommerce-fullStack.git",
-      poster: "/video1-poster.png", 
+      poster: "/video1-poster.jpg", 
     },
     {
       title: "Add Quotes",
