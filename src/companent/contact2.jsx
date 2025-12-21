@@ -1,14 +1,17 @@
 import React from "react";
 import { useForm, ValidationError } from "@formspree/react";
+import useScrollAnimation from "../hooks/useScrollAnimation";
 
 function ContactForm() {
   const [state, handleSubmit] = useForm("xnndeovn");
+  const [headerRef, headerVisible] = useScrollAnimation({ threshold: 0.3 });
+  const [formRef, formVisible] = useScrollAnimation({ threshold: 0.2 });
 
   if (state.succeeded) {
     return (
       <div className="min-h-screen flex items-center justify-center px-4 py-20">
         <div className="text-center text-white max-w-2xl mx-auto">
-          <div className="bg-gradient-to-br from-teal-600/20 to-teal-500/20 backdrop-blur-md border border-teal-400/30 p-8 sm:p-12 rounded-2xl shadow-2xl">
+          <div className="bg-gradient-to-br from-teal-600/20 to-teal-500/20 backdrop-blur-md p-8 sm:p-12 rounded-2xl shadow-2xl">
             <div className="mb-6">
               <svg
                 className="w-16 h-16 sm:w-20 sm:h-20 mx-auto text-teal-400"
@@ -37,13 +40,18 @@ function ContactForm() {
   }
 
   return (
-    <div className="min-h-screen py-12 sm:py-16 lg:py-20 px-4 sm:px-6 lg:px-8">
+    <div className="min-h-screen py-12 sm:py-16 lg:py-20 w-full">
       <form
         onSubmit={handleSubmit}
-        className="max-w-2xl mx-auto text-white"
+        className="w-full text-white"
       >
         {/* Header */}
-        <div className="text-center mb-12 sm:mb-16">
+        <div 
+          ref={headerRef}
+          className={`text-center mb-12 sm:mb-16 transition-all duration-1000 ${
+            headerVisible ? "animate-fade-in-up" : "opacity-0"
+          }`}
+        >
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4 sm:mb-6">
             Contact <span className="text-teal-400">Me</span>
           </h2>
@@ -53,7 +61,12 @@ function ContactForm() {
         </div>
 
         {/* Form Container */}
-        <div className="bg-slate-800/50 backdrop-blur-sm rounded-2xl p-6 sm:p-8 lg:p-10 border border-teal-400/20 hover:border-teal-400/40 transition-all duration-300 shadow-2xl">
+        <div 
+          ref={formRef}
+          className={`bg-slate-800/50 backdrop-blur-sm rounded-2xl p-6 sm:p-8 lg:p-10 transition-all duration-1000 shadow-2xl ${
+            formVisible ? "animate-scale-in" : "opacity-0 scale-95"
+          }`}
+        >
           {/* Email Field */}
           <div className="mb-6 sm:mb-8">
             <label

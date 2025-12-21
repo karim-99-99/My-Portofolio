@@ -140,7 +140,7 @@ const ThemeToggle = () => {
         onClick={toggleTheme}
         disabled={isTransitioning}
         className={`
-          fixed top-4 right-4 p-3 rounded-xl shadow-lg z-50
+          fixed bottom-4 left-4 p-2 rounded-lg shadow-lg z-50
           bg-white dark:bg-gray-800 
           text-gray-700 dark:text-gray-200
           border border-gray-200 dark:border-gray-600
@@ -152,11 +152,11 @@ const ThemeToggle = () => {
         `}
         aria-label="Toggle theme"
       >
-        <div className="relative w-6 h-6">
+        <div className="relative w-4 h-4">
           {/* Sun icon */}
           <svg
             className={`
-              absolute inset-0 w-6 h-6 transition-all duration-300 ease-in-out
+              absolute inset-0 w-4 h-4 transition-all duration-300 ease-in-out
               ${isDark 
                 ? 'rotate-90 scale-0 opacity-0' 
                 : 'rotate-0 scale-100 opacity-100'
@@ -177,7 +177,7 @@ const ThemeToggle = () => {
           {/* Moon icon */}
           <svg
             className={`
-              absolute inset-0 w-6 h-6 transition-all duration-300 ease-in-out
+              absolute inset-0 w-4 h-4 transition-all duration-300 ease-in-out
               ${isDark 
                 ? 'rotate-0 scale-100 opacity-100' 
                 : '-rotate-90 scale-0 opacity-0'

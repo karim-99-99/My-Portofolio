@@ -1,4 +1,5 @@
 import React from "react";
+import useScrollAnimation from "../hooks/useScrollAnimation";
 
 function About() {
   const skills = [
@@ -16,11 +17,20 @@ function About() {
     
   ];
 
+  const [headerRef, headerVisible] = useScrollAnimation({ threshold: 0.3 });
+  const [leftRef, leftVisible] = useScrollAnimation({ threshold: 0.2 });
+  const [rightRef, rightVisible] = useScrollAnimation({ threshold: 0.2 });
+
   return (
-    <div className="text-white min-h-screen py-12 sm:py-16 lg:py-20 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-6xl mx-auto">
+    <div className="text-white min-h-screen py-12 sm:py-16 lg:py-20 w-full">
+      <div className="w-full">
         {/* Header Section */}
-        <div className="text-center mb-12 sm:mb-16">
+        <div 
+          ref={headerRef}
+          className={`text-center mb-12 sm:mb-16 transition-all duration-1000 ${
+            headerVisible ? "animate-fade-in-up" : "opacity-0"
+          }`}
+        >
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4 sm:mb-6">
             ABOUT <span className="text-teal-400">ME</span>
           </h2>
@@ -33,7 +43,12 @@ function About() {
         {/* Content Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
           {/* Left Column - Get To Know Me */}
-          <div className="bg-slate-800/50 backdrop-blur-sm rounded-2xl p-6 sm:p-8 lg:p-10 border border-teal-400/20 hover:border-teal-400/40 transition-all duration-300 hover:shadow-2xl hover:shadow-teal-500/10">
+          <div 
+            ref={leftRef}
+            className={`bg-slate-800/50 backdrop-blur-sm rounded-2xl p-6 sm:p-8 lg:p-10 transition-all duration-1000 hover:shadow-2xl hover:shadow-teal-500/10 ${
+              leftVisible ? "animate-fade-in-left" : "opacity-0"
+            }`}
+          >
             <h3 className="text-2xl sm:text-3xl font-bold mb-6 text-teal-400">
               Get To Know Me
             </h3>
@@ -67,7 +82,12 @@ function About() {
           </div>
 
           {/* Right Column - Skills */}
-          <div className="bg-slate-800/50 backdrop-blur-sm rounded-2xl p-6 sm:p-8 lg:p-10 border border-teal-400/20 hover:border-teal-400/40 transition-all duration-300 hover:shadow-2xl hover:shadow-teal-500/10">
+          <div 
+            ref={rightRef}
+            className={`bg-slate-800/50 backdrop-blur-sm rounded-2xl p-6 sm:p-8 lg:p-10 transition-all duration-1000 hover:shadow-2xl hover:shadow-teal-500/10 ${
+              rightVisible ? "animate-fade-in-right" : "opacity-0"
+            }`}
+          >
             <h3 className="text-2xl sm:text-3xl font-bold mb-8 text-teal-400">
               My Skills
             </h3>
@@ -76,6 +96,9 @@ function About() {
                 <div
                   key={idx}
                   className="bg-gradient-to-br from-teal-600/20 to-teal-500/20 backdrop-blur-sm border border-teal-400/30 p-3 sm:p-4 rounded-lg text-center text-sm sm:text-base lg:text-lg text-teal-300 font-medium hover:bg-teal-600/30 hover:border-teal-400/60 hover:scale-105 transform transition-all duration-300 cursor-default shadow-md hover:shadow-teal-500/20"
+                  style={{
+                    animationDelay: `${idx * 0.1}s`,
+                  }}
                 >
                   {skill}
                 </div>

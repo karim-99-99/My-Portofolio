@@ -1,331 +1,328 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
+import useScrollAnimation from "../hooks/useScrollAnimation";
 
-const projects = [
-  {
-    title: "E-Commerce",
-    description:
-      "Simulation of real e-commerce site with fake API and session storage.",
-    About:
-      "This project is a simulation of a real e-commerce site. It uses a fake API to fetch product data and allows users to add items to their cart. The cart data is stored in session storage, making it easy to manage the shopping experience.",
-    video: "/video1.mp4",
-    technologies: ["React.js", "Tailwind.css"],
-    Website:
-      "https://myecommerce123.vercel.app/",
-    GitHub: "https://github.com/karim-99-99/Ecommerce-fullStack.git",
-    poster: "/video1-poster.jpg",
-  },
-  {
-    title: "Add Quotes",
-    description:
-      "Random quotes generation based on category. Also add your special quotes.",
-    About:
-      "This project is a small site for generating random quotes based on categories. It also allows users to add their special quotes with specific categories.",
-    video: "/add Quote.mp4",
-    technologies: ["HTML", "CSS", "JavaScript"],
-    Website: "https://alxejavascript.vercel.app/",
-    GitHub:
-      "https://github.com/karim-99-99/alx_fe_javascript/tree/main/dom-manipulation",
-    poster: "/add-quote-poster.png",
-  },
-  {
-    title: "To Do List",
-    description: "Create your special to-do list. Add and remove items easily.",
-    About:
-      "This project is a simple to-do list application that allows users to create and manage their tasks. Users can add and remove items from their list easily.",
-    video: "/to do list.mp4",
-    technologies: ["HTML", "CSS", "JavaScript"],
-    Website: "https://leafy-pegasus-fb9709.netlify.app/",
-    GitHub: "https://github.com/karim-99-99/dynamic-to-do-list-js.git",
-    poster: "/todo-poster.png",
-  },
-  {
-    title: "My Dashboard",
-    description:
-      "Create My special dashboard. Use interactive calendar to reserve an appointment with me.",
-    About:
-      "Create My special dashboard. Choose and reserve any time of any date to have an appointment with me and it's connected with my Gmail to receive email from you that describes the time you reserve, your name and what for.",
-    video: "/myDashboard.mp4",
-    technologies: ["React.js", "Tailwind.css"],
-    Website:
-      "https://e-commerce-swwh-git-main-kareems-projects-28d3146b.vercel.app",
-    GitHub: "https://github.com/karim-99-99/myDashboard",
-    poster: "/dashboard-poster.png",
-  },
-  {
-    title: "youbloom",
-    description:
-      "Simulation of real app using accounts with fake API and session storage.",
-    About:
-      "This project is a simulation of a real application with login page with phone number for any country in the world also sign up page for user using data for every user and dinamic route between pages",
-    video: "/youbloom project.mp4",
-    technologies: ["React.js", "Tailwind.css"],
-    Website: "https://youbloom-project.vercel.app/login",
-    GitHub: "https://github.com/karim-99-99/youbloom_project",
-    poster: "/youbloom project-poster.png",
-  },
-];
+// Project Card Component
+const ProjectCard = ({ project, idx, onClick }) => {
+  const [cardRef, cardVisible] = useScrollAnimation({ 
+    threshold: 0.2,
+    rootMargin: "0px 0px -100px 0px"
+  });
 
-function Projects() {
-  const [selectedProject, setSelectedProject] = useState(null);
+  return (
+    <div
+      ref={cardRef}
+      onClick={() => onClick(project)}
+      className={`relative bg-slate-800/50 backdrop-blur-sm rounded-2xl overflow-hidden transition-all duration-1000 hover:shadow-2xl hover:shadow-teal-500/30 group cursor-pointer ${
+        cardVisible ? "animate-scale-in" : "opacity-0 scale-95"
+      }`}
+      style={{
+        animationDelay: `${idx * 0.15}s`,
+      }}
+    >
+      {/* Animated Concentric Circles */}
+      <div className="absolute inset-0 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-32 h-32 border border-teal-400/30 rounded-full animate-pulse-slow"></div>
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-48 h-48 border border-teal-400/20 rounded-full animate-pulse-slower"></div>
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 border border-teal-400/10 rounded-full animate-pulse-slowest"></div>
+      </div>
 
-  // Lock scroll when sidebar is open
-  useEffect(() => {
-    if (selectedProject) {
-      document.body.classList.add("overflow-hidden");
-    } else {
-      document.body.classList.remove("overflow-hidden");
-    }
-    return () => document.body.classList.remove("overflow-hidden");
-  }, [selectedProject]);
+      {/* Floating Geometric Shapes */}
+      <div className="absolute inset-0 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+        {/* Triangle */}
+        <div className="absolute top-4 right-4 w-8 h-8 border border-teal-400/40 rotate-45 group-hover:rotate-90 transition-transform duration-700"></div>
+        {/* Square */}
+        <div className="absolute bottom-4 left-4 w-6 h-6 border border-teal-400/30 group-hover:scale-125 transition-transform duration-700"></div>
+        {/* Circle */}
+        <div className="absolute top-1/4 right-1/4 w-4 h-4 border-2 border-teal-400/50 rounded-full group-hover:scale-150 transition-transform duration-700"></div>
+      </div>
 
-  const handleProjectClick = (project) => {
-    setSelectedProject(project);
-  };
+      {/* Glowing Overlay Effect */}
+      <div className="absolute inset-0 bg-gradient-to-br from-teal-400/0 via-teal-400/0 to-teal-400/0 group-hover:from-teal-400/5 group-hover:via-teal-400/10 group-hover:to-teal-400/5 transition-all duration-500 pointer-events-none"></div>
 
-  const handleCloseSidebar = () => {
-    setSelectedProject(null);
-  };
-
-  // Project Card Component - Shows only poster images
-  const ProjectCard = ({ project, index, positionClass }) => {
-    return (
-      <div
-        className={`relative group w-full max-w-[300px] sm:max-w-[350px] lg:max-w-[450px] aspect-square overflow-hidden rounded-2xl shadow-2xl ${positionClass} cursor-pointer transform transition-all duration-500 hover:scale-105 hover:shadow-teal-500/50 hover:-translate-y-2`}
-        onClick={() => handleProjectClick(project)}
-      >
-        {/* Poster Image */}
-        <img
-          src={project.poster}
-          alt={project.title}
-          className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-        />
-
-        {/* Gradient Overlay */}
-        <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/50 to-black/20 opacity-0 group-hover:opacity-100 transition-all duration-500 flex flex-col justify-end items-start text-white p-6 z-10">
-          <h3 className="text-xl sm:text-2xl font-bold mb-2 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
-            {project.title}
-          </h3>
-          <p className="text-xs sm:text-sm mb-4 opacity-0 group-hover:opacity-100 transform translate-y-4 group-hover:translate-y-0 transition-all duration-300 delay-75 line-clamp-2">
-            {project.description}
-          </p>
-          <div className="flex gap-2 flex-wrap opacity-0 group-hover:opacity-100 transform translate-y-4 group-hover:translate-y-0 transition-all duration-300 delay-100">
-            {project.technologies.map((tech, idx) => (
-              <span
-                key={idx}
-                className="border border-teal-400 px-2 sm:px-3 py-1 rounded-full text-xs bg-teal-400/20 text-teal-200 backdrop-blur-sm"
-              >
-                {tech}
-              </span>
-            ))}
-          </div>
-        </div>
-
-        {/* Play Button Overlay */}
-        <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-20">
-          <div className="w-16 h-16 sm:w-20 sm:h-20 bg-teal-400/90 rounded-full flex items-center justify-center backdrop-blur-sm transform scale-0 group-hover:scale-100 transition-transform duration-300 shadow-2xl">
+      {/* Video Container */}
+      <div className="relative w-full aspect-video bg-slate-900 overflow-hidden z-10">
+        <video
+          className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+          poster={project.poster}
+          preload="metadata"
+          muted
+        >
+          <source src={project.video} type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
+        {/* Play overlay with glow */}
+        <div className="absolute inset-0 flex items-center justify-center bg-black/30 group-hover:bg-black/10 transition-colors duration-500">
+          <div className="w-16 h-16 rounded-full bg-teal-400/80 flex items-center justify-center group-hover:bg-teal-400 group-hover:scale-110 group-hover:shadow-[0_0_30px_rgba(45,212,191,0.6)] transition-all duration-500">
             <svg
-              className="w-8 h-8 sm:w-10 sm:h-10 text-white ml-1"
+              className="w-8 h-8 text-white ml-1"
               fill="currentColor"
-              viewBox="0 0 20 20"
+              viewBox="0 0 24 24"
             >
-              <path d="M6.3 2.841A1.5 1.5 0 004 4.11V15.89a1.5 1.5 0 002.3 1.269l9.344-5.89a1.5 1.5 0 000-2.538L6.3 2.84z" />
+              <path d="M8 5v14l11-7z" />
             </svg>
           </div>
         </div>
       </div>
-    );
+
+      {/* Project Info */}
+      <div className="relative p-6 sm:p-8 z-10">
+        <h3 className="text-xl sm:text-2xl font-bold mb-3 text-teal-400 group-hover:text-teal-300 group-hover:drop-shadow-[0_0_10px_rgba(45,212,191,0.5)] transition-all duration-300">
+          {project.title}
+        </h3>
+        <p className="text-sm sm:text-base text-gray-300 leading-relaxed line-clamp-2 group-hover:text-gray-200 transition-colors duration-300">
+          {project.description}
+        </p>
+      </div>
+    </div>
+  );
+};
+
+const Project2 = () => {
+  const [selectedProject, setSelectedProject] = useState(null);
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+  const [headerRef, headerVisible] = useScrollAnimation({ threshold: 0.3 });
+
+  const projects = [
+    {
+      title: "My Dashboard",
+      video: "/myDashboard.mp4",
+      poster: "/dashboard-poster.png",
+      description: "A comprehensive dashboard application with modern UI/UX design. Built with React and Tailwind CSS, featuring real-time data visualization and interactive components.",
+      technologies: ["React.js", "Tailwind CSS", "JavaScript", "HTML", "CSS"],
+      websiteLink: "https://example.com/dashboard",
+      githubLink: "https://github.com/karim-99-99/dashboard",
+    },
+
+    {
+      title: "Youbloom Project",
+      video: "/youbloom project.mp4",
+      poster: "/youbloom project-poster.png",
+      description: "Youbloom platform project - A full-stack web application showcasing modern web development practices. Includes user authentication, data management, and responsive design.",
+      technologies: ["React.js", "Tailwind CSS", "JavaScript", "RESTful APIs"],
+      websiteLink: "https://example.com/youbloom",
+      githubLink: "https://github.com/karim-99-99/youbloom",
+    },
+    {
+      title: "Add Quote",
+      video: "/add Quote.mp4",
+      poster: "/add-quote-poster.png",
+      description: "Quote management application that allows users to add, edit, and manage inspirational quotes. Features a clean interface with search and filter capabilities.",
+      technologies: ["React.js", "Tailwind CSS", "JavaScript"],
+      websiteLink: "https://example.com/quotes",
+      githubLink: "https://github.com/karim-99-99/add-quote",
+    },
+    {
+      title: "E-Commerce",
+      video: "/video1.mp4",
+      poster: "/video1-poster.jpg",
+      description: "This project is a simulation of a real e-commerce site. It uses a fake API to fetch product data and allows users to add items to their cart. The cart data is stored in session storage, making it easy to manage the shopping experience.",
+      technologies: ["React.js", "Tailwind CSS", "JavaScript", "RESTful APIs"],
+      websiteLink: "https://example.com/project",
+      githubLink: "https://github.com/karim-99-99/project",
+    },
+  ];
+
+  const handleProjectClick = (project) => {
+    setSelectedProject(project);
+    setIsSidebarOpen(true);
+    // Prevent body scroll when sidebar is open
+    document.body.style.overflow = "hidden";
+  };
+
+  const handleCloseSidebar = () => {
+    setIsSidebarOpen(false);
+    setSelectedProject(null);
+    // Restore body scroll
+    document.body.style.overflow = "auto";
+  };
+
+  // Close sidebar when clicking outside
+  const handleOverlayClick = (e) => {
+    if (e.target === e.currentTarget) {
+      handleCloseSidebar();
+    }
   };
 
   return (
-    <div className="min-h-screen px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
-      <div className="max-w-7xl mx-auto">
-        <h2 className="font-bold text-3xl sm:text-4xl lg:text-5xl text-white mt-20 sm:mt-32 mb-8 sm:mb-14 text-center sm:text-left">
-          My <span className="text-teal-400">Projects</span>
-        </h2>
+    <div className="text-white min-h-screen py-12 sm:py-16 lg:py-20 w-full">
+      <div className="w-full">
+        {/* Header Section */}
+        <div 
+          ref={headerRef}
+          className={`text-center mb-12 sm:mb-16 transition-all duration-1000 ${
+            headerVisible ? "animate-fade-in-up" : "opacity-0"
+          }`}
+        >
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4 sm:mb-6">
+            MY <span className="text-teal-400">PROJECTS</span>
+          </h2>
+          <p className="text-base sm:text-lg lg:text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
+            Here you will find some of the personal and clients projects that I
+            created with each project containing its own case study
+          </p>
+        </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-8 lg:gap-10 justify-items-center">
-          <ProjectCard
-            project={projects[0]}
-            index={0}
-            positionClass="xl:ml-0"
-          />
-          <ProjectCard
-            project={projects[1]}
-            index={1}
-            positionClass="xl:mr-0"
-          />
-          <ProjectCard
-            project={projects[2]}
-            index={2}
-            positionClass="xl:ml-0"
-          />
-          <ProjectCard
-            project={projects[3]}
-            index={3}
-            positionClass="xl:mr-0"
-          />
-          <ProjectCard
-            project={projects[4]}
-            index={4}
-            positionClass="xl:ml-0 sm:col-span-2"
-          />
+        {/* Projects Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 relative">
+          {projects.map((project, idx) => (
+            <ProjectCard
+              key={idx}
+              project={project}
+              idx={idx}
+              onClick={handleProjectClick}
+            />
+          ))}
         </div>
       </div>
 
-      {/* Enhanced Sidebar */}
-      <div
-        className={`fixed top-0 right-0 h-full w-full sm:w-[90%] md:w-[600px] lg:w-[650px] overflow-y-auto bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950 text-white shadow-2xl transform transition-transform duration-500 ease-in-out ${
-          selectedProject ? "translate-x-0" : "translate-x-full"
-        } z-50`}
-      >
-        {selectedProject && (
-          <div className="p-6 sm:p-8">
-            {/* Header */}
-            <div className="flex justify-between items-start mb-6 pb-6 border-b border-teal-400/30">
-              <h2 className="text-2xl sm:text-3xl font-bold text-teal-400">
-                {selectedProject.title}
-              </h2>
-              <button
-                onClick={handleCloseSidebar}
-                className="text-gray-400 hover:text-white p-2 hover:bg-gray-800/50 rounded-full hover:rotate-90 transition-all duration-300"
-                aria-label="Close"
-              >
-                <svg
-                  className="w-6 h-6 sm:w-7 sm:h-7"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M6 18L18 6M6 6l12 12"
-                  />
-                </svg>
-              </button>
-            </div>
+      {/* Sidebar Modal */}
+      {isSidebarOpen && selectedProject && (
+        <>
+          {/* Overlay */}
+          <div
+            className="fixed inset-0 bg-black/70 backdrop-blur-sm z-[60] transition-opacity duration-300"
+            onClick={handleOverlayClick}
+          ></div>
 
-            {/* Video Section */}
-            {selectedProject.video && (
-              <div className="relative mb-6 rounded-xl overflow-hidden shadow-2xl bg-black/50">
+          {/* Sidebar - Responsive and Customized */}
+          <div
+            className={`fixed top-0 right-0 h-full  sm:w-[320px] md:w-[360px] lg:w-[600px] bg-gray-900 shadow-2xl z-[70] transform transition-transform duration-300 ease-in-out ${
+              isSidebarOpen ? "translate-x-0" : "translate-x-full"
+            } overflow-y-auto`}
+          >
+            {/* Close Button */}
+            <button
+              onClick={handleCloseSidebar}
+              className="sticky top-4 float-right mr-4 mt-4 text-white hover:text-teal-400 transition-colors z-20 bg-gray-800/90 rounded-full p-2 hover:bg-gray-700 shadow-lg"
+              aria-label="Close sidebar"
+            >
+              <svg
+                className="w-6 h-6"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M6 18L18 6M6 6l12 12"
+                />
+              </svg>
+            </button>
+
+            {/* Sidebar Content */}
+            <div className="p-4 sm:p-5 space-y-4 sm:space-y-5 text-white clear-both">
+              {/* Project Title */}
+              <div className="pt-12 sm:pt-4">
+                <h2 className="text-xl sm:text-2xl font-bold text-teal-400 mb-2">
+                  {selectedProject.title}
+                </h2>
+              </div>
+
+              {/* Video Container */}
+              <div className="w-full rounded-lg overflow-hidden shadow-lg bg-gray-800/50">
                 <video
-                  src={selectedProject.video}
+                  className="w-full h-auto object-contain"
                   poster={selectedProject.poster}
                   controls
                   autoPlay
-                  loop
-                  muted
                   preload="metadata"
-                  className="w-full h-auto max-h-[400px] object-contain"
-                />
-              </div>
-            )}
-
-            {/* Description */}
-            <p className="text-gray-300 text-sm sm:text-base mb-6 leading-relaxed">
-              {selectedProject.description}
-            </p>
-
-            {/* About Section */}
-            <div className="mb-6">
-              <h3 className="text-xl font-semibold mb-3 text-teal-400">
-                About This Project
-              </h3>
-              <p className="text-gray-400 text-sm sm:text-base leading-relaxed">
-                {selectedProject.About}
-              </p>
-            </div>
-
-            {/* Technologies */}
-            <div className="mb-6">
-              <h3 className="text-xl font-semibold mb-4 text-teal-400">
-                Technologies Used
-              </h3>
-              <div className="flex flex-wrap gap-3">
-                {selectedProject.technologies.map((tech, idx) => (
-                  <span
-                    key={idx}
-                    className="bg-teal-400/20 border border-teal-400/50 text-teal-300 text-sm rounded-full px-4 py-2 font-medium backdrop-blur-sm hover:bg-teal-400/30 transition-colors"
-                  >
-                    {tech}
-                  </span>
-                ))}
-              </div>
-            </div>
-
-            {/* Links */}
-            <div className="space-y-4 pt-6 border-t border-teal-400/30">
-              <div>
-                <p className="text-lg font-semibold mb-2 text-teal-400">
-                  Live Website
-                </p>
-                <a
-                  href={selectedProject.Website}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-teal-300 hover:text-teal-200 break-all inline-flex items-center gap-2 group transition-all"
+                  style={{ 
+                    display: 'block',
+                    width: '100%',
+                    maxHeight: '250px'
+                  }}
                 >
-                  <span className="truncate max-w-[280px] sm:max-w-none">
-                    {selectedProject.Website}
-                  </span>
-                  <svg
-                    className="w-4 h-4 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
-                    />
-                  </svg>
-                </a>
+                  <source src={selectedProject.video} type="video/mp4" />
+                  Your browser does not support the video tag.
+                </video>
               </div>
+
+              {/* Technologies Used */}
+              {selectedProject.technologies && selectedProject.technologies.length > 0 && (
+                <div>
+                  <h3 className="text-base sm:text-lg font-semibold mb-2 sm:mb-3 text-teal-400">
+                    Technologies Used
+                  </h3>
+                  <div className="flex flex-wrap gap-2">
+                    {selectedProject.technologies.map((tech, index) => (
+                      <span
+                        key={index}
+                        className="inline-flex items-center px-2.5 sm:px-3 py-1 sm:py-1.5 rounded-full text-xs font-medium bg-gradient-to-br from-teal-600/20 to-teal-500/20 backdrop-blur-sm border border-teal-400/40 text-teal-300 hover:from-teal-600/30 hover:to-teal-500/30 hover:border-teal-400/60 hover:scale-105 transform transition-all duration-300 shadow-md hover:shadow-teal-500/20"
+                      >
+                        {tech}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              )}
+
+              {/* Description */}
               <div>
-                <p className="text-lg font-semibold mb-2 text-teal-400">
-                  GitHub Repository
+                <h3 className="text-base sm:text-lg font-semibold mb-2 sm:mb-3 text-teal-400">
+                  Description
+                </h3>
+                <p className="text-gray-200 leading-relaxed text-xs sm:text-sm">
+                  {selectedProject.description}
                 </p>
-                <a
-                  href={selectedProject.GitHub}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-teal-300 hover:text-teal-200 break-all inline-flex items-center gap-2 group transition-all"
-                >
-                  <span className="truncate max-w-[280px] sm:max-w-none">
-                    {selectedProject.GitHub}
-                  </span>
-                  <svg
-                    className="w-4 h-4 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
+              </div>
+
+              {/* Links */}
+              <div className="flex flex-col gap-2 sm:gap-3 pt-2 pb-4">
+                {selectedProject.websiteLink && (
+                  <a
+                    href={selectedProject.websiteLink}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center justify-center gap-1.5 sm:gap-2 px-3 sm:px-4 py-2 bg-gradient-to-r from-teal-600 to-teal-500 text-white rounded-lg hover:from-teal-500 hover:to-teal-400 shadow-lg hover:shadow-teal-500/50 transform hover:scale-105 transition-all duration-300 font-semibold text-xs sm:text-sm"
                   >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
-                    />
-                  </svg>
-                </a>
+                    <svg
+                      className="w-3.5 h-3.5 sm:w-4 sm:h-4"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
+                      />
+                    </svg>
+                    Visit Website
+                  </a>
+                )}
+
+                {selectedProject.githubLink && (
+                  <a
+                    href={selectedProject.githubLink}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center justify-center gap-1.5 sm:gap-2 px-3 sm:px-4 py-2 bg-gray-800/90 border border-teal-400/30 text-teal-400 rounded-lg hover:bg-gray-700 hover:border-teal-400 shadow-lg hover:shadow-teal-500/20 transform hover:scale-105 transition-all duration-300 font-semibold text-xs sm:text-sm"
+                  >
+                    <svg
+                      className="w-3.5 h-3.5 sm:w-4 sm:h-4"
+                      fill="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        fillRule="evenodd"
+                        d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"
+                        clipRule="evenodd"
+                      />
+                    </svg>
+                    View on GitHub
+                  </a>
+                )}
               </div>
             </div>
           </div>
-        )}
-      </div>
-
-      {/* Overlay */}
-      {selectedProject && (
-        <div
-          className="fixed inset-0 bg-black/70 backdrop-blur-sm z-40 transition-opacity duration-300"
-          onClick={handleCloseSidebar}
-        />
+        </>
       )}
     </div>
   );
-}
+};
 
-export default Projects;
+export default Project2;
+
