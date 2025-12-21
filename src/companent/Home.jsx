@@ -255,10 +255,10 @@ const Home = () => {
                 Karim Khamis
               </span>
             </h1>
-            <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-300 mb-6 sm:mb-12 md:mb-16 lg:mb-20 leading-relaxed w-full relative z-10">
+            <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-300 mb-2 sm:mb-6 md:mb-10 lg:mb-16 leading-relaxed w-full relative z-10">
               I design and code beautifully simple things, and I love what I do
             </p>
-            <div className="flex justify-center relative z-10">
+            <div className="flex justify-center relative z-10 ">
               <a
                 className="inline-block border-none px-6 sm:px-8 py-3 sm:py-4 rounded-lg text-lg sm:text-xl lg:text-2xl bg-gradient-to-r from-teal-600 to-teal-500 text-white hover:from-teal-500 hover:to-teal-400 shadow-lg hover:shadow-teal-500/50 hover:shadow-[0_0_30px_rgba(45,212,191,0.6)] transform hover:scale-105 transition-all duration-300 font-semibold relative overflow-hidden group"
                 href="#project2"
