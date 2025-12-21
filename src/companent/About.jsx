@@ -22,7 +22,7 @@ function About() {
   const [rightRef, rightVisible] = useScrollAnimation({ threshold: 0.2 });
 
   return (
-    <div className="text-white min-h-screen py-12 sm:py-16 lg:py-20 w-full">
+    <div className="text-white min-h-screen pt-4 pb-12 sm:pt-8 sm:pb-16 lg:pt-12 lg:pb-20 w-full">
       <div className="w-full">
         {/* Header Section */}
         <div 

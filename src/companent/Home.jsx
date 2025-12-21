@@ -255,7 +255,7 @@ const Home = () => {
                 Karim Khamis
               </span>
             </h1>
-            <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-300 mb-12 sm:mb-16 lg:mb-20 leading-relaxed w-full relative z-10">
+            <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-300 mb-6 sm:mb-12 md:mb-16 lg:mb-20 leading-relaxed w-full relative z-10">
               I design and code beautifully simple things, and I love what I do
             </p>
             <div className="flex justify-center relative z-10">
