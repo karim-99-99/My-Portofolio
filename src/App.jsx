@@ -11,7 +11,7 @@ function App() {
   const [aboutRef, aboutVisible] = useScrollAnimation({ threshold: 0.2 });
   const [projectRef, projectVisible] = useScrollAnimation({ threshold: 0.2 });
   const [contactRef, contactVisible] = useScrollAnimation({ threshold: 0.2 });
-
+ 
   // Set dark mode by default
   useEffect(() => {
     document.documentElement.classList.add("dark");

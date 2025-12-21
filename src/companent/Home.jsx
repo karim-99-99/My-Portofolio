@@ -36,7 +36,7 @@ const Home = () => {
   }, [isOpen]);
 
   return (
-    <div className="min-h-screen text-white relative overflow-hidden">
+    <div className="min-h-[87.5vh] sm:min-h-screen h-full text-white relative overflow-hidden">
       <div className="relative z-10 justify-center w-full">
         {/* Navigation Bar */}
         <nav className="flex justify-between items-center py-4 sm:py-6 mt-4 sm:mt-5">
@@ -223,7 +223,7 @@ const Home = () => {
         </div>
 
         {/* Main Content */}
-        <div className="mt-16 sm:mt-24 lg:mt-32 w-full relative">
+        <div className="mt-8 sm:mt-16 md:mt-24 lg:mt-32 w-full relative px-4 sm:px-6 md:px-8">
           {/* Animated Concentric Circles Background */}
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none opacity-30">
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 border border-teal-400/40 rounded-full animate-pulse-slow"></div>
@@ -245,7 +245,7 @@ const Home = () => {
           </div>
 
           <div className="text-center relative z-10">
-            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-4 sm:mb-6 leading-tight relative">
+            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-8 sm:mb-6 md:mb-8 lg:mb-10 leading-tight relative">
               <span className="relative z-10">I AM{" "}</span>
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-teal-400 to-cyan-300 relative z-10 drop-shadow-[0_0_20px_rgba(45,212,191,0.5)]">
                 Karim Khamis
@@ -255,10 +255,10 @@ const Home = () => {
                 Karim Khamis
               </span>
             </h1>
-            <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-300 mb-2 sm:mb-6 md:mb-10 lg:mb-16 leading-relaxed w-full relative z-10">
+            <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-300 mb-8 sm:mb-6 md:mb-10 lg:mb-16 leading-relaxed w-full relative z-10 px-4">
               I design and code beautifully simple things, and I love what I do
             </p>
-            <div className="flex justify-center relative z-10 ">
+            <div className="flex justify-center relative z-10 mb-2 sm:mb-6 md:mb-10 lg:mb-16">
               <a
                 className="inline-block border-none px-6 sm:px-8 py-3 sm:py-4 rounded-lg text-lg sm:text-xl lg:text-2xl bg-gradient-to-r from-teal-600 to-teal-500 text-white hover:from-teal-500 hover:to-teal-400 shadow-lg hover:shadow-teal-500/50 hover:shadow-[0_0_30px_rgba(45,212,191,0.6)] transform hover:scale-105 transition-all duration-300 font-semibold relative overflow-hidden group"
                 href="#project2"
