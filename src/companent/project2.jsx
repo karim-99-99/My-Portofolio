@@ -129,7 +129,7 @@ const Project2 = () => {
     },
     {
       title: "Pet Clinic",
-      video: "/pet clinic1",
+      video: "/pet clinic1.mp4",
       poster: "/pet clicnic1.jpg",
       description: "",
       technologies: ["React.js", "Tailwind CSS", "JavaScript"],
