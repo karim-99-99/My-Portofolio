@@ -75,7 +75,9 @@ function About() {
             </p>
             <a
               className="inline-block border-none px-6 py-3 rounded-lg text-base sm:text-lg bg-gradient-to-r from-teal-600 to-teal-500 text-white hover:from-teal-500 hover:to-teal-400 shadow-lg hover:shadow-teal-500/50 transform hover:scale-105 transition-all duration-300 font-semibold"
-              href="#contact"
+              href="https://wa.me/201036064417"
+              target="_blank"
+              rel="noopener noreferrer"
             >
               Contact Me
             </a>
