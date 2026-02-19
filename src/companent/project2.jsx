@@ -124,7 +124,7 @@ const Project2 = () => {
       video: "/bedayate.mp4",
       poster: "/bedayate1.jpg",
       description: "Bedayati is an e-learning platform that I designed and developed to help students prepare for Qudrat (Aptitude) and Tahseel (Achievement) exams through a structured and user-friendly learning experience.The platform features a well-organized educational system combining video-based lessons and interactive quizzes, along with an admin dashboard for flexible content management.It includes a fully Arabic RTL interface and a responsive design optimized for all devices.",
-      technologies: ["React.js", "Tailwind CSS", "JavaScript", "RESTful APIs"],
+      technologies: ["React.js", "Tailwind CSS", "JavaScript", "RESTful APIs" , "Django" , "python"],
       websiteLink: "https://karim-khaled.vercel.app/",
       githubLink: "https://github.com/karim-99-99/karim-khaled",
     },

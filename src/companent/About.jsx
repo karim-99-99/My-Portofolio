@@ -55,10 +55,10 @@ function About() {
             <p className="text-sm sm:text-base lg:text-lg text-gray-300 mb-8 leading-relaxed">
               I'm a{" "}
               <span className="text-teal-400 font-semibold">
-                Frontend Focused Web Developer
+                 Focused Web Developer
               </span>{" "}
-              building and managing the Front-end of Websites and Web
-              Applications that leads to the success of the overall product.
+              building and managing Websites and Web Applications
+               that leads to the success of the overall product.
               <br />
               <br />
               Check out some of my work in the Projects section. I also like
