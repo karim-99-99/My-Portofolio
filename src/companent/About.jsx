@@ -335,7 +335,7 @@ function About() {
               contracts and full-time roles globally.
             </p>
             <div className="flex flex-wrap gap-3">
-              <a
+              {/* <a
                 href="https://github.com/karim-99-99"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -350,7 +350,7 @@ function About() {
                 className="inline-flex items-center gap-2 text-sm bg-gradient-to-r from-teal-600 to-teal-500 text-white hover:from-teal-500 hover:to-teal-400 shadow-lg hover:shadow-teal-500/50 px-5 py-2.5 rounded-lg transition-all duration-300 font-semibold"
               >
                 Hire Me
-              </a>
+              </a> */}
             </div>
           </div>
         </div>

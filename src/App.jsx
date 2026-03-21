@@ -11,7 +11,7 @@ function App() {
   const [aboutRef, aboutVisible] = useScrollAnimation({ threshold: 0.2 });
   const [projectRef, projectVisible] = useScrollAnimation({ threshold: 0.2 });
   const [contactRef, contactVisible] = useScrollAnimation({ threshold: 0.2 });
- 
+
   // Set dark mode by default
   useEffect(() => {
     document.documentElement.classList.add("dark");
@@ -24,8 +24,8 @@ function App() {
       <section id="home" className="relative z-10">
         <Home />
       </section>
-      <section 
-        id="about" 
+      <section
+        id="about"
         ref={aboutRef}
         className={`relative z-10 transition-all duration-1000 ${
           aboutVisible ? "animate-fade-in-up" : "opacity-0"
@@ -33,8 +33,8 @@ function App() {
       >
         <About />
       </section>
-      <section 
-        id="project2" 
+      <section
+        id="project2"
         ref={projectRef}
         className={`relative z-10 transition-all duration-1000 ${
           projectVisible ? "animate-fade-in-up" : "opacity-0"
@@ -42,8 +42,8 @@ function App() {
       >
         <Project2 />
       </section>
-      <section 
-        id="contact" 
+      <section
+        id="contact"
         ref={contactRef}
         className={`relative z-10 transition-all duration-1000 ${
           contactVisible ? "animate-fade-in-up" : "opacity-0"

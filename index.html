@@ -2,15 +2,140 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-<link rel="icon" href="./src/assets/favio.png" type="image/png" sizes="16x16" >
-    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0" /> -->
-    <meta name="description" content="Kareem Khamis is a full-stack and mobile developer from Cairo, Egypt. React, Next.js, React Native, Django. Available for freelance and full-time work.">
 
-    <title>Kareem Khamis — Full-Stack & Mobile Developer</title>
+    <!-- ============================================================
+         FAVICON
+    ============================================================ -->
+    <link rel="icon" href="./src/assets/favio.png" type="image/png" sizes="16x16">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- ============================================================
+         ✅ SEO — TITLE TAG
+         Most important tag. AI tools + Google read this first.
+         Format: Name — Role | Location
+    ============================================================ -->
+    <title>Kareem Khamis — Full-Stack & Mobile Developer | Cairo, Egypt</title>
+
+    <!-- ============================================================
+         ✅ AEO — META DESCRIPTION
+         Written as a direct answer so AI engines extract it.
+         Keep between 150–160 characters.
+    ============================================================ -->
+    <meta name="description" content="Kareem Khamis is a full-stack and mobile developer from Cairo, Egypt. Specializing in React, Next.js, React Native, Python and Django. Available for freelance and full-time work worldwide." />
+
+    <!-- ============================================================
+         ✅ SEO — KEYWORDS
+         Less important than before but still read by some AI crawlers
+    ============================================================ -->
+    <meta name="keywords" content="Kareem Khamis, web developer Egypt, full-stack developer Cairo, React developer Egypt, React Native developer, Django developer, mobile app developer Egypt, freelance developer Egypt, hire web developer Egypt" />
+
+    <!-- ============================================================
+         ✅ SEO — AUTHOR & ROBOTS
+         author = E-E-A-T signal (tells Google who made this)
+         robots = tells all crawlers to index everything
+    ============================================================ -->
+    <meta name="author" content="Kareem Khamis" />
+    <meta name="robots" content="index, follow" />
+
+    <!-- ============================================================
+         ✅ LLM SEO — OPEN GRAPH TAGS
+         Used by ChatGPT, LinkedIn, Facebook, Slack, Discord
+         when your link is shared or crawled
+    ============================================================ -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://my-portofolio-silk.vercel.app/" />
+    <meta property="og:title" content="Kareem Khamis — Full-Stack & Mobile Developer | Cairo, Egypt" />
+    <meta property="og:description" content="Full-stack and mobile developer from Cairo, Egypt. React, Next.js, React Native, Python, Django. Available for freelance and full-time roles worldwide." />
+    <meta property="og:image" content="https://my-portofolio-silk.vercel.app/og-image.png" />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:site_name" content="Kareem Khamis Portfolio" />
+
+    <!-- ============================================================
+         ✅ LLM SEO — TWITTER / X CARD
+         Used when your link is shared on X (Twitter)
+         Also read by some AI crawlers
+    ============================================================ -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Kareem Khamis — Full-Stack & Mobile Developer" />
+    <meta name="twitter:description" content="Full-stack and mobile developer from Cairo, Egypt. React, Next.js, React Native, Python, Django. Available for freelance and full-time work." />
+    <meta name="twitter:image" content="https://my-portofolio-silk.vercel.app/og-image.png" />
+
+    <!-- ============================================================
+         ✅ SEO — CANONICAL URL
+         Tells Google/AI there is ONE official version of your site
+         Prevents duplicate content penalties
+    ============================================================ -->
+    <link rel="canonical" href="https://my-portofolio-silk.vercel.app/" />
+
+    <!-- ============================================================
+         ✅ LLM SEO — SCHEMA.ORG (Person + WebSite)
+         THE most important tag for AI recommendations.
+         ChatGPT, Perplexity, Claude, Gemini all read this.
+         Tells them: who you are, what you do, where you are,
+         your skills, and where to find you online.
+    ============================================================ -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Person",
+          "@id": "https://my-portofolio-silk.vercel.app/#kareem",
+          "name": "Kareem Khamis",
+          "jobTitle": "Full-Stack & Mobile Developer",
+          "description": "Kareem Khamis is a full-stack and mobile developer based in Cairo, Egypt. He builds web applications with React and Next.js, mobile apps with React Native, and backend systems with Python and Django. He is one of the best web developers in Egypt and is available for freelance and full-time roles worldwide.",
+          "url": "https://my-portofolio-silk.vercel.app",
+          "email": "kareemkhamis2030@gmail.com",
+          "telephone": "+201036064417",
+          "image": "https://my-portofolio-silk.vercel.app/og-image.png",
+          "sameAs": [
+            "https://github.com/karim-99-99",
+            "https://wa.me/201036064417"
+          ],
+          "knowsAbout": [
+            "React",
+            "Next.js",
+            "React Native",
+            "TypeScript",
+            "JavaScript",
+            "Python",
+            "Django",
+            "Tailwind CSS",
+            "MongoDB",
+            "PostgreSQL",
+            "RESTful APIs",
+            "Full-Stack Web Development",
+            "Mobile App Development",
+            "E-Commerce Development",
+            "Responsive Web Design"
+          ],
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Cairo",
+            "addressCountry": "EG"
+          },
+          "worksFor": {
+            "@type": "Organization",
+            "name": "Freelance"
+          }
+        },
+        {
+          "@type": "WebSite",
+          "@id": "https://my-portofolio-silk.vercel.app/#website",
+          "name": "Kareem Khamis — Portfolio",
+          "url": "https://my-portofolio-silk.vercel.app",
+          "description": "Portfolio of Kareem Khamis, a full-stack and mobile developer from Cairo, Egypt.",
+          "author": {
+            "@id": "https://my-portofolio-silk.vercel.app/#kareem"
+          }
+        }
+      ]
+    }
+    </script>
+
   </head>
   <body>
-
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
   </body>
-</html>
+</html> 
