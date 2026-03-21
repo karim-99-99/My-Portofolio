@@ -3,9 +3,9 @@ import useScrollAnimation from "../hooks/useScrollAnimation";
 
 // Project Card Component
 const ProjectCard = ({ project, idx, onClick }) => {
-  const [cardRef, cardVisible] = useScrollAnimation({ 
+  const [cardRef, cardVisible] = useScrollAnimation({
     threshold: 0.2,
-    rootMargin: "0px 0px -100px 0px"
+    rootMargin: "0px 0px -100px 0px",
   });
 
   return (
@@ -87,7 +87,8 @@ const Project2 = () => {
       title: "New Clothes",
       video: "/new-clothes.mp4",
       poster: "/new-clothes1.jpg",
-      description: "Lifestyle of Legends is a premium streetwear e-commerce platform crafted to showcase a modern, high-end digital shopping experience. Built with React, TypeScript, and Framer Motion, the website features a sleek dark aesthetic, smooth animations, and a visually immersive user interface.The platform focuses on delivering a seamless shopping journey through detailed product pages, multiple color and size selections, dynamic image galleries, and a responsive cart system. Every element is designed to reflect quality, exclusivity, and strong brand identity, making it an ideal example of a performance-driven fashion e-commerce solution.",
+      description:
+        "Lifestyle of Legends is a premium streetwear e-commerce platform crafted to showcase a modern, high-end digital shopping experience. Built with React, TypeScript, and Framer Motion, the website features a sleek dark aesthetic, smooth animations, and a visually immersive user interface.The platform focuses on delivering a seamless shopping journey through detailed product pages, multiple color and size selections, dynamic image galleries, and a responsive cart system. Every element is designed to reflect quality, exclusivity, and strong brand identity, making it an ideal example of a performance-driven fashion e-commerce solution.",
       technologies: ["React.js", "Tailwind CSS", "JavaScript", "HTML", "CSS"],
       websiteLink: "https://new-clothes.vercel.app/",
       githubLink: "https://github.com/karim-99-99/new-clothes",
@@ -96,16 +97,18 @@ const Project2 = () => {
       title: "Coffee Shop",
       video: "/cafe1.mp4",
       poster: "/caffe1.jpg",
-      description: "A premium coffee brand landing page built with React, Vite, and Tailwind CSS. The website features a modern dark theme enhanced with gold accents, creating a luxurious and elegant feel. It includes a powerful hero section, full-screen video background, an artistry section highlighting coffee craftsmanship, and an interactive product showcase with smooth animations. Fully responsive and performance-optimized, the page delivers a refined and immersive user experience.",
+      description:
+        "A premium coffee brand landing page built with React, Vite, and Tailwind CSS. The website features a modern dark theme enhanced with gold accents, creating a luxurious and elegant feel. It includes a powerful hero section, full-screen video background, an artistry section highlighting coffee craftsmanship, and an interactive product showcase with smooth animations. Fully responsive and performance-optimized, the page delivers a refined and immersive user experience.",
       technologies: ["React.js", "Tailwind CSS", "JavaScript", "HTML", "CSS"],
       websiteLink: "https://coffe-pi-lovat.vercel.app/",
       githubLink: "https://github.com/karim-99-99/coffe",
-    }, 
-     {
+    },
+    {
       title: "Sushi restaurant",
       video: "/sushi.mp4",
       poster: "/sushi1.jpg",
-      description: "A modern and elegant website for a premium sushi restaurant, designed to deliver a smooth and engaging user experience. The site features well-structured menu categories including sushi, wok, rolls, and drinks, with highlighted discounts and offers. Built with a dark theme, red accents, smooth animations, and an interactive online ordering system. This project showcases a modern UI/UX approach for a restaurant based in Cairo, Egypt.",
+      description:
+        "A modern and elegant website for a premium sushi restaurant, designed to deliver a smooth and engaging user experience. The site features well-structured menu categories including sushi, wok, rolls, and drinks, with highlighted discounts and offers. Built with a dark theme, red accents, smooth animations, and an interactive online ordering system. This project showcases a modern UI/UX approach for a restaurant based in Cairo, Egypt.",
       technologies: ["React.js", "Tailwind CSS", "JavaScript", "HTML", "CSS"],
       websiteLink: "https://sushi-pi-nine.vercel.app/",
       githubLink: "https://github.com/karim-99-99/sushi",
@@ -114,7 +117,8 @@ const Project2 = () => {
       title: "Youbloom Project",
       video: "/youbloom project.mp4",
       poster: "/youbloom project-poster.png",
-      description: "YouBloom is a professional React-based frontend project showcasing advanced skills in multi-country phone authentication and user management. The application supports phone number login and registration for 20+ countries with smart, country-specific validation and protected routes.The platform features an interactive user directory with real-time search and a responsive grid layout, along with detailed user profile pages enriched with API-driven data. Built using modern React best practices, YouBloom emphasizes performance, clean architecture, accessibility, and an intuitive user experience—making it a strong showcase project for technical interviews and portfolios.",
+      description:
+        "YouBloom is a professional React-based frontend project showcasing advanced skills in multi-country phone authentication and user management. The application supports phone number login and registration for 20+ countries with smart, country-specific validation and protected routes.The platform features an interactive user directory with real-time search and a responsive grid layout, along with detailed user profile pages enriched with API-driven data. Built using modern React best practices, YouBloom emphasizes performance, clean architecture, accessibility, and an intuitive user experience—making it a strong showcase project for technical interviews and portfolios.",
       technologies: ["React.js", "Tailwind CSS", "JavaScript", "RESTful APIs"],
       websiteLink: "https://youbloom-project.vercel.app/login",
       githubLink: "https://github.com/karim-99-99/youbloom_project",
@@ -123,8 +127,16 @@ const Project2 = () => {
       title: "Bedayate",
       video: "/bedayate.mp4",
       poster: "/bedayate1.jpg",
-      description: "Bedayati is an e-learning platform that I designed and developed to help students prepare for Qudrat (Aptitude) and Tahseel (Achievement) exams through a structured and user-friendly learning experience.The platform features a well-organized educational system combining video-based lessons and interactive quizzes, along with an admin dashboard for flexible content management.It includes a fully Arabic RTL interface and a responsive design optimized for all devices.",
-      technologies: ["React.js", "Tailwind CSS", "JavaScript", "RESTful APIs" , "Django" , "python"],
+      description:
+        "Bedayati is an e-learning platform that I designed and developed to help students prepare for Qudrat (Aptitude) and Tahseel (Achievement) exams through a structured and user-friendly learning experience.The platform features a well-organized educational system combining video-based lessons and interactive quizzes, along with an admin dashboard for flexible content management.It includes a fully Arabic RTL interface and a responsive design optimized for all devices.",
+      technologies: [
+        "React.js",
+        "Tailwind CSS",
+        "JavaScript",
+        "RESTful APIs",
+        "Django",
+        "python",
+      ],
       websiteLink: "https://karim-khaled.vercel.app/",
       githubLink: "https://github.com/karim-99-99/karim-khaled",
     },
@@ -132,7 +144,8 @@ const Project2 = () => {
       title: "Pet Clinic",
       video: "/pet clinic1.mp4",
       poster: "/pet clicnic1.jpg",
-      description: "A modern veterinary clinic website built with React.js and Tailwind CSS.The project focuses on showcasing veterinary services, building trust with pet owners, and providing an easy appointment booking experience.It features a dynamic hero section with video background, service listings, team profiles, testimonials, blog, and a fully responsive, animated UI.",
+      description:
+        "A modern veterinary clinic website built with React.js and Tailwind CSS.The project focuses on showcasing veterinary services, building trust with pet owners, and providing an easy appointment booking experience.It features a dynamic hero section with video background, service listings, team profiles, testimonials, blog, and a fully responsive, animated UI.",
       technologies: ["React.js", "Tailwind CSS", "JavaScript"],
       websiteLink: "https://pet-clinic-alpha.vercel.app/",
       githubLink: "https://github.com/karim-99-99/pet-clinic",
@@ -141,11 +154,12 @@ const Project2 = () => {
       title: "E-Commerce",
       video: "/E-Commerce.mp4",
       poster: "/E-commerce1.jpg",
-      description: "ShopHouse is a modern e-commerce web application built with React and Tailwind CSS. It provides a complete online shopping experience, including product browsing, advanced search and filtering, shopping cart management, user authentication, and an admin panel for product and category management.The project focuses on clean UI design, smooth animations, responsive layouts, and real-world e-commerce functionality using localStorage for data persistence.",
+      description:
+        "ShopHouse is a modern e-commerce web application built with React and Tailwind CSS. It provides a complete online shopping experience, including product browsing, advanced search and filtering, shopping cart management, user authentication, and an admin panel for product and category management.The project focuses on clean UI design, smooth animations, responsive layouts, and real-world e-commerce functionality using localStorage for data persistence.",
       websiteLink: "https://myecommerce123.vercel.app/",
       githubLink: "https://github.com/karim-99-99/E-commerce",
     },
-   ];
+  ];
 
   const handleProjectClick = (project) => {
     setSelectedProject(project);
@@ -172,7 +186,7 @@ const Project2 = () => {
     <div className="text-white min-h-screen py-12 sm:py-16 lg:py-20 w-full">
       <div className="w-full">
         {/* Header Section */}
-        <div 
+        <div
           ref={headerRef}
           className={`text-center mb-12 sm:mb-16 transition-all duration-1000 ${
             headerVisible ? "animate-fade-in-up" : "opacity-0"
@@ -253,10 +267,10 @@ const Project2 = () => {
                   controls
                   autoPlay
                   preload="metadata"
-                  style={{ 
-                    display: 'block',
-                    width: '100%',
-                    maxHeight: '250px'
+                  style={{
+                    display: "block",
+                    width: "100%",
+                    maxHeight: "250px",
                   }}
                 >
                   <source src={selectedProject.video} type="video/mp4" />
@@ -265,23 +279,24 @@ const Project2 = () => {
               </div>
 
               {/* Technologies Used */}
-              {selectedProject.technologies && selectedProject.technologies.length > 0 && (
-                <div>
-                  <h3 className="text-base sm:text-lg font-semibold mb-2 sm:mb-3 text-teal-400">
-                    Technologies Used
-                  </h3>
-                  <div className="flex flex-wrap gap-2">
-                    {selectedProject.technologies.map((tech, index) => (
-                      <span
-                        key={index}
-                        className="inline-flex items-center px-2.5 sm:px-3 py-1 sm:py-1.5 rounded-full text-xs font-medium bg-gradient-to-br from-teal-600/20 to-teal-500/20 backdrop-blur-sm border border-teal-400/40 text-teal-300 hover:from-teal-600/30 hover:to-teal-500/30 hover:border-teal-400/60 hover:scale-105 transform transition-all duration-300 shadow-md hover:shadow-teal-500/20"
-                      >
-                        {tech}
-                      </span>
-                    ))}
+              {selectedProject.technologies &&
+                selectedProject.technologies.length > 0 && (
+                  <div>
+                    <h3 className="text-base sm:text-lg font-semibold mb-2 sm:mb-3 text-teal-400">
+                      Technologies Used
+                    </h3>
+                    <div className="flex flex-wrap gap-2">
+                      {selectedProject.technologies.map((tech, index) => (
+                        <span
+                          key={index}
+                          className="inline-flex items-center px-2.5 sm:px-3 py-1 sm:py-1.5 rounded-full text-xs font-medium bg-gradient-to-br from-teal-600/20 to-teal-500/20 backdrop-blur-sm border border-teal-400/40 text-teal-300 hover:from-teal-600/30 hover:to-teal-500/30 hover:border-teal-400/60 hover:scale-105 transform transition-all duration-300 shadow-md hover:shadow-teal-500/20"
+                        >
+                          {tech}
+                        </span>
+                      ))}
+                    </div>
                   </div>
-                </div>
-              )}
+                )}
 
               {/* Description */}
               <div>
@@ -350,4 +365,3 @@ const Project2 = () => {
 };
 
 export default Project2;
-

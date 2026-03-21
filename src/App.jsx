@@ -1,6 +1,6 @@
 import "./App.css";
 import Home from "./companent/Home";
-import About from "./companent/About";
+import About from "./companent/About.jsx";
 import ContactForm from "./companent/contact2";
 import Project2 from "./companent/project2";
 import AnimatedSpadeBackground from "./companent/AnimatedSpadeBackground";
