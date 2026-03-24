@@ -3,17 +3,17 @@ import { useEffect, useRef, useState } from "react";
 const useScrollAnimation = (options = {}) => {
   const [isVisible, setIsVisible] = useState(false);
   const elementRef = useRef(null);
+  const once = options.once !== false;
 
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
           setIsVisible(true);
-          // Optionally disconnect after first animation
-          if (options.once !== false) {
+          if (once) {
             observer.unobserve(entry.target);
           }
-        } else if (!options.once) {
+        } else if (!once) {
           setIsVisible(false);
         }
       },
@@ -33,7 +33,7 @@ const useScrollAnimation = (options = {}) => {
         observer.unobserve(currentElement);
       }
     };
-  }, [options.threshold, options.rootMargin, options.once]);
+  }, [options.threshold, options.rootMargin, once]);
 
   return [elementRef, isVisible];
 };

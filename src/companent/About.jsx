@@ -5,7 +5,6 @@
 // ============================================================
 
 import React, { useState, useEffect } from "react";
-import useScrollAnimation from "../hooks/useScrollAnimation";
 
 // ── Schema.org Person — injected into <head> ─────────────────
 // ✅ LLM SEO: Machine-readable identity for ChatGPT, Perplexity,
@@ -81,15 +80,6 @@ const faqs = [
 function About() {
   const [activeFaq, setActiveFaq] = useState(null);
 
-  // Scroll animations — same hook you already use
-  const [headerRef, headerVisible] = useScrollAnimation({ threshold: 0.2 });
-  const [statsRef, statsVisible] = useScrollAnimation({ threshold: 0.2 });
-  const [leftRef, leftVisible] = useScrollAnimation({ threshold: 0.15 });
-  const [rightRef, rightVisible] = useScrollAnimation({ threshold: 0.15 });
-  const [faqRef, faqVisible] = useScrollAnimation({ threshold: 0.1 });
-  const [bioRef, bioVisible] = useScrollAnimation({ threshold: 0.2 });
-  const [ctaRef, ctaVisible] = useScrollAnimation({ threshold: 0.2 });
-
   // ✅ LLM SEO: Inject Schema.org Person into <head>
   //    AI crawlers (Googlebot, GPTBot, ClaudeBot, PerplexityBot)
   //    read this to understand who Kareem is
@@ -111,7 +101,6 @@ function About() {
     // ✅ LLM SEO: id="about" + aria-label helps AI crawlers
     //    identify and index this section properly
     <section
-      id="about"
       aria-label="About Kareem Khamis — Full-Stack & Mobile Developer from Cairo, Egypt"
       className="text-white min-h-screen pt-0 pb-6 sm:pt-0 sm:pb-10 md:pt-6 md:pb-12 lg:pt-12 lg:pb-20 w-full"
     >
@@ -122,12 +111,7 @@ function About() {
             ✅ AEO: Answers "Who is this?" at first glance
             ✅ LLM SEO: Name + title prominent for AI indexing
         ═══════════════════════════════════════════════════ */}
-        <div
-          ref={headerRef}
-          className={`text-center mb-12 sm:mb-16 transition-all duration-1000 ${
-            headerVisible ? "animate-fade-in-up" : "opacity-0"
-          }`}
-        >
+        <div className="text-center mb-12 sm:mb-16">
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4 sm:mb-6">
             ABOUT <span className="text-teal-400">ME</span>
           </h2>
@@ -144,12 +128,7 @@ function About() {
             ✅ AEO: Scannable facts AI extracts instantly
             ✅ LLM SEO: Specific citable numbers
         ═══════════════════════════════════════════════════ */}
-        <div
-          ref={statsRef}
-          className={`grid grid-cols-3 gap-4 mb-12 transition-all duration-1000 ${
-            statsVisible ? "animate-fade-in-up" : "opacity-0"
-          }`}
-        >
+        <div className="grid grid-cols-3 gap-4 mb-12">
           {stats.map((s, i) => (
             <div
               key={i}
@@ -171,12 +150,7 @@ function About() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 mb-12">
 
           {/* Left — Get To Know Me */}
-          <div
-            ref={leftRef}
-            className={`bg-slate-800/50 backdrop-blur-sm rounded-2xl p-6 sm:p-8 lg:p-10 transition-all duration-1000 hover:shadow-2xl hover:shadow-teal-500/10 ${
-              leftVisible ? "animate-fade-in-left" : "opacity-0"
-            }`}
-          >
+          <div className="bg-slate-800/50 backdrop-blur-sm rounded-2xl p-6 sm:p-8 lg:p-10 transition-all duration-300 hover:shadow-2xl hover:shadow-teal-500/10">
             <h3 className="text-2xl sm:text-3xl font-bold mb-6 text-teal-400">
               Get To Know Me
             </h3>
@@ -223,12 +197,7 @@ function About() {
           </div>
 
           {/* Right — Skills */}
-          <div
-            ref={rightRef}
-            className={`bg-slate-800/50 backdrop-blur-sm rounded-2xl p-6 sm:p-8 lg:p-10 transition-all duration-1000 hover:shadow-2xl hover:shadow-teal-500/10 ${
-              rightVisible ? "animate-fade-in-right" : "opacity-0"
-            }`}
-          >
+          <div className="bg-slate-800/50 backdrop-blur-sm rounded-2xl p-6 sm:p-8 lg:p-10 transition-all duration-300 hover:shadow-2xl hover:shadow-teal-500/10">
             <h3 className="text-2xl sm:text-3xl font-bold mb-8 text-teal-400">
               My Skills
             </h3>
@@ -253,12 +222,7 @@ function About() {
             ✅ GEO: Covers use cases, audience, availability
             ✅ LLM SEO: ChatGPT/Perplexity/Google AI cite these
         ═══════════════════════════════════════════════════ */}
-        <div
-          ref={faqRef}
-          className={`mb-12 transition-all duration-1000 ${
-            faqVisible ? "animate-fade-in-up" : "opacity-0"
-          }`}
-        >
+        <div className="mb-12">
           <div className="bg-slate-800/50 backdrop-blur-sm rounded-2xl p-6 sm:p-8 lg:p-10 hover:shadow-2xl hover:shadow-teal-500/10 transition-all duration-300">
 
             <h3 className="text-2xl sm:text-3xl font-bold mb-3 text-teal-400">
@@ -306,12 +270,7 @@ function About() {
             ✅ E-E-A-T: Trustworthiness + authority signal
             ✅ GEO: Third-person citable summary for AI models
         ═══════════════════════════════════════════════════ */}
-        <div
-          ref={bioRef}
-          className={`mb-12 transition-all duration-1000 ${
-            bioVisible ? "animate-fade-in-up" : "opacity-0"
-          }`}
-        >
+        <div className="mb-12">
           <div className="bg-slate-800/50 backdrop-blur-sm rounded-2xl p-6 sm:p-8 lg:p-10 hover:shadow-2xl hover:shadow-teal-500/10 transition-all duration-300 relative overflow-hidden">
             <span className="absolute top-0 right-6 text-[100px] leading-none text-teal-400 opacity-5 font-serif pointer-events-none select-none">
               "
@@ -360,12 +319,7 @@ function About() {
             ✅ AEO: Direct answer to "Is Kareem available?"
             ✅ LLM SEO: AI can reference availability + contact
         ═══════════════════════════════════════════════════ */}
-        <div
-          ref={ctaRef}
-          className={`transition-all duration-1000 ${
-            ctaVisible ? "animate-fade-in-up" : "opacity-0"
-          }`}
-        >
+        <div>
           <div className="bg-gradient-to-br from-slate-800/80 to-slate-800/40 backdrop-blur-sm border border-teal-500/20 rounded-2xl p-8 sm:p-12 text-center hover:shadow-2xl hover:shadow-teal-500/10 transition-all duration-300 relative overflow-hidden">
             <div
               className="absolute inset-0 pointer-events-none"

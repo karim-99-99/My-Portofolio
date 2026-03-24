@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import emailjs from "@emailjs/browser";
-import useScrollAnimation from "../hooks/useScrollAnimation";
 import { emailjsConfig } from "../config/emailjs.config";
 
 function ContactForm() {
@@ -13,9 +12,6 @@ function ContactForm() {
     email: "",
     message: "",
   });
-  const [headerRef, headerVisible] = useScrollAnimation({ threshold: 0.3 });
-  const [formRef, formVisible] = useScrollAnimation({ threshold: 0.2 });
-
   const handleChange = (e) => {
     setFormData({
       ...formData,
@@ -91,12 +87,7 @@ function ContactForm() {
         className="w-full text-white"
       >
         {/* Header */}
-        <div 
-          ref={headerRef}
-          className={`text-center mb-12 sm:mb-16 transition-all duration-1000 ${
-            headerVisible ? "animate-fade-in-up" : "opacity-0"
-          }`}
-        >
+        <div className="text-center mb-12 sm:mb-16">
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4 sm:mb-6">
             Contact <span className="text-teal-400">Me</span>
           </h2>
@@ -106,12 +97,7 @@ function ContactForm() {
         </div>
 
         {/* Form Container */}
-        <div 
-          ref={formRef}
-          className={`bg-slate-800/50 backdrop-blur-sm rounded-2xl p-6 sm:p-8 lg:p-10 transition-all duration-1000 shadow-2xl ${
-            formVisible ? "animate-scale-in" : "opacity-0 scale-95"
-          }`}
-        >
+        <div className="bg-slate-800/50 backdrop-blur-sm rounded-2xl p-6 sm:p-8 lg:p-10 shadow-2xl">
           {/* Email Field */}
           <div className="mb-6 sm:mb-8">
             <label

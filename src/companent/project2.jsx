@@ -1,23 +1,11 @@
 import React, { useState } from "react";
-import useScrollAnimation from "../hooks/useScrollAnimation";
 
 // Project Card Component
-const ProjectCard = ({ project, idx, onClick }) => {
-  const [cardRef, cardVisible] = useScrollAnimation({
-    threshold: 0.2,
-    rootMargin: "0px 0px -100px 0px",
-  });
-
+const ProjectCard = ({ project, onClick }) => {
   return (
     <div
-      ref={cardRef}
       onClick={() => onClick(project)}
-      className={`relative bg-slate-800/50 backdrop-blur-sm rounded-2xl overflow-hidden transition-all duration-1000 hover:shadow-2xl hover:shadow-teal-500/30 group cursor-pointer ${
-        cardVisible ? "animate-scale-in" : "opacity-0 scale-95"
-      }`}
-      style={{
-        animationDelay: `${idx * 0.15}s`,
-      }}
+      className="relative bg-slate-800/50 backdrop-blur-sm rounded-2xl overflow-hidden transition-all duration-300 hover:shadow-2xl hover:shadow-teal-500/30 group cursor-pointer"
     >
       {/* Animated Concentric Circles */}
       <div className="absolute inset-0 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-500">
@@ -80,7 +68,6 @@ const ProjectCard = ({ project, idx, onClick }) => {
 const Project2 = () => {
   const [selectedProject, setSelectedProject] = useState(null);
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
-  const [headerRef, headerVisible] = useScrollAnimation({ threshold: 0.3 });
 
   const projects = [
     {
@@ -186,12 +173,7 @@ const Project2 = () => {
     <div className="text-white min-h-screen py-12 sm:py-16 lg:py-20 w-full">
       <div className="w-full">
         {/* Header Section */}
-        <div
-          ref={headerRef}
-          className={`text-center mb-12 sm:mb-16 transition-all duration-1000 ${
-            headerVisible ? "animate-fade-in-up" : "opacity-0"
-          }`}
-        >
+        <div className="text-center mb-12 sm:mb-16">
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4 sm:mb-6">
             MY <span className="text-teal-400">PROJECTS</span>
           </h2>
@@ -207,7 +189,6 @@ const Project2 = () => {
             <ProjectCard
               key={idx}
               project={project}
-              idx={idx}
               onClick={handleProjectClick}
             />
           ))}
