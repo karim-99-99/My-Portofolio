@@ -16,7 +16,7 @@ const personSchema = {
   jobTitle: "Full-Stack & Mobile Developer",
   description:
     "Kareem Khamis is a full-stack and mobile developer . He builds web applications with React and Next.js, mobile apps with React Native, and backend systems with Python and Django. He is one of the best web developers in Egypt and is available for freelance and full-time roles.",
-  url: "https://my-portofolio-silk.vercel.app",
+  url: "https://karimkhamis.com",
   sameAs: [
     "https://github.com/karim-99-99",
     "https://wa.me/201036064417",

@@ -4,27 +4,20 @@
         xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
         http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
 
-  <!-- Main portfolio page -->
+  <!-- Main portfolio (single-page app — sections: #home, #about, #project2, #contact) -->
   <url>
-    <loc>https://portfolio-nhqqm128h-kareems-projects-28d3146b.vercel.app/</loc>
-    <lastmod>2026-03-23</lastmod>
+    <loc>https://karimkhamis.com/</loc>
+    <lastmod>2026-04-03</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
   </url>
 
-  <!-- Add more pages below as you build them -->
-  <!-- Example:
+  <!-- Add more URLs when you ship separate routes, e.g.:
   <url>
-    <loc>https://my-portofolio-silk.vercel.app/projects</loc>
-    <lastmod>2026-03-23</lastmod>
-    <changefreq>monthly</changefreq>
+    <loc>https://karimkhamis.com/blog</loc>
+    <lastmod>2026-04-03</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://my-portofolio-silk.vercel.app/about</loc>
-    <lastmod>2026-03-23</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
   </url>
   -->
 
