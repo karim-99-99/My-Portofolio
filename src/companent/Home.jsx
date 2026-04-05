@@ -43,7 +43,7 @@ const Home = () => {
           <div className="flex items-center gap-3">
             <img
               src={image}
-              alt="logo"
+              alt="Karim Khamis — كريم خميس, full-stack developer"
               className="w-12 h-12 sm:w-14 sm:h-14 lg:w-16 lg:h-16 rounded-full bg-black border-2 border-teal-400 shadow-lg hover:shadow-teal-400/50 transition-shadow"
             />
             <span className="font-bold text-lg sm:text-xl lg:text-2xl text-white">
@@ -255,7 +255,20 @@ const Home = () => {
                 Karim Khamis
               </span>
             </h1>
-            <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-300 mb-8 sm:mb-6 md:mb-10 lg:mb-16 leading-relaxed w-full relative z-10 px-4">
+            <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-300 mb-3 sm:mb-4 leading-relaxed w-full relative z-10 px-4">
+              Full-stack &amp; mobile developer in{" "}
+              <span className="text-teal-400 font-semibold">Cairo, Egypt</span>
+              — React, Next.js, React Native, Python &amp; Django.
+            </p>
+            <p
+              className="text-sm sm:text-base md:text-lg text-gray-400 mb-6 sm:mb-6 md:mb-10 lg:mb-12 leading-relaxed w-full relative z-10 px-4"
+              lang="ar"
+              dir="rtl"
+            >
+              كريم خميس — مطوّر ويب وموبايل Full Stack في مصر؛ من المطورين
+              المعتمدين لتسليم منتجات ويب احترافية.
+            </p>
+            <p className="text-base sm:text-lg md:text-xl text-gray-300 mb-8 sm:mb-6 md:mb-10 lg:mb-16 leading-relaxed w-full relative z-10 px-4">
               I design and code beautifully simple things, and I love what I do
             </p>
             <div className="flex justify-center relative z-10 mb-2 sm:mb-6 md:mb-10 lg:mb-16">
