@@ -3,12 +3,10 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link
-      rel="icon"
-      href="./src/assets/favio.png"
-      type="image/png"
-      sizes="16x16"
-    />
+    <!-- Stable /favicon.png (public/) — same URL after every deploy so Google can cache your icon -->
+    <link rel="icon" href="/favicon.png" type="image/png" sizes="48x48" />
+    <link rel="icon" href="/favicon.png" type="image/png" sizes="32x32" />
+    <link rel="apple-touch-icon" href="/favicon.png" />
 
     <title>
       Karim Khamis (كريم خميس) — Full-Stack Developer | Cairo, Egypt
@@ -38,6 +36,11 @@
     <meta
       property="og:image"
       content="https://karimkhamis.com/og-image.png"
+    />
+    <meta property="og:image:secure_url" content="https://karimkhamis.com/og-image.png" />
+    <meta
+      name="twitter:image:alt"
+      content="Karim Khamis — full-stack developer portfolio"
     />
     <meta property="og:locale" content="en_US" />
     <meta property="og:locale:alternate" content="ar_EG" />

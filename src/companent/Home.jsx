@@ -44,6 +44,7 @@ const Home = () => {
             <img
               src={image}
               alt="Karim Khamis — كريم خميس, full-stack developer"
+              fetchPriority="high"
               className="w-12 h-12 sm:w-14 sm:h-14 lg:w-16 lg:h-16 rounded-full bg-black border-2 border-teal-400 shadow-lg hover:shadow-teal-400/50 transition-shadow"
             />
             <span className="font-bold text-lg sm:text-xl lg:text-2xl text-white">
@@ -176,7 +177,9 @@ const Home = () => {
             >
               <img
                 src="https://vectorseek.com/wp-content/uploads/2023/07/Twitter-X-Logo-Vector-01-2.jpg"
-                alt="Twitter"
+                alt=""
+                loading="lazy"
+                fetchPriority="low"
                 className="w-10 h-10 rounded-lg p-2 bg-slate-800/50 hover:bg-teal-400/20 cursor-pointer hover:shadow-xl hover:scale-110 transition-all duration-300"
               />
             </a>
@@ -189,7 +192,9 @@ const Home = () => {
             >
               <img
                 src="https://wallpapers.com/images/hd/discord-logo-6ou1mvwsuho6umqh.jpg"
-                alt="Discord"
+                alt=""
+                loading="lazy"
+                fetchPriority="low"
                 className="w-10 h-10 rounded-lg p-2 bg-slate-800/50 hover:bg-teal-400/20 cursor-pointer hover:shadow-xl hover:scale-110 transition-all duration-300"
               />
             </a>
@@ -202,7 +207,9 @@ const Home = () => {
             >
               <img
                 src="https://miro.medium.com/v2/resize:fit:512/1*QEpduO7IaOXym50gsDlQlA.png"
-                alt="GitHub"
+                alt=""
+                loading="lazy"
+                fetchPriority="low"
                 className="w-10 h-10 rounded-lg p-2 bg-slate-800/50 hover:bg-teal-400/20 cursor-pointer hover:shadow-xl hover:scale-110 transition-all duration-300"
               />
             </a>
@@ -215,7 +222,9 @@ const Home = () => {
             >
               <img
                 src="https://cdn-icons-png.flaticon.com/512/174/174857.png"
-                alt="LinkedIn"
+                alt=""
+                loading="lazy"
+                fetchPriority="low"
                 className="w-10 h-10 rounded-lg p-2 bg-slate-800/50 hover:bg-teal-400/20 cursor-pointer hover:shadow-xl hover:scale-110 transition-all duration-300"
               />
             </a>
