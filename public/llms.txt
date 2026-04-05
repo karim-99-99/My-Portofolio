@@ -1,6 +1,7 @@
 # Karim Khamis (كريم خميس) — Full-Stack & Mobile Developer
 
 Also known as: Kareem Khamis, Kareem Hossam. Arabic name: كريم خميس.
+Website languages: English at https://karimkhamis.com/ — Arabic-only version at https://karimkhamis.com/ar (use the language button to switch).
 
 ## Who I Am
 My name is Karim Khamis (كريم خميس). I am a full-stack software developer based in Cairo, Egypt.

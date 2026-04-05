@@ -5,9 +5,11 @@ import ContactForm from "./companent/contact2";
 import Project2 from "./companent/project2";
 import AnimatedSpadeBackground from "./companent/AnimatedSpadeBackground";
 import { useEffect } from "react";
+import { useDocumentMeta } from "./hooks/useDocumentMeta";
 
-function App() {
-  // Set dark mode by default
+function App({ locale }) {
+  useDocumentMeta(locale);
+
   useEffect(() => {
     document.documentElement.classList.add("dark");
     localStorage.setItem("theme", "dark");
@@ -17,16 +19,16 @@ function App() {
     <div className="min-h-screen bg-gray-900 transition-colors duration-200 relative">
       <AnimatedSpadeBackground />
       <section id="home" className="relative z-10">
-        <Home />
+        <Home locale={locale} />
       </section>
       <section id="about" className="relative z-10">
-        <About />
+        <About locale={locale} />
       </section>
       <section id="project2" className="relative z-10">
-        <Project2 />
+        <Project2 locale={locale} />
       </section>
       <section id="contact" className="relative z-10">
-        <ContactForm />
+        <ContactForm locale={locale} />
       </section>
       <div className="spotlight-overlay"></div>
     </div>

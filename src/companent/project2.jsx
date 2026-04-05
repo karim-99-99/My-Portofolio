@@ -1,33 +1,26 @@
 import React, { useState } from "react";
+import { getProjectsForLocale, getTranslation } from "../i18n/translations";
 
-// Project Card Component
-const ProjectCard = ({ project, onClick }) => {
+const ProjectCard = ({ project, onClick, videoUnsupported }) => {
   return (
     <div
       onClick={() => onClick(project)}
       className="relative bg-slate-800/50 backdrop-blur-sm rounded-2xl overflow-hidden transition-all duration-300 hover:shadow-2xl hover:shadow-teal-500/30 group cursor-pointer"
     >
-      {/* Animated Concentric Circles */}
       <div className="absolute inset-0 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-32 h-32 border border-teal-400/30 rounded-full animate-pulse-slow"></div>
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-48 h-48 border border-teal-400/20 rounded-full animate-pulse-slower"></div>
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 border border-teal-400/10 rounded-full animate-pulse-slowest"></div>
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-32 h-32 border border-teal-400/30 rounded-full animate-pulse-slow" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-48 h-48 border border-teal-400/20 rounded-full animate-pulse-slower" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 border border-teal-400/10 rounded-full animate-pulse-slowest" />
       </div>
 
-      {/* Floating Geometric Shapes */}
       <div className="absolute inset-0 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-        {/* Triangle */}
-        <div className="absolute top-4 right-4 w-8 h-8 border border-teal-400/40 rotate-45 group-hover:rotate-90 transition-transform duration-700"></div>
-        {/* Square */}
-        <div className="absolute bottom-4 left-4 w-6 h-6 border border-teal-400/30 group-hover:scale-125 transition-transform duration-700"></div>
-        {/* Circle */}
-        <div className="absolute top-1/4 right-1/4 w-4 h-4 border-2 border-teal-400/50 rounded-full group-hover:scale-150 transition-transform duration-700"></div>
+        <div className="absolute top-4 right-4 w-8 h-8 border border-teal-400/40 rotate-45 group-hover:rotate-90 transition-transform duration-700 rtl:right-auto rtl:left-4" />
+        <div className="absolute bottom-4 left-4 w-6 h-6 border border-teal-400/30 group-hover:scale-125 transition-transform duration-700 rtl:left-auto rtl:right-4" />
+        <div className="absolute top-1/4 right-1/4 w-4 h-4 border-2 border-teal-400/50 rounded-full group-hover:scale-150 transition-transform duration-700" />
       </div>
 
-      {/* Glowing Overlay Effect */}
-      <div className="absolute inset-0 bg-gradient-to-br from-teal-400/0 via-teal-400/0 to-teal-400/0 group-hover:from-teal-400/5 group-hover:via-teal-400/10 group-hover:to-teal-400/5 transition-all duration-500 pointer-events-none"></div>
+      <div className="absolute inset-0 bg-gradient-to-br from-teal-400/0 via-teal-400/0 to-teal-400/0 group-hover:from-teal-400/5 group-hover:via-teal-400/10 group-hover:to-teal-400/5 transition-all duration-500 pointer-events-none" />
 
-      {/* Video Container */}
       <div className="relative w-full aspect-video bg-slate-900 overflow-hidden z-10">
         <video
           className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
@@ -36,13 +29,12 @@ const ProjectCard = ({ project, onClick }) => {
           muted
         >
           <source src={project.video} type="video/mp4" />
-          Your browser does not support the video tag.
+          {videoUnsupported}
         </video>
-        {/* Play overlay with glow */}
         <div className="absolute inset-0 flex items-center justify-center bg-black/30 group-hover:bg-black/10 transition-colors duration-500">
           <div className="w-16 h-16 rounded-full bg-teal-400/80 flex items-center justify-center group-hover:bg-teal-400 group-hover:scale-110 group-hover:shadow-[0_0_30px_rgba(45,212,191,0.6)] transition-all duration-500">
             <svg
-              className="w-8 h-8 text-white ml-1"
+              className="w-8 h-8 text-white ml-1 rtl:ml-0 rtl:mr-1"
               fill="currentColor"
               viewBox="0 0 24 24"
             >
@@ -52,7 +44,6 @@ const ProjectCard = ({ project, onClick }) => {
         </div>
       </div>
 
-      {/* Project Info */}
       <div className="relative p-6 sm:p-8 z-10">
         <h3 className="text-xl sm:text-2xl font-bold mb-3 text-teal-400 group-hover:text-teal-300 group-hover:drop-shadow-[0_0_10px_rgba(45,212,191,0.5)] transition-all duration-300">
           {project.title}
@@ -65,104 +56,24 @@ const ProjectCard = ({ project, onClick }) => {
   );
 };
 
-const Project2 = () => {
+function Project2({ locale }) {
+  const t = getTranslation(locale).projects;
+  const projects = getProjectsForLocale(locale);
   const [selectedProject, setSelectedProject] = useState(null);
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
-
-  const projects = [
-    {
-      title: "New Clothes",
-      video: "/new-clothes.mp4",
-      poster: "/new-clothes1.jpg",
-      description:
-        "Lifestyle of Legends is a premium streetwear e-commerce platform crafted to showcase a modern, high-end digital shopping experience. Built with React, TypeScript, and Framer Motion, the website features a sleek dark aesthetic, smooth animations, and a visually immersive user interface.The platform focuses on delivering a seamless shopping journey through detailed product pages, multiple color and size selections, dynamic image galleries, and a responsive cart system. Every element is designed to reflect quality, exclusivity, and strong brand identity, making it an ideal example of a performance-driven fashion e-commerce solution.",
-      technologies: ["React.js", "Tailwind CSS", "JavaScript", "HTML", "CSS"],
-      websiteLink: "https://new-clothes.vercel.app/",
-      githubLink: "https://github.com/karim-99-99/new-clothes",
-    },
-    {
-      title: "Coffee Shop",
-      video: "/cafe1.mp4",
-      poster: "/caffe1.jpg",
-      description:
-        "A premium coffee brand landing page built with React, Vite, and Tailwind CSS. The website features a modern dark theme enhanced with gold accents, creating a luxurious and elegant feel. It includes a powerful hero section, full-screen video background, an artistry section highlighting coffee craftsmanship, and an interactive product showcase with smooth animations. Fully responsive and performance-optimized, the page delivers a refined and immersive user experience.",
-      technologies: ["React.js", "Tailwind CSS", "JavaScript", "HTML", "CSS"],
-      websiteLink: "https://coffe-pi-lovat.vercel.app/",
-      githubLink: "https://github.com/karim-99-99/coffe",
-    },
-    {
-      title: "Sushi restaurant",
-      video: "/sushi.mp4",
-      poster: "/sushi1.jpg",
-      description:
-        "A modern and elegant website for a premium sushi restaurant, designed to deliver a smooth and engaging user experience. The site features well-structured menu categories including sushi, wok, rolls, and drinks, with highlighted discounts and offers. Built with a dark theme, red accents, smooth animations, and an interactive online ordering system. This project showcases a modern UI/UX approach for a restaurant based in Cairo, Egypt.",
-      technologies: ["React.js", "Tailwind CSS", "JavaScript", "HTML", "CSS"],
-      websiteLink: "https://sushi-pi-nine.vercel.app/",
-      githubLink: "https://github.com/karim-99-99/sushi",
-    },
-    {
-      title: "Youbloom Project",
-      video: "/youbloom project.mp4",
-      poster: "/youbloom project-poster.png",
-      description:
-        "YouBloom is a professional React-based frontend project showcasing advanced skills in multi-country phone authentication and user management. The application supports phone number login and registration for 20+ countries with smart, country-specific validation and protected routes.The platform features an interactive user directory with real-time search and a responsive grid layout, along with detailed user profile pages enriched with API-driven data. Built using modern React best practices, YouBloom emphasizes performance, clean architecture, accessibility, and an intuitive user experience—making it a strong showcase project for technical interviews and portfolios.",
-      technologies: ["React.js", "Tailwind CSS", "JavaScript", "RESTful APIs"],
-      websiteLink: "https://youbloom-project.vercel.app/login",
-      githubLink: "https://github.com/karim-99-99/youbloom_project",
-    },
-    {
-      title: "Bedayate",
-      video: "/bedayate.mp4",
-      poster: "/bedayate1.jpg",
-      description:
-        "Bedayati is an e-learning platform that I designed and developed to help students prepare for Qudrat (Aptitude) and Tahseel (Achievement) exams through a structured and user-friendly learning experience.The platform features a well-organized educational system combining video-based lessons and interactive quizzes, along with an admin dashboard for flexible content management.It includes a fully Arabic RTL interface and a responsive design optimized for all devices.",
-      technologies: [
-        "React.js",
-        "Tailwind CSS",
-        "JavaScript",
-        "RESTful APIs",
-        "Django",
-        "python",
-      ],
-      websiteLink: "https://karim-khaled.vercel.app/",
-      githubLink: "https://github.com/karim-99-99/karim-khaled",
-    },
-    {
-      title: "Pet Clinic",
-      video: "/pet clinic1.mp4",
-      poster: "/pet clicnic1.jpg",
-      description:
-        "A modern veterinary clinic website built with React.js and Tailwind CSS.The project focuses on showcasing veterinary services, building trust with pet owners, and providing an easy appointment booking experience.It features a dynamic hero section with video background, service listings, team profiles, testimonials, blog, and a fully responsive, animated UI.",
-      technologies: ["React.js", "Tailwind CSS", "JavaScript"],
-      websiteLink: "https://pet-clinic-alpha.vercel.app/",
-      githubLink: "https://github.com/karim-99-99/pet-clinic",
-    },
-    {
-      title: "E-Commerce",
-      video: "/E-Commerce.mp4",
-      poster: "/E-commerce1.jpg",
-      description:
-        "ShopHouse is a modern e-commerce web application built with React and Tailwind CSS. It provides a complete online shopping experience, including product browsing, advanced search and filtering, shopping cart management, user authentication, and an admin panel for product and category management.The project focuses on clean UI design, smooth animations, responsive layouts, and real-world e-commerce functionality using localStorage for data persistence.",
-      websiteLink: "https://myecommerce123.vercel.app/",
-      githubLink: "https://github.com/karim-99-99/E-commerce",
-    },
-  ];
 
   const handleProjectClick = (project) => {
     setSelectedProject(project);
     setIsSidebarOpen(true);
-    // Prevent body scroll when sidebar is open
     document.body.style.overflow = "hidden";
   };
 
   const handleCloseSidebar = () => {
     setIsSidebarOpen(false);
     setSelectedProject(null);
-    // Restore body scroll
     document.body.style.overflow = "auto";
   };
 
-  // Close sidebar when clicking outside
   const handleOverlayClick = (e) => {
     if (e.target === e.currentTarget) {
       handleCloseSidebar();
@@ -172,49 +83,52 @@ const Project2 = () => {
   return (
     <div className="text-white min-h-screen py-12 sm:py-16 lg:py-20 w-full">
       <div className="w-full">
-        {/* Header Section */}
         <div className="text-center mb-12 sm:mb-16">
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4 sm:mb-6">
-            MY <span className="text-teal-400">PROJECTS</span>
+            {t.heading ? (
+              <>
+                {t.heading}{" "}
+                <span className="text-teal-400">{t.headingAccent}</span>
+              </>
+            ) : (
+              <span className="text-teal-400">{t.headingAccent}</span>
+            )}
           </h2>
           <p className="text-base sm:text-lg lg:text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
-            Here you will find some of the personal and clients projects that I
-            created with each project containing its own case study
+            {t.sub}
           </p>
         </div>
 
-        {/* Projects Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 relative">
           {projects.map((project, idx) => (
             <ProjectCard
-              key={idx}
+              key={project.id ?? idx}
               project={project}
               onClick={handleProjectClick}
+              videoUnsupported={t.videoUnsupported}
             />
           ))}
         </div>
       </div>
 
-      {/* Sidebar Modal */}
       {isSidebarOpen && selectedProject && (
         <>
-          {/* Overlay */}
           <div
             className="fixed inset-0 bg-black/70 backdrop-blur-sm z-[60] transition-opacity duration-300"
             onClick={handleOverlayClick}
-          ></div>
+            aria-hidden="true"
+          />
 
-          {/* Sidebar - Responsive and Customized */}
           <div
-            className={`fixed top-0 right-0 h-full  sm:w-[320px] md:w-[360px] lg:w-[600px] bg-gray-900 shadow-2xl z-[70] transform transition-transform duration-300 ease-in-out ${
+            className={`fixed top-0 h-full sm:w-[320px] md:w-[360px] lg:w-[600px] bg-gray-900 shadow-2xl z-[70] transform transition-transform duration-300 ease-in-out ${
               isSidebarOpen ? "translate-x-0" : "translate-x-full"
-            } overflow-y-auto`}
+            } overflow-y-auto right-0 rtl:right-auto rtl:left-0`}
           >
-            {/* Close Button */}
             <button
+              type="button"
               onClick={handleCloseSidebar}
-              className="sticky top-4 float-right mr-4 mt-4 text-white hover:text-teal-400 transition-colors z-20 bg-gray-800/90 rounded-full p-2 hover:bg-gray-700 shadow-lg"
-              aria-label="Close sidebar"
+              className="sticky top-4 float-right mr-4 mt-4 text-white hover:text-teal-400 transition-colors z-20 bg-gray-800/90 rounded-full p-2 hover:bg-gray-700 shadow-lg rtl:float-left rtl:ml-4 rtl:mr-0"
+              aria-label={t.closeSidebar}
             >
               <svg
                 className="w-6 h-6"
@@ -231,16 +145,13 @@ const Project2 = () => {
               </svg>
             </button>
 
-            {/* Sidebar Content */}
             <div className="p-4 sm:p-5 space-y-4 sm:space-y-5 text-white clear-both">
-              {/* Project Title */}
               <div className="pt-12 sm:pt-4">
                 <h2 className="text-xl sm:text-2xl font-bold text-teal-400 mb-2">
                   {selectedProject.title}
                 </h2>
               </div>
 
-              {/* Video Container */}
               <div className="w-full rounded-lg overflow-hidden shadow-lg bg-gray-800/50">
                 <video
                   className="w-full h-auto object-contain"
@@ -255,16 +166,15 @@ const Project2 = () => {
                   }}
                 >
                   <source src={selectedProject.video} type="video/mp4" />
-                  Your browser does not support the video tag.
+                  {t.videoUnsupported}
                 </video>
               </div>
 
-              {/* Technologies Used */}
               {selectedProject.technologies &&
                 selectedProject.technologies.length > 0 && (
                   <div>
                     <h3 className="text-base sm:text-lg font-semibold mb-2 sm:mb-3 text-teal-400">
-                      Technologies Used
+                      {t.techUsed}
                     </h3>
                     <div className="flex flex-wrap gap-2">
                       {selectedProject.technologies.map((tech, index) => (
@@ -279,17 +189,15 @@ const Project2 = () => {
                   </div>
                 )}
 
-              {/* Description */}
               <div>
                 <h3 className="text-base sm:text-lg font-semibold mb-2 sm:mb-3 text-teal-400">
-                  Description
+                  {t.description}
                 </h3>
                 <p className="text-gray-200 leading-relaxed text-xs sm:text-sm">
                   {selectedProject.description}
                 </p>
               </div>
 
-              {/* Links */}
               <div className="flex flex-col gap-2 sm:gap-3 pt-2 pb-4">
                 {selectedProject.websiteLink && (
                   <a
@@ -311,7 +219,7 @@ const Project2 = () => {
                         d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
                       />
                     </svg>
-                    Visit Website
+                    {t.visitSite}
                   </a>
                 )}
 
@@ -333,7 +241,7 @@ const Project2 = () => {
                         clipRule="evenodd"
                       />
                     </svg>
-                    View on GitHub
+                    {t.viewGithub}
                   </a>
                 )}
               </div>
@@ -343,6 +251,6 @@ const Project2 = () => {
       )}
     </div>
   );
-};
+}
 
 export default Project2;
