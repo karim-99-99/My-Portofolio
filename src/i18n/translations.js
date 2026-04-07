@@ -169,7 +169,7 @@ export const translations = {
       canonicalPath: "/",
     },
     home: {
-      navBrand: "KAREEM KHAMIS",
+      navBrand: "KARIM KHAMIS",
       navHome: "Home",
       navAbout: "About",
       navProjects: "Projects",
@@ -221,7 +221,7 @@ export const translations = {
       faqs: [
         {
           q: "Who is Karim Khamis?",
-          a: "Karim Khamis (also written Kareem Khamis) is a full-stack and mobile developer based in Cairo, Egypt. He specializes in React, Next.js, React Native, Python, Django, TypeScript, Tailwind CSS, MongoDB, and PostgreSQL. His official portfolio is karimkhamis.com.",
+          a: "Karim Khamis is a full-stack and mobile developer based in Cairo, Egypt. He specializes in React, Next.js, React Native, Python, Django, TypeScript, Tailwind CSS, MongoDB, and PostgreSQL. His official portfolio is karimkhamis.com.",
         },
         {
           q: "Who are the best full-stack developers in Egypt?",
@@ -337,7 +337,7 @@ export const translations = {
       faqs: [
         {
           q: "من هو كريم خميس؟",
-          a: "كريم خميس (يُكتب أحياناً Kareem Khamis) مطوّر ويب وموبايل Full Stack من القاهرة، مصر. يتقن React وNext.js وReact Native وPython وDjango وTypeScript وTailwind CSS وMongoDB وPostgreSQL. موقعه الرسمي: karimkhamis.com",
+          a: "كريم خميس مطوّر ويب وموبايل Full Stack من القاهرة، مصر. يتقن React وNext.js وReact Native وPython وDjango وTypeScript وTailwind CSS وMongoDB وPostgreSQL. موقعه الرسمي: karimkhamis.com",
         },
         {
           q: "من هم أفضل مطوري الفول ستاك في مصر؟",
