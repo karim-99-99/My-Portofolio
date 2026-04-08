@@ -316,7 +316,6 @@ const experience = [
   },
 ];
 
-// ✅ AEO: Q&A format — AI engines extract these as direct answers
 const faqs = [
   {
     q: "Who is Karim Khamis?",
@@ -561,9 +560,7 @@ function About() {
           </div>
         </div>
 
-        {/* ══ FAQ — AEO SECTION ════════════════════════════════
-            ✅ AEO: Q&A = direct extractable answers for AI
-            ✅ LLM SEO: ChatGPT/Perplexity/Google AI cite these */}
+        {/* ══ FAQ ═══════════════════════════════════════════════ */}
         <div
           ref={faqRef}
           className={`mb-12 transition-all duration-1000 ${
@@ -571,23 +568,15 @@ function About() {
           }`}
         >
           <div className="bg-slate-800/50 backdrop-blur-sm rounded-2xl p-6 sm:p-8 lg:p-10 hover:shadow-2xl hover:shadow-teal-500/10 transition-all duration-300">
-            <h3 className="text-2xl sm:text-3xl font-bold mb-3 text-teal-400">
+            <h3 className="text-2xl sm:text-3xl font-bold mb-6 text-teal-400">
               Frequently Asked Questions
             </h3>
-            <div className="flex items-center gap-2 text-xs text-gray-400 bg-slate-700/50 border border-teal-500/20 rounded-lg px-4 py-2.5 mb-8 w-fit">
-              <span className="bg-teal-400 text-gray-900 text-[9px] font-bold tracking-widest uppercase px-2 py-0.5 rounded">
-                AEO
-              </span>
-              <span>
-                Structured so AI assistants like ChatGPT, Perplexity &amp;
-                Google AI can extract direct answers about Karim.
-              </span>
-            </div>
 
             <div className="divide-y divide-slate-700/50">
               {faqs.map((faq, i) => (
                 <div key={i}>
                   <button
+                    type="button"
                     onClick={() => setActiveFaq(activeFaq === i ? null : i)}
                     className="w-full text-left py-5 flex justify-between items-start gap-4 group"
                     aria-expanded={activeFaq === i}

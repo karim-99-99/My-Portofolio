@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { getTranslation } from "../i18n/translations";
 
-const SITE = "https://karimkhamis.com";
+const SITE = "https://www.karimkhamis.com";
 
 /**
  * Sets html lang/dir and primary meta tags when the route language changes.

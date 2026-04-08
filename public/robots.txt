@@ -24,7 +24,7 @@ User-agent: Googlebot
 Allow: /
 
 # Sitemap location
-Sitemap: https://karimkhamis.com/sitemap.xml
+Sitemap: https://www.karimkhamis.com/sitemap.xml
 
 # LLMs.txt location (AI plain-text summary)
-# https://karimkhamis.com/llms.txt
+# https://www.karimkhamis.com/llms.txt
