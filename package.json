@@ -8,7 +8,8 @@
     "build": "vite build",
     "lint": "eslint .",
     "preview": "vite preview",
-    "generate-favicon": "node scripts/generate-favicon.mjs"
+    "generate-favicon": "node scripts/generate-favicon.mjs",
+    "generate-og-image": "node scripts/generate-og-image.mjs"
   },
   "dependencies": {
     "@emailjs/browser": "^4.4.1",

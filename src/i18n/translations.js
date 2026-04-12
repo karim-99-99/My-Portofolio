@@ -271,6 +271,8 @@ export const translations = {
       sending: "Sending...",
       error:
         "Failed to send message. Please try again or use WhatsApp.",
+      errorConfig:
+        "The contact form is not configured yet. Use WhatsApp below, or the site owner should add EmailJS keys in .env.local (see .env.example).",
       whatsappHint: "Or contact me directly on WhatsApp",
       whatsappCta: "Contact on WhatsApp",
     },
@@ -386,6 +388,8 @@ export const translations = {
       send: "إرسال",
       sending: "جاري الإرسال...",
       error: "تعذّر الإرسال. حاول مرة أخرى أو استخدم واتساب.",
+      errorConfig:
+        "نموذج البريد غير مهيأ بعد. استخدم واتساب أدناه، أو أضف مفاتيح EmailJS في إعدادات المشروع.",
       whatsappHint: "أو تواصل مباشرة عبر واتساب",
       whatsappCta: "تواصل عبر واتساب",
     },

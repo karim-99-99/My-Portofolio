@@ -1,20 +1,32 @@
-// EmailJS Configuration
-// To set up EmailJS:
-// 1. Go to https://www.emailjs.com and create a free account
-// 2. Create a new Email Service (choose Gmail)
-// 3. Create an Email Template with these variables:
-//    - {{to_email}} - recipient email (kareemkhamis2030@gmail.com)
-//    - {{from_email}} - sender's email
-//    - {{message}} - message content
-//    - {{reply_to}} - reply to email
-// 4. Get your Service ID, Template ID, and Public Key from EmailJS dashboard
-// 5. Replace the values below
+/**
+ * EmailJS — credentials from environment (never commit real values).
+ *
+ * Setup:
+ * 1. https://www.emailjs.com → account → Email Services → add Gmail (or other).
+ * 2. Email Templates → create template. Use variables:
+ *    {{to_email}}, {{from_email}}, {{message}}, {{reply_to}}
+ *    Set “To Email” in the template to your inbox or use {{to_email}} if supported.
+ * 3. Account → API Keys → Public Key.
+ * 4. Copy `.env.example` to `.env.local` and fill VITE_EMAILJS_* (see below).
+ * 5. On Vercel: Project → Settings → Environment Variables → same names.
+ *
+ * Rebuild/restart dev server after changing .env.local.
+ */
+const trim = (v) => (typeof v === "string" ? v.trim() : "");
 
 export const emailjsConfig = {
-  serviceID: "YOUR_SERVICE_ID", // Replace with your EmailJS service ID
-  templateID: "YOUR_TEMPLATE_ID", // Replace with your EmailJS template ID
-  publicKey: "YOUR_PUBLIC_KEY", // Replace with your EmailJS public key
-  toEmail: "kareemkhamis2030@gmail.com", // Your Gmail address
+  serviceID: trim(import.meta.env.VITE_EMAILJS_SERVICE_ID),
+  templateID: trim(import.meta.env.VITE_EMAILJS_TEMPLATE_ID),
+  publicKey: trim(import.meta.env.VITE_EMAILJS_PUBLIC_KEY),
+  toEmail:
+    trim(import.meta.env.VITE_EMAILJS_TO_EMAIL) ||
+    "kareemkhamis2030@gmail.com",
 };
 
-
+export function isEmailJsConfigured() {
+  return Boolean(
+    emailjsConfig.serviceID &&
+      emailjsConfig.templateID &&
+      emailjsConfig.publicKey
+  );
+}

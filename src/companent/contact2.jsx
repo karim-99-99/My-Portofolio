@@ -1,6 +1,9 @@
 import React, { useState } from "react";
 import emailjs from "@emailjs/browser";
-import { emailjsConfig } from "../config/emailjs.config";
+import {
+  emailjsConfig,
+  isEmailJsConfigured,
+} from "../config/emailjs.config";
 import { getTranslation } from "../i18n/translations";
 
 function ContactForm({ locale }) {
@@ -24,6 +27,15 @@ function ContactForm({ locale }) {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setFormState({ submitting: true, succeeded: false, error: null });
+
+    if (!isEmailJsConfigured()) {
+      setFormState({
+        submitting: false,
+        succeeded: false,
+        error: t.errorConfig,
+      });
+      return;
+    }
 
     try {
       await emailjs.send(
