@@ -1,30 +1,33 @@
+# robots.txt for karimkhamis.com
+# Karim Khamis — Full-Stack & Mobile Developer
+
+# Allow all standard search engine crawlers
 User-agent: *
 Allow: /
 
-# AI Crawlers - explicitly allowed
+# Explicitly allow OpenAI / ChatGPT
 User-agent: GPTBot
 Allow: /
 
-User-agent: ChatGPT-User
-Allow: /
-
-User-agent: PerplexityBot
-Allow: /
-
+# Explicitly allow Anthropic / Claude
 User-agent: ClaudeBot
 Allow: /
 
-User-agent: anthropic-ai
+# Explicitly allow Perplexity AI
+User-agent: PerplexityBot
 Allow: /
 
+# Explicitly allow Common Crawl (used by many AI training sets)
+User-agent: CCBot
+Allow: /
+
+# Explicitly allow Google AI (Gemini, AI Overviews)
 User-agent: Google-Extended
 Allow: /
 
-User-agent: Googlebot
+# Explicitly allow Apple AI
+User-agent: Applebot-Extended
 Allow: /
 
 # Sitemap location
 Sitemap: https://www.karimkhamis.com/sitemap.xml
-
-# LLMs.txt location (AI plain-text summary)
-# https://www.karimkhamis.com/llms.txt
