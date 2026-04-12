@@ -657,7 +657,7 @@ function About() {
                 GitHub
               </a>
               <a
-                href="https://linkedin.com/in/kareem-khamis"
+                href="https://www.linkedin.com/in/kareem-khamis-software-engineer/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-sm border border-teal-500/30 text-teal-400 hover:bg-teal-500/10 hover:border-teal-400/60 px-5 py-2.5 rounded-lg transition-all duration-300"
