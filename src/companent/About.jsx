@@ -215,7 +215,8 @@
 // ============================================================
 
 import React, { useState, useEffect } from "react";
-import useScrollAnimation from "../hooks/useScrollAnimation";
+import { Link } from "react-router-dom";
+import { getTranslation } from "../i18n/translations";
 
 // ── Schema.org Person — injected into <head> ─────────────────
 // ✅ LLM SEO: Machine-readable identity for ChatGPT, Perplexity,
@@ -344,18 +345,10 @@ const faqs = [
 ];
 
 // ── Component ─────────────────────────────────────────────────
-function About() {
+function About({ locale = "en" }) {
+  const t = getTranslation(locale).about;
   const [activeFaq, setActiveFaq] = useState(null);
   const [activeExp, setActiveExp] = useState(0);
-
-  const [headerRef, headerVisible] = useScrollAnimation({ threshold: 0.2 });
-  const [statsRef, statsVisible] = useScrollAnimation({ threshold: 0.2 });
-  const [leftRef, leftVisible] = useScrollAnimation({ threshold: 0.15 });
-  const [rightRef, rightVisible] = useScrollAnimation({ threshold: 0.15 });
-  const [expRef, expVisible] = useScrollAnimation({ threshold: 0.1 });
-  const [faqRef, faqVisible] = useScrollAnimation({ threshold: 0.1 });
-  const [bioRef, bioVisible] = useScrollAnimation({ threshold: 0.2 });
-  const [ctaRef, ctaVisible] = useScrollAnimation({ threshold: 0.2 });
 
   // ✅ LLM SEO: Inject Schema.org Person into <head>
   useEffect(() => {
@@ -379,12 +372,7 @@ function About() {
       <div className="w-full">
 
         {/* ══ HEADER ══════════════════════════════════════════ */}
-        <div
-          ref={headerRef}
-          className={`text-center mb-12 sm:mb-16 transition-all duration-1000 ${
-            headerVisible ? "animate-fade-in-up" : "opacity-0"
-          }`}
-        >
+        <div className="text-center mb-12 sm:mb-16">
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4 sm:mb-6">
             ABOUT <span className="text-teal-400">ME</span>
           </h2>
@@ -398,12 +386,7 @@ function About() {
 
         {/* ══ STATS ════════════════════════════════════════════
             ✅ AEO: Specific numbers AI can extract and cite    */}
-        <div
-          ref={statsRef}
-          className={`grid grid-cols-3 gap-4 mb-12 transition-all duration-1000 ${
-            statsVisible ? "animate-fade-in-up" : "opacity-0"
-          }`}
-        >
+        <div className="grid grid-cols-3 gap-4 mb-12">
           {stats.map((s, i) => (
             <div
               key={i}
@@ -423,12 +406,7 @@ function About() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 mb-12">
 
           {/* Left — Get To Know Me */}
-          <div
-            ref={leftRef}
-            className={`bg-slate-800/50 backdrop-blur-sm rounded-2xl p-6 sm:p-8 lg:p-10 transition-all duration-1000 hover:shadow-2xl hover:shadow-teal-500/10 ${
-              leftVisible ? "animate-fade-in-left" : "opacity-0"
-            }`}
-          >
+          <div className="bg-slate-800/50 backdrop-blur-sm rounded-2xl p-6 sm:p-8 lg:p-10 hover:shadow-2xl hover:shadow-teal-500/10">
             <h3 className="text-2xl sm:text-3xl font-bold mb-6 text-teal-400">
               Get To Know Me
             </h3>
@@ -482,12 +460,7 @@ function About() {
           </div>
 
           {/* Right — Skills */}
-          <div
-            ref={rightRef}
-            className={`bg-slate-800/50 backdrop-blur-sm rounded-2xl p-6 sm:p-8 lg:p-10 transition-all duration-1000 hover:shadow-2xl hover:shadow-teal-500/10 ${
-              rightVisible ? "animate-fade-in-right" : "opacity-0"
-            }`}
-          >
+          <div className="bg-slate-800/50 backdrop-blur-sm rounded-2xl p-6 sm:p-8 lg:p-10 hover:shadow-2xl hover:shadow-teal-500/10">
             <h3 className="text-2xl sm:text-3xl font-bold mb-8 text-teal-400">
               My Skills
             </h3>
@@ -509,12 +482,7 @@ function About() {
         {/* ══ EXPERIENCE TIMELINE ══════════════════════════════
             ✅ E-E-A-T: Real work history with specific results
             ✅ LLM SEO: Companies, roles, achievements = citable */}
-        <div
-          ref={expRef}
-          className={`mb-12 transition-all duration-1000 ${
-            expVisible ? "animate-fade-in-up" : "opacity-0"
-          }`}
-        >
+        <div className="mb-12">
           <div className="bg-slate-800/50 backdrop-blur-sm rounded-2xl p-6 sm:p-8 lg:p-10 hover:shadow-2xl hover:shadow-teal-500/10 transition-all duration-300">
             <h3 className="text-2xl sm:text-3xl font-bold mb-8 text-teal-400">
               Experience
@@ -561,12 +529,7 @@ function About() {
         </div>
 
         {/* ══ FAQ ═══════════════════════════════════════════════ */}
-        <div
-          ref={faqRef}
-          className={`mb-12 transition-all duration-1000 ${
-            faqVisible ? "animate-fade-in-up" : "opacity-0"
-          }`}
-        >
+        <div className="mb-12">
           <div className="bg-slate-800/50 backdrop-blur-sm rounded-2xl p-6 sm:p-8 lg:p-10 hover:shadow-2xl hover:shadow-teal-500/10 transition-all duration-300">
             <h3 className="text-2xl sm:text-3xl font-bold mb-6 text-teal-400">
               Frequently Asked Questions
@@ -612,12 +575,7 @@ function About() {
         {/* ══ AUTHOR BIO ═══════════════════════════════════════
             ✅ LLM SEO: Third-person bio AI models cite directly
             ✅ E-E-A-T: Full credentials + links                */}
-        <div
-          ref={bioRef}
-          className={`mb-12 transition-all duration-1000 ${
-            bioVisible ? "animate-fade-in-up" : "opacity-0"
-          }`}
-        >
+        <div className="mb-12">
           <div className="bg-slate-800/50 backdrop-blur-sm rounded-2xl p-6 sm:p-8 lg:p-10 hover:shadow-2xl hover:shadow-teal-500/10 transition-all duration-300 relative overflow-hidden">
             <span className="absolute top-0 right-6 text-[100px] leading-none text-teal-400 opacity-5 font-serif pointer-events-none select-none">
               "
@@ -647,6 +605,14 @@ function About() {
               e-learning platform at qodrateman.com). Karim is available for
               freelance contracts and full-time roles globally.
             </p>
+            <Link
+              to="/blog"
+              hrefLang="en"
+              lang="en"
+              className="inline-flex items-center justify-center w-full sm:w-auto mb-6 px-6 py-3 rounded-lg text-base font-semibold bg-gradient-to-r from-teal-600/90 to-teal-500/90 text-white border border-teal-400/30 hover:from-teal-500 hover:to-teal-400 shadow-lg hover:shadow-teal-500/40 transition-all duration-300"
+            >
+              {t.blogCta}
+            </Link>
             <div className="flex flex-wrap gap-3">
               <a
                 href="https://github.com/karim-99-99"
@@ -686,12 +652,7 @@ function About() {
 
         {/* ══ CTA ══════════════════════════════════════════════
             ✅ AEO: Direct answer to "Is Karim available?"     */}
-        <div
-          ref={ctaRef}
-          className={`transition-all duration-1000 ${
-            ctaVisible ? "animate-fade-in-up" : "opacity-0"
-          }`}
-        >
+        <div>
           <div className="bg-gradient-to-br from-slate-800/80 to-slate-800/40 backdrop-blur-sm border border-teal-500/20 rounded-2xl p-8 sm:p-12 text-center hover:shadow-2xl hover:shadow-teal-500/10 transition-all duration-300 relative overflow-hidden">
             <div
               className="absolute inset-0 pointer-events-none"

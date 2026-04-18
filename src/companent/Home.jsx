@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
+import { Link } from "react-router-dom";
 import image from "../assets/kareem.png";
 import { getTranslation } from "../i18n/translations";
 import { LanguageToggle } from "./LanguageToggle";
@@ -77,6 +78,15 @@ function Home({ locale }) {
                 {t.navProjects}
                 <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-teal-400 group-hover:w-full transition-all duration-300 rtl:left-auto rtl:right-0" />
               </a>
+              <Link
+                to="/blog"
+                hrefLang="en"
+                lang="en"
+                className="relative text-gray-300 hover:text-teal-400 transition-colors duration-300 font-medium group"
+              >
+                {t.navBlog}
+                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-teal-400 group-hover:w-full transition-all duration-300 rtl:left-auto rtl:right-0" />
+              </Link>
               <a
                 href={`${base}#contact`}
                 className="relative text-gray-300 hover:text-teal-400 transition-colors duration-300 font-medium group"
@@ -158,6 +168,15 @@ function Home({ locale }) {
               >
                 {t.navProjects}
               </a>
+              <Link
+                onClick={handleBar}
+                to="/blog"
+                hrefLang="en"
+                lang="en"
+                className="text-gray-300 hover:text-teal-400 transition-all duration-300 py-3 px-4 rounded-xl border-b border-teal-400/20 hover:border-teal-400 hover:bg-teal-400/10 hover:scale-[1.02]"
+              >
+                {t.navBlog}
+              </Link>
               <a
                 onClick={handleBar}
                 href={`${base}#contact`}

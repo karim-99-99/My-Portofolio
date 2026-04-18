@@ -173,6 +173,7 @@ export const translations = {
       navHome: "Home",
       navAbout: "About",
       navProjects: "Projects",
+      navBlog: "Blog",
       navContact: "Contact",
       navToggle: "Toggle menu",
       heroPrefix: "I AM",
@@ -208,6 +209,7 @@ export const translations = {
       contactMe: "Contact Me",
       skillsTitle: "My Skills",
       faqTitle: "Frequently Asked Questions",
+      blogCta: "My blogs",
       bioTitle: "About Karim Khamis",
       bioLong:
         "Karim Khamis is a full-stack and mobile developer based in Cairo, Egypt. He specializes in building web and mobile applications using React, Next.js, React Native, Python, Django, TypeScript, and Tailwind CSS. With experience delivering web apps, e-commerce platforms, and cross-platform mobile apps, he works with clients from solo founders to small businesses and is available for freelance contracts and full-time roles globally.",
@@ -292,6 +294,7 @@ export const translations = {
       navHome: "الرئيسية",
       navAbout: "من أنا",
       navProjects: "المشاريع",
+      navBlog: "المدونة",
       navContact: "تواصل",
       navToggle: "قائمة التنقل",
       heroPrefix: "أنا",
@@ -326,6 +329,7 @@ export const translations = {
       contactMe: "تواصل معي",
       skillsTitle: "مهاراتي",
       faqTitle: "أسئلة شائعة",
+      blogCta: "مدوناتي",
       bioTitle: "نبذة عن كريم خميس",
       bioLong:
         "كريم خميس مطوّر ويب وموبايل Full Stack مقيم في القاهرة، مصر. يتخصص في بناء تطبيقات الويب والموبايل باستخدام React وNext.js وReact Native وPython وDjango وTypeScript وTailwind CSS. لديه خبرة في تسليم تطبيقات ويب ومتاجر وتطبيقات موبايل، ويعمل مع العملاء من المستقلين إلى الشركات الصغيرة، وهو متاح لمشاريع مستقلة وفرص دوام كامل على مستوى العالم.",
