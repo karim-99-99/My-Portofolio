@@ -1,23 +1,27 @@
-# Karim Khamis — Full-Stack & Mobile Developer
+# Karim Khamis — AI Automation Engineer & Full-Stack Developer
 
-> Full-stack and mobile developer based in Cairo, Egypt. Specializing in React, React Native, Python/Django, and AI-integrated applications. Available for freelance projects and full-time roles worldwide.
+> AI automation engineer and full-stack developer based in Cairo, Egypt. Builds production LLM applications (RAG with citations, LangGraph agents, human-in-the-loop n8n workflows) plus web and mobile apps with Next.js, React, Django, and React Native. Available for freelance projects and full-time roles worldwide.
 
 ## About
 
-Karim Khamis is a full-stack and mobile software developer with 3+ years of freelance experience (30+ projects, 100% on-time delivery). He holds a B.Sc. in Software Engineering from Ain Shams University (2022, GPA 3.2/4.0) and is pursuing an M.Sc. in Computer Engineering at AASTMT (expected 2028), with research focused on OCR and multilingual document processing.
+Karim Khamis is an AI automation engineer and full-stack software developer with 3+ years of freelance experience (30+ projects, 100% on-time delivery). He holds a B.Sc. in Software Engineering from Ain Shams University (2022, GPA 3.2/4.0) and is pursuing an M.Sc. in Computer Engineering at AASTMT (expected 2028), with research focused on OCR and multilingual document processing.
 
-He completed an internship as a Full-Stack Developer at The Address Company (Jan–Jun 2025) and currently works as a Graduate Researcher in OCR at AASTMT (Jul 2025–present).
+He completed an internship as a Full-Stack Developer at The Address Company (Jan–Jun 2025), works as a Graduate Researcher in OCR at AASTMT (Jul 2025–present), and in 2026 built and deployed AI Lab, a production-style AI automation platform.
 
 ## Skills
 
+- AI automation / LLM apps: Groq and OpenAI-compatible APIs, RAG (embeddings, Top-K retrieval, citations, refusal), LangGraph and LangChain agents (tool calling, thread memory), n8n workflow orchestration, human-in-the-loop approval queues, structured output with Zod, model routing (fast/strong), Redis/Upstash caching, usage and cost tracking, LLM guardrails (prompt injection, blocked topics, token limits), MCP awareness
 - Languages: Python, JavaScript, TypeScript, HTML, CSS, Arabic (native), English (advanced), French (intermediate)
-- Frontend: React, React Native, Tailwind CSS, Framer Motion, Expo/EAS
-- Backend: Django, Django REST Framework, FastAPI, PostgreSQL, Supabase
-- AI/ML: TensorFlow, Keras, PaddleOCR, OpenCV, NumPy
+- Frontend: React, Next.js, React Native, Tailwind CSS, Framer Motion, Expo/EAS
+- Backend: Next.js API routes, Django, Django REST Framework, FastAPI, PostgreSQL, Supabase, Redis
+- AI/ML research: TensorFlow, Keras, PaddleOCR, OpenCV, NumPy
 - DevOps: Docker, Vercel, Render, Hetzner, Cloudinary
 - Other: Git, MongoDB, JWT authentication
 
 ## Flagship Projects
+
+### AI Lab — AI Automation Platform (live)
+https://ai-lab-alpha-five.vercel.app — Production-style AI automation platform built with Next.js 16, TypeScript, and the Groq LLM API. Features: PDF RAG with local embeddings, citations, and refusal when context is weak; a LangGraph research agent with tool calling, thread memory, and visible steps; an editable human-in-the-loop approval queue for AI-drafted emails (Gmail); four n8n webhook workflows (support ticket, CRM lead extraction, email automation, meeting summary) with idempotency keys and run logs; API-key auth, per-IP rate limiting, Redis answer cache, fast/strong model routing, usage and cost dashboard, and prompt-injection guardrails. Deployed 24/7 on Vercel.
 
 ### Letra — Cross-Platform OCR Mobile App
 Custom-trained OCR application for iOS and Android built with React Native (Expo), TensorFlow/Keras, and PaddleOCR. Achieves 98% English character recognition accuracy. Deployed to TestFlight and Google Play Beta.

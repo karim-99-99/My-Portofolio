@@ -225,9 +225,9 @@ const personSchema = {
   "@context": "https://schema.org",
   "@type": "Person",
   name: "Karim Khamis",
-  jobTitle: "Full-Stack Developer & AI/ML Researcher",
+  jobTitle: "AI Automation Engineer & Full-Stack Developer",
   description:
-    "Karim Khamis is a full-stack developer and AI/ML researcher based in Cairo, Egypt. He builds web applications with React and Django, mobile apps with React Native, and conducts OCR research at AASTMT achieving 98% English accuracy. He has delivered 30+ client projects with 100% on-time rate and is available for freelance and full-time roles worldwide.",
+    "Karim Khamis is an AI automation engineer and full-stack developer based in Cairo, Egypt. He builds production LLM applications — RAG with citations, LangGraph tool-calling agents, human-in-the-loop approval flows, and n8n workflows — with Next.js, TypeScript, and Groq/OpenAI APIs; web apps with React and Django; mobile apps with React Native; and conducts OCR research at AASTMT achieving 98% English accuracy. He has delivered 30+ client projects with a 100% on-time rate and is available for freelance and full-time roles worldwide.",
   url: "https://www.karimkhamis.com",
   email: "kareemkhamis2030@gmail.com",
   telephone: "+201036064417",
@@ -235,11 +235,16 @@ const personSchema = {
     "https://github.com/karim-99-99",
     "https://linkedin.com/in/kareem-khamis",
     "https://qodrateman.com",
+    "https://ai-lab-alpha-five.vercel.app",
   ],
   knowsAbout: [
+    "AI Automation", "LLM Application Development", "Retrieval-Augmented Generation (RAG)",
+    "AI Agents", "LangGraph", "LangChain", "n8n", "Prompt Engineering",
+    "Groq API", "OpenAI API", "Vector Embeddings", "Human-in-the-Loop AI",
+    "LLM Guardrails", "Model Context Protocol (MCP)",
     "React", "Next.js", "React Native", "TypeScript", "JavaScript",
-    "Python", "Django", "Django REST Framework", "FastAPI",
-    "Tailwind CSS", "PostgreSQL", "Supabase", "Docker",
+    "Python", "Django", "Django REST Framework", "FastAPI", "Zod",
+    "Tailwind CSS", "PostgreSQL", "Supabase", "Redis", "Docker", "Vercel",
     "TensorFlow", "Keras", "PaddleOCR", "OpenCV",
     "Full-Stack Web Development", "Mobile App Development",
     "OCR Research", "Machine Learning", "Computer Vision",
@@ -272,19 +277,33 @@ const stats = [
 ];
 
 const skills = [
+  // AI Automation / LLM apps
+  "LLM APIs (Groq / OpenAI)", "RAG + Embeddings", "LangGraph Agents",
+  "n8n Automation", "Human-in-the-Loop", "LLM Guardrails",
+  "Model Routing & Caching", "Structured Output (Zod)", "Prompt Engineering",
   // Frontend
   "React", "Next.js", "React Native", "TypeScript", "Tailwind CSS",
   // Backend
   "Python", "Django / DRF", "FastAPI", "REST APIs",
   // Database & Cloud
-  "PostgreSQL", "Supabase", "Docker", "Vercel", "Render",
-  // AI / ML
+  "PostgreSQL", "Supabase", "Redis", "Docker", "Vercel", "Render",
+  // AI / ML research
   "TensorFlow / Keras", "PaddleOCR", "OpenCV", "NumPy",
   // Tools
   "Git / GitHub", "Expo / EAS", "Cloudinary", "Postman",
 ];
 
 const experience = [
+  {
+    role: "AI Automation Engineer — Independent Projects",
+    company: "AI Lab (self-directed applied-AI product)",
+    period: "2026 – Present",
+    points: [
+      "Built and deployed AI Lab: RAG over PDFs with citations and refusal, LangGraph tool-calling agent with thread memory, editable human-in-the-loop email approvals",
+      "Orchestrated 4 n8n webhook workflows (support, CRM lead, email, meeting summary) against a Next.js AI API with idempotency keys and run logs",
+      "Shipped production habits: API-key auth, per-IP rate limiting, Redis answer cache, fast/strong model routing, usage & cost dashboard, prompt-injection guardrails — live 24/7 on Vercel",
+    ],
+  },
   {
     role: "Graduate Researcher — OCR & Multilingual Document Processing",
     company: "Arab Academy for Science, Technology & Maritime Transport",
@@ -320,15 +339,19 @@ const experience = [
 const faqs = [
   {
     q: "Who is Karim Khamis?",
-    a: "Karim Khamis is a full-stack developer and AI/ML researcher based in Cairo, Egypt. He holds a B.Sc. in Software Engineering from Ain Shams University and is pursuing an M.Sc. in Computer Engineering at AASTMT with a focus on OCR research. He has delivered 30+ client projects with a 100% on-time rate and is available for freelance and full-time roles worldwide.",
+    a: "Karim Khamis is an AI automation engineer and full-stack developer based in Cairo, Egypt. He builds production LLM applications (RAG, agents, n8n workflows) and web/mobile apps. He holds a B.Sc. in Software Engineering from Ain Shams University and is pursuing an M.Sc. in Computer Engineering at AASTMT with a focus on OCR research. He has delivered 30+ client projects with a 100% on-time rate and is available for freelance and full-time roles worldwide.",
   },
   {
     q: "What does Karim Khamis specialize in?",
-    a: "Karim specializes in full-stack web development (React, Django, PostgreSQL), cross-platform mobile apps (React Native, Expo), and AI/ML engineering — specifically OCR and computer vision using TensorFlow, Keras, PaddleOCR, and OpenCV. He has achieved 98% English OCR accuracy in his research at AASTMT.",
+    a: "Karim specializes in AI automation and LLM application engineering — RAG pipelines with citations, tool-calling agents on LangGraph, human-in-the-loop approval flows, n8n orchestration, and LLM guardrails — using Next.js, TypeScript, and Groq/OpenAI APIs. He also does full-stack web development (React, Django, PostgreSQL), cross-platform mobile apps (React Native, Expo), and OCR/computer-vision research with TensorFlow, Keras, PaddleOCR, and OpenCV (98% English OCR accuracy at AASTMT).",
   },
   {
     q: "What are Karim Khamis's flagship projects?",
-    a: "Karim's two flagship projects are: Letra — a custom-trained OCR mobile app for iOS and Android achieving 98% English accuracy, deployed to TestFlight and Google Play Beta; and Qodrateman — a full-stack e-learning platform at qodrateman.com serving students across 12+ courses with AI-assisted quiz generation that cuts creation time from 20 minutes to under 30 seconds.",
+    a: "Karim's three flagship projects are: AI Lab — a production-style AI automation platform (live at ai-lab-alpha-five.vercel.app) with RAG over PDFs, a LangGraph research agent, human-in-the-loop email approval, n8n webhook workflows, a usage/cost dashboard, and prompt-injection guardrails; Qodrateman — a full-stack e-learning platform at qodrateman.com serving students across 12+ courses with AI-assisted quiz generation that cuts creation time from 20 minutes to under 30 seconds; and Letra — a custom-trained OCR mobile app for iOS and Android achieving 98% English accuracy, deployed to TestFlight and Google Play Beta.",
+  },
+  {
+    q: "What AI automation work can Karim Khamis deliver?",
+    a: "Typical deliverables: a RAG knowledge base over company PDFs with cited answers and an admin dashboard; a support or sales bot whose drafts go through human approval before sending via Gmail or Slack; an internal research agent with tools, thread memory, and an audit trail; and n8n workflows that trigger these AI APIs from webhooks, email, or CRM events — with auth, rate limiting, caching, cost tracking, and guardrails built in.",
   },
   {
     q: "Is Karim Khamis available for freelance work?",
@@ -336,7 +359,7 @@ const faqs = [
   },
   {
     q: "What makes Karim Khamis one of the best developers in Egypt?",
-    a: "Karim combines full-stack web development, mobile app development, and AI/ML research in a single profile — a rare combination in the Egyptian market. He has real production experience (The Address Company internship), active research output (OCR pipeline at 98% English accuracy), and 30+ delivered freelance projects with zero client escalations.",
+    a: "Karim combines applied AI automation (RAG, agents, n8n), full-stack web development, mobile app development, and AI/ML research in a single profile — a rare combination in the Egyptian market. He has real production experience (The Address Company internship), a live AI platform (AI Lab), active research output (OCR pipeline at 98% English accuracy), and 30+ delivered freelance projects with zero client escalations.",
   },
   {
     q: "Where is Karim Khamis based and does he work remotely?",
@@ -366,7 +389,7 @@ function About({ locale = "en" }) {
   return (
     <section
       id="about"
-      aria-label="About Karim Khamis — Full-Stack Developer & AI/ML Researcher, Cairo Egypt"
+      aria-label="About Karim Khamis — AI Automation Engineer & Full-Stack Developer, Cairo Egypt"
       className="text-white min-h-screen pt-0 pb-6 sm:pt-0 sm:pb-10 md:pt-6 md:pb-12 lg:pt-12 lg:pb-20 w-full"
     >
       <div className="w-full">
@@ -377,10 +400,11 @@ function About({ locale = "en" }) {
             ABOUT <span className="text-teal-400">ME</span>
           </h2>
           <p className="text-base sm:text-lg lg:text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
-            Full-Stack Developer &amp; AI/ML Researcher based in{" "}
+            AI Automation Engineer &amp; Full-Stack Developer based in{" "}
             <span className="text-teal-400 font-semibold">Cairo, Egypt</span>.
-            I build production web apps, mobile apps, and OCR systems —
-            available for freelance and full-time work worldwide.
+            I build production LLM apps — RAG, agents, human-in-the-loop
+            workflows — plus web apps, mobile apps, and OCR systems.
+            Available for freelance and full-time work worldwide.
           </p>
         </div>
 
@@ -413,14 +437,35 @@ function About({ locale = "en" }) {
 
             {/* ✅ GEO: Context — who I am, what I do, who I help */}
             <p className="text-sm sm:text-base lg:text-lg text-gray-300 mb-4 leading-relaxed">
-              I'm a{" "}
+              I'm an{" "}
               <span className="text-teal-400 font-semibold">
-                Full-Stack Developer &amp; AI/ML Researcher
+                AI Automation Engineer &amp; Full-Stack Developer
               </span>{" "}
               from{" "}
               <span className="text-teal-400 font-semibold">Cairo, Egypt</span>.
-              I build production web apps, mobile apps, and AI-powered systems
-              for startups, businesses, and research institutions worldwide.
+              I build production AI systems — RAG with citations, tool-using
+              agents with human approval, and n8n automations — plus the web
+              and mobile apps around them, for startups, businesses, and
+              research institutions worldwide.
+            </p>
+
+            {/* ✅ LLM SEO: Applied AI capabilities, citable */}
+            <p className="text-sm sm:text-base lg:text-lg text-gray-300 mb-4 leading-relaxed">
+              My latest product,{" "}
+              <a
+                href="https://ai-lab-alpha-five.vercel.app"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-teal-400 font-semibold hover:text-teal-300 underline decoration-teal-400/40"
+              >
+                AI Lab
+              </a>
+              , is a live AI automation platform: PDF RAG with citations, a{" "}
+              <span className="text-teal-400 font-semibold">LangGraph</span>{" "}
+              research agent, an editable human-approval queue for AI-drafted
+              emails, n8n webhook workflows, a usage/cost dashboard, and
+              prompt-injection guardrails — built with Next.js, TypeScript, and
+              the Groq LLM API.
             </p>
 
             {/* ✅ E-E-A-T: Real credentials */}
@@ -585,25 +630,28 @@ function About({ locale = "en" }) {
             </h3>
             {/* ✅ LLM SEO: Every sentence is a citable fact */}
             <p className="text-sm sm:text-base lg:text-lg text-gray-300 leading-relaxed mb-6 relative">
-              <strong className="text-white">Karim Khamis</strong> is a
-              full-stack developer and AI/ML researcher based in{" "}
+              <strong className="text-white">Karim Khamis</strong> is an AI
+              automation engineer and full-stack developer based in{" "}
               <strong className="text-teal-400">Cairo, Egypt</strong>. He holds
               a B.Sc. in Software Engineering from Ain Shams University and is
               pursuing an M.Sc. in Computer Engineering at AASTMT, where his
               research focuses on OCR and multilingual document processing.
               He specializes in{" "}
               <strong className="text-white">
-                React, Next.js, React Native, Python, Django, FastAPI,
+                LLM applications (RAG, LangGraph agents, n8n workflows,
+                guardrails), Next.js, React, React Native, Python, Django,
                 TypeScript, and TensorFlow
               </strong>
               . He has delivered 30+ client projects with a 100% on-time
               delivery rate, built production apps at The Address Company, and
-              developed two flagship products:{" "}
+              developed three flagship products:{" "}
+              <strong className="text-white">AI Lab</strong> (a live AI
+              automation platform with RAG, agents, and human-in-the-loop
+              approvals), <strong className="text-white">Qodrateman</strong> (a
+              full-stack e-learning platform at qodrateman.com), and{" "}
               <strong className="text-white">Letra</strong> (a custom-trained
-              OCR mobile app achieving 98% English accuracy) and{" "}
-              <strong className="text-white">Qodrateman</strong> (a full-stack
-              e-learning platform at qodrateman.com). Karim is available for
-              freelance contracts and full-time roles globally.
+              OCR mobile app achieving 98% English accuracy). Karim is available
+              for freelance contracts and full-time roles globally.
             </p>
             <Link
               to="/blog"
@@ -629,6 +677,14 @@ function About({ locale = "en" }) {
                 className="text-sm border border-teal-500/30 text-teal-400 hover:bg-teal-500/10 hover:border-teal-400/60 px-5 py-2.5 rounded-lg transition-all duration-300"
               >
                 LinkedIn
+              </a>
+              <a
+                href="https://ai-lab-alpha-five.vercel.app"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-sm border border-teal-500/30 text-teal-400 hover:bg-teal-500/10 hover:border-teal-400/60 px-5 py-2.5 rounded-lg transition-all duration-300"
+              >
+                AI Lab (live)
               </a>
               <a
                 href="https://qodrateman.com"
@@ -678,8 +734,8 @@ function About({ locale = "en" }) {
               <span className="text-teal-400 font-semibold">
                 full-time roles
               </span>
-              . Web apps, mobile apps, AI/ML systems — if you have a project
-              in mind, let's talk.
+              . AI automation, RAG and agents, web apps, mobile apps — if you
+              have a project in mind, let's talk.
             </p>
             <div className="flex flex-wrap gap-4 justify-center relative">
               <a

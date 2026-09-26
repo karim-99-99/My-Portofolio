@@ -40,7 +40,7 @@ const svg = `<?xml version="1.0" encoding="UTF-8"?>
   <rect width="${W}" height="${H}" fill="url(#glow2)"/>
   <rect x="72" y="420" width="400" height="4" rx="2" fill="url(#accent)" opacity="0.95"/>
   <text x="72" y="260" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="68" font-weight="700" fill="#f9fafb" letter-spacing="-0.02em">Kareem Khamis</text>
-  <text x="72" y="338" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="34" font-weight="600" fill="#2dd4bf">Full-Stack &amp; Mobile Developer</text>
+  <text x="72" y="338" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="34" font-weight="600" fill="#2dd4bf">AI Automation Engineer &amp; Full-Stack Developer</text>
   <text x="72" y="392" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="22" font-weight="400" fill="#94a3b8">Cairo, Egypt · karimkhamis.com</text>
   <text x="72" y="500" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="18" font-weight="500" fill="#64748b" letter-spacing="0.12em">PORTFOLIO</text>
 </svg>`;
