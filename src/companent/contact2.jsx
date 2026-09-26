@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import emailjs from "@emailjs/browser";
+import { Github, Linkedin } from "lucide-react";
 import {
   emailjsConfig,
   isEmailJsConfigured,
@@ -191,8 +192,31 @@ function ContactForm({ locale }) {
             )}
           </button>
 
-          {/* WhatsApp Contact Button */}
+          {/* Social + WhatsApp */}
           <div className="mt-6 pt-6 border-t border-teal-400/20">
+            <p className="text-center text-gray-300 mb-4 text-sm sm:text-base">
+              {t.socialHint}
+            </p>
+            <div className="flex items-center justify-center gap-4 mb-6">
+              <a
+                href="https://github.com/karim-99-99"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={t.ariaGitHub}
+                className="flex items-center justify-center w-12 h-12 sm:w-14 sm:h-14 rounded-full border border-teal-400/40 bg-slate-700/50 text-teal-300 hover:text-white hover:bg-teal-500/20 hover:border-teal-400 hover:scale-110 transition-all duration-300"
+              >
+                <Github className="w-6 h-6 sm:w-7 sm:h-7" aria-hidden="true" />
+              </a>
+              <a
+                href="https://www.linkedin.com/in/kareem-khamis-software-engineer/"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={t.ariaLinkedIn}
+                className="flex items-center justify-center w-12 h-12 sm:w-14 sm:h-14 rounded-full border border-teal-400/40 bg-slate-700/50 text-teal-300 hover:text-white hover:bg-teal-500/20 hover:border-teal-400 hover:scale-110 transition-all duration-300"
+              >
+                <Linkedin className="w-6 h-6 sm:w-7 sm:h-7" aria-hidden="true" />
+              </a>
+            </div>
             <p className="text-center text-gray-300 mb-4 text-sm sm:text-base">
               {t.whatsappHint}
             </p>

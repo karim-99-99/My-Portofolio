@@ -307,6 +307,9 @@ export const translations = {
         "The contact form is not configured yet. Use WhatsApp below, or the site owner should add EmailJS keys in .env.local (see .env.example).",
       whatsappHint: "Or contact me directly on WhatsApp",
       whatsappCta: "Contact on WhatsApp",
+      socialHint: "Find me on",
+      ariaGitHub: "GitHub profile",
+      ariaLinkedIn: "LinkedIn profile",
     },
   },
   ar: {
@@ -426,6 +429,9 @@ export const translations = {
         "نموذج البريد غير مهيأ بعد. استخدم واتساب أدناه، أو أضف مفاتيح EmailJS في إعدادات المشروع.",
       whatsappHint: "أو تواصل مباشرة عبر واتساب",
       whatsappCta: "تواصل عبر واتساب",
+      socialHint: "تواصل معي عبر",
+      ariaGitHub: "حساب جيت هاب",
+      ariaLinkedIn: "حساب لينكد إن",
     },
   },
 };
