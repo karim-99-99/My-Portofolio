@@ -11,7 +11,7 @@ function BlogCard({ post }) {
   return (
     <div>
       <Link to={`/blog/${post.slug}`} className="block group">
-        <article className="bg-slate-800/50 backdrop-blur-sm border border-teal-500/10 rounded-2xl p-6 hover:border-teal-400/30 hover:shadow-2xl hover:shadow-teal-500/10 transition-all duration-300 h-full">
+        <article className="bg-slate-800 border border-teal-500/10 rounded-2xl p-6 hover:border-teal-400/30 hover:shadow-2xl hover:shadow-teal-500/10 transition-all duration-300 h-full">
           {/* Category + Read time */}
           <div className="flex items-center justify-between mb-4">
             <span className="text-xs font-semibold px-3 py-1 rounded-full bg-teal-500/10 border border-teal-500/20 text-teal-400">
@@ -82,7 +82,7 @@ function Blog() {
       {/* Featured Post */}
       {featured && (
         <Link to={`/blog/${featured.slug}`} className="block group mb-12">
-          <article className="bg-gradient-to-br from-teal-900/30 to-slate-800/50 backdrop-blur-sm border border-teal-500/30 rounded-2xl p-8 hover:border-teal-400/50 hover:shadow-2xl hover:shadow-teal-500/15 transition-all duration-300">
+          <article className="bg-slate-800 border border-teal-500/30 rounded-2xl p-8 hover:border-teal-400/50 hover:shadow-2xl hover:shadow-teal-500/15 transition-all duration-300">
             <div className="flex items-center gap-3 mb-4">
               <span className="text-xs font-bold px-3 py-1 rounded-full bg-teal-500/20 border border-teal-400/40 text-teal-300 tracking-wider uppercase">
                 Featured
@@ -138,7 +138,7 @@ function Blog() {
 
       {/* CTA */}
       <div className="mt-16 text-center">
-        <div className="bg-slate-800/50 backdrop-blur-sm border border-teal-500/20 rounded-2xl p-8 inline-block max-w-2xl">
+        <div className="bg-slate-800 border border-teal-500/20 rounded-2xl p-8 inline-block max-w-2xl">
           <p className="text-gray-300 mb-4">
             Want to work together? I'm available for freelance React, Django, and React Native projects.
           </p>

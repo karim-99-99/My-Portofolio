@@ -67,7 +67,7 @@ function ContactForm({ locale }) {
     return (
       <div className="min-h-screen flex items-center justify-center px-4 py-20">
         <div className="text-center text-white max-w-2xl mx-auto">
-          <div className="bg-gradient-to-br from-teal-600/20 to-teal-500/20 backdrop-blur-md p-8 sm:p-12 rounded-2xl shadow-2xl">
+          <div className="bg-teal-900/50 p-8 sm:p-12 rounded-2xl shadow-2xl">
             <div className="mb-6">
               <svg
                 className="w-16 h-16 sm:w-20 sm:h-20 mx-auto text-teal-400"
@@ -113,7 +113,7 @@ function ContactForm({ locale }) {
         </div>
 
         {/* Form Container */}
-        <div className="bg-slate-800/50 backdrop-blur-sm rounded-2xl p-6 sm:p-8 lg:p-10 shadow-2xl">
+        <div className="bg-slate-800 rounded-2xl p-6 sm:p-8 lg:p-10 shadow-2xl">
           {/* Email Field */}
           <div className="mb-6 sm:mb-8">
             <label
