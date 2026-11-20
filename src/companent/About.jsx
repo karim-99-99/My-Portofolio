@@ -50,7 +50,7 @@
 //           {stats.map((s, i) => (
 //             <div
 //               key={i}
-//               className="bg-slate-800/50 backdrop-blur-sm border border-teal-500/20 rounded-2xl p-5 text-center hover:shadow-2xl hover:shadow-teal-500/10 hover:border-teal-400/40 transition-all duration-300"
+//               className="bg-slate-800/50 border border-teal-500/20 rounded-2xl p-5 text-center hover:shadow-2xl hover:shadow-teal-500/10 hover:border-teal-400/40 transition-all duration-300"
 //             >
 //               <div className="text-3xl sm:text-4xl font-bold text-teal-400 mb-1">
 //                 {s.number}
@@ -61,7 +61,7 @@
 //         </div>
 
 //         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 mb-12">
-//           <div className="bg-slate-800/50 backdrop-blur-sm rounded-2xl p-6 sm:p-8 lg:p-10 transition-all duration-300 hover:shadow-2xl hover:shadow-teal-500/10">
+//           <div className="bg-slate-800/50 rounded-2xl p-6 sm:p-8 lg:p-10 transition-all duration-300 hover:shadow-2xl hover:shadow-teal-500/10">
 //             <h3 className="text-2xl sm:text-3xl font-bold mb-6 text-teal-400">
 //               {t.getToKnow}
 //             </h3>
@@ -75,7 +75,7 @@
 //               {t.bio3}
 //             </p>
 //             <a
-//               className="inline-block border-none px-6 py-3 rounded-lg text-base sm:text-lg bg-gradient-to-r from-teal-600 to-teal-500 text-white hover:from-teal-500 hover:to-teal-400 shadow-lg hover:shadow-teal-500/50 transform hover:scale-105 transition-all duration-300 font-semibold"
+//               className="inline-block border-none px-6 py-3 rounded-lg text-base sm:text-lg bg-gradient-to-r from-teal-600 to-teal-500 text-white hover:from-teal-500 hover:to-teal-400 shadow-lg hover:shadow-teal-500/50 transition-all duration-300 font-semibold"
 //               href="https://wa.me/201036064417"
 //               target="_blank"
 //               rel="noopener noreferrer"
@@ -84,7 +84,7 @@
 //             </a>
 //           </div>
 
-//           <div className="bg-slate-800/50 backdrop-blur-sm rounded-2xl p-6 sm:p-8 lg:p-10 transition-all duration-300 hover:shadow-2xl hover:shadow-teal-500/10">
+//           <div className="bg-slate-800/50 rounded-2xl p-6 sm:p-8 lg:p-10 transition-all duration-300 hover:shadow-2xl hover:shadow-teal-500/10">
 //             <h3 className="text-2xl sm:text-3xl font-bold mb-8 text-teal-400">
 //               {t.skillsTitle}
 //             </h3>
@@ -92,7 +92,7 @@
 //               {skills.map((skill, idx) => (
 //                 <div
 //                   key={idx}
-//                   className="bg-gradient-to-br from-teal-600/20 to-teal-500/20 backdrop-blur-sm border border-teal-400/30 p-3 sm:p-4 rounded-lg text-center text-sm sm:text-base text-teal-300 font-medium hover:bg-teal-600/30 hover:border-teal-400/60 hover:scale-105 transform transition-all duration-300 cursor-default shadow-md hover:shadow-teal-500/20"
+//                   className="bg-gradient-to-br from-teal-600/20 to-teal-500/20 border border-teal-400/30 p-3 sm:p-4 rounded-lg text-center text-sm sm:text-base text-teal-300 font-medium hover:bg-teal-600/30 hover:border-teal-400/60 transform transition-all duration-300 cursor-default shadow-md hover:shadow-teal-500/20"
 //                   style={{ animationDelay: `${idx * 0.1}s` }}
 //                 >
 //                   {skill}
@@ -103,7 +103,7 @@
 //         </div>
 
 //         <div className="mb-12">
-//           <div className="bg-slate-800/50 backdrop-blur-sm rounded-2xl p-6 sm:p-8 lg:p-10 hover:shadow-2xl hover:shadow-teal-500/10 transition-all duration-300">
+//           <div className="bg-slate-800/50 rounded-2xl p-6 sm:p-8 lg:p-10 hover:shadow-2xl hover:shadow-teal-500/10 transition-all duration-300">
 //             <h3 className="text-2xl sm:text-3xl font-bold mb-3 text-teal-400">
 //               {t.faqTitle}
 //             </h3>
@@ -143,7 +143,7 @@
 //         </div>
 
 //         <div className="mb-12">
-//           <div className="bg-slate-800/50 backdrop-blur-sm rounded-2xl p-6 sm:p-8 lg:p-10 hover:shadow-2xl hover:shadow-teal-500/10 transition-all duration-300 relative overflow-hidden">
+//           <div className="bg-slate-800/50 rounded-2xl p-6 sm:p-8 lg:p-10 hover:shadow-2xl hover:shadow-teal-500/10 transition-all duration-300 relative overflow-hidden">
 //             <span
 //               className="absolute top-0 right-6 text-[100px] leading-none text-teal-400 opacity-5 font-serif pointer-events-none select-none rtl:right-auto rtl:left-6"
 //               aria-hidden="true"
@@ -160,7 +160,7 @@
 //         </div>
 
 //         <div>
-//           <div className="bg-gradient-to-br from-slate-800/80 to-slate-800/40 backdrop-blur-sm border border-teal-500/20 rounded-2xl p-8 sm:p-12 text-center hover:shadow-2xl hover:shadow-teal-500/10 transition-all duration-300 relative overflow-hidden">
+//           <div className="bg-gradient-to-br from-slate-800/80 to-slate-800/40 border border-teal-500/20 rounded-2xl p-8 sm:p-12 text-center hover:shadow-2xl hover:shadow-teal-500/10 transition-all duration-300 relative overflow-hidden">
 //             <div
 //               className="absolute inset-0 pointer-events-none"
 //               style={{
@@ -169,7 +169,7 @@
 //               }}
 //             />
 //             <div className="inline-flex items-center gap-2 bg-teal-500/10 border border-teal-500/30 text-teal-400 text-xs font-semibold tracking-widest uppercase px-4 py-2 rounded-full mb-6 relative">
-//               <span className="w-2 h-2 bg-teal-400 rounded-full animate-pulse" />
+//               <span className="w-2 h-2 bg-teal-400 rounded-full opacity-80" />
 //               {t.availableBadge}
 //             </div>
 //             <h3 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-4 relative">
@@ -184,7 +184,7 @@
 //                 href="https://wa.me/201036064417"
 //                 target="_blank"
 //                 rel="noopener noreferrer"
-//                 className="inline-block px-8 py-3 rounded-lg text-base sm:text-lg bg-gradient-to-r from-teal-600 to-teal-500 text-white hover:from-teal-500 hover:to-teal-400 shadow-lg hover:shadow-teal-500/50 transform hover:scale-105 transition-all duration-300 font-semibold"
+//                 className="inline-block px-8 py-3 rounded-lg text-base sm:text-lg bg-gradient-to-r from-teal-600 to-teal-500 text-white hover:from-teal-500 hover:to-teal-400 shadow-lg hover:shadow-teal-500/50 transition-all duration-300 font-semibold"
 //               >
 //                 {t.whatsapp}
 //               </a>
@@ -192,7 +192,7 @@
 //                 href="https://github.com/karim-99-99"
 //                 target="_blank"
 //                 rel="noopener noreferrer"
-//                 className="inline-block px-8 py-3 rounded-lg text-base sm:text-lg border border-teal-500/40 text-teal-400 hover:bg-teal-500/10 hover:border-teal-400 transform hover:scale-105 transition-all duration-300 font-semibold"
+//                 className="inline-block px-8 py-3 rounded-lg text-base sm:text-lg border border-teal-500/40 text-teal-400 hover:bg-teal-500/10 hover:border-teal-400 transition-all duration-300 font-semibold"
 //               >
 //                 {t.github}
 //               </a>
@@ -414,7 +414,7 @@ function About({ locale = "en" }) {
           {stats.map((s, i) => (
             <div
               key={i}
-              className="bg-slate-800/50 backdrop-blur-sm border border-teal-500/20 rounded-2xl p-5 text-center hover:shadow-2xl hover:shadow-teal-500/10 hover:border-teal-400/40 transition-all duration-300"
+              className="bg-slate-800/50 border border-teal-500/20 rounded-2xl p-5 text-center hover:shadow-2xl hover:shadow-teal-500/10 hover:border-teal-400/40 transition-all duration-300"
             >
               <div className="text-3xl sm:text-4xl font-bold text-teal-400 mb-1 leading-none">
                 {s.number}
@@ -430,7 +430,7 @@ function About({ locale = "en" }) {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 mb-12">
 
           {/* Left — Get To Know Me */}
-          <div className="bg-slate-800/50 backdrop-blur-sm rounded-2xl p-6 sm:p-8 lg:p-10 hover:shadow-2xl hover:shadow-teal-500/10">
+          <div className="bg-slate-800/50 rounded-2xl p-6 sm:p-8 lg:p-10 hover:shadow-2xl hover:shadow-teal-500/10">
             <h3 className="text-2xl sm:text-3xl font-bold mb-6 text-teal-400">
               Get To Know Me
             </h3>
@@ -495,7 +495,7 @@ function About({ locale = "en" }) {
             </p>
 
             <a
-              className="inline-block border-none px-6 py-3 rounded-lg text-base sm:text-lg bg-gradient-to-r from-teal-600 to-teal-500 text-white hover:from-teal-500 hover:to-teal-400 shadow-lg hover:shadow-teal-500/50 transform hover:scale-105 transition-all duration-300 font-semibold"
+              className="inline-block border-none px-6 py-3 rounded-lg text-base sm:text-lg bg-gradient-to-r from-teal-600 to-teal-500 text-white hover:from-teal-500 hover:to-teal-400 shadow-lg hover:shadow-teal-500/50 transition-all duration-300 font-semibold"
               href="https://wa.me/201036064417"
               target="_blank"
               rel="noopener noreferrer"
@@ -505,7 +505,7 @@ function About({ locale = "en" }) {
           </div>
 
           {/* Right — Skills */}
-          <div className="bg-slate-800/50 backdrop-blur-sm rounded-2xl p-6 sm:p-8 lg:p-10 hover:shadow-2xl hover:shadow-teal-500/10">
+          <div className="bg-slate-800/50 rounded-2xl p-6 sm:p-8 lg:p-10 hover:shadow-2xl hover:shadow-teal-500/10">
             <h3 className="text-2xl sm:text-3xl font-bold mb-8 text-teal-400">
               My Skills
             </h3>
@@ -514,7 +514,7 @@ function About({ locale = "en" }) {
               {skills.map((skill, idx) => (
                 <div
                   key={idx}
-                  className="bg-gradient-to-br from-teal-600/20 to-teal-500/20 backdrop-blur-sm border border-teal-400/30 p-3 sm:p-4 rounded-lg text-center text-sm sm:text-base text-teal-300 font-medium hover:bg-teal-600/30 hover:border-teal-400/60 hover:scale-105 transform transition-all duration-300 cursor-default shadow-md hover:shadow-teal-500/20"
+                  className="bg-gradient-to-br from-teal-600/20 to-teal-500/20 border border-teal-400/30 p-3 sm:p-4 rounded-lg text-center text-sm sm:text-base text-teal-300 font-medium hover:bg-teal-600/30 hover:border-teal-400/60 transform transition-all duration-300 cursor-default shadow-md hover:shadow-teal-500/20"
                   style={{ animationDelay: `${idx * 0.05}s` }}
                 >
                   {skill}
@@ -528,7 +528,7 @@ function About({ locale = "en" }) {
             ✅ E-E-A-T: Real work history with specific results
             ✅ LLM SEO: Companies, roles, achievements = citable */}
         <div className="mb-12">
-          <div className="bg-slate-800/50 backdrop-blur-sm rounded-2xl p-6 sm:p-8 lg:p-10 hover:shadow-2xl hover:shadow-teal-500/10 transition-all duration-300">
+          <div className="bg-slate-800/50 rounded-2xl p-6 sm:p-8 lg:p-10 hover:shadow-2xl hover:shadow-teal-500/10 transition-all duration-300">
             <h3 className="text-2xl sm:text-3xl font-bold mb-8 text-teal-400">
               Experience
             </h3>
@@ -575,7 +575,7 @@ function About({ locale = "en" }) {
 
         {/* ══ FAQ ═══════════════════════════════════════════════ */}
         <div className="mb-12">
-          <div className="bg-slate-800/50 backdrop-blur-sm rounded-2xl p-6 sm:p-8 lg:p-10 hover:shadow-2xl hover:shadow-teal-500/10 transition-all duration-300">
+          <div className="bg-slate-800/50 rounded-2xl p-6 sm:p-8 lg:p-10 hover:shadow-2xl hover:shadow-teal-500/10 transition-all duration-300">
             <h3 className="text-2xl sm:text-3xl font-bold mb-6 text-teal-400">
               Frequently Asked Questions
             </h3>
@@ -621,7 +621,7 @@ function About({ locale = "en" }) {
             ✅ LLM SEO: Third-person bio AI models cite directly
             ✅ E-E-A-T: Full credentials + links                */}
         <div className="mb-12">
-          <div className="bg-slate-800/50 backdrop-blur-sm rounded-2xl p-6 sm:p-8 lg:p-10 hover:shadow-2xl hover:shadow-teal-500/10 transition-all duration-300 relative overflow-hidden">
+          <div className="bg-slate-800/50 rounded-2xl p-6 sm:p-8 lg:p-10 hover:shadow-2xl hover:shadow-teal-500/10 transition-all duration-300 relative overflow-hidden">
             <span className="absolute top-0 right-6 text-[100px] leading-none text-teal-400 opacity-5 font-serif pointer-events-none select-none">
               "
             </span>
@@ -709,7 +709,7 @@ function About({ locale = "en" }) {
         {/* ══ CTA ══════════════════════════════════════════════
             ✅ AEO: Direct answer to "Is Karim available?"     */}
         <div>
-          <div className="bg-gradient-to-br from-slate-800/80 to-slate-800/40 backdrop-blur-sm border border-teal-500/20 rounded-2xl p-8 sm:p-12 text-center hover:shadow-2xl hover:shadow-teal-500/10 transition-all duration-300 relative overflow-hidden">
+          <div className="bg-gradient-to-br from-slate-800/80 to-slate-800/40 border border-teal-500/20 rounded-2xl p-8 sm:p-12 text-center hover:shadow-2xl hover:shadow-teal-500/10 transition-all duration-300 relative overflow-hidden">
             <div
               className="absolute inset-0 pointer-events-none"
               style={{
@@ -718,7 +718,7 @@ function About({ locale = "en" }) {
               }}
             />
             <div className="inline-flex items-center gap-2 bg-teal-500/10 border border-teal-500/30 text-teal-400 text-xs font-semibold tracking-widest uppercase px-4 py-2 rounded-full mb-6 relative">
-              <span className="w-2 h-2 bg-teal-400 rounded-full animate-pulse" />
+              <span className="w-2 h-2 bg-teal-400 rounded-full opacity-80" />
               Available for Work
             </div>
             <h3 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-4 relative">
@@ -742,13 +742,13 @@ function About({ locale = "en" }) {
                 href="https://wa.me/201036064417"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-block px-8 py-3 rounded-lg text-base sm:text-lg bg-gradient-to-r from-teal-600 to-teal-500 text-white hover:from-teal-500 hover:to-teal-400 shadow-lg hover:shadow-teal-500/50 transform hover:scale-105 transition-all duration-300 font-semibold"
+                className="inline-block px-8 py-3 rounded-lg text-base sm:text-lg bg-gradient-to-r from-teal-600 to-teal-500 text-white hover:from-teal-500 hover:to-teal-400 shadow-lg hover:shadow-teal-500/50 transition-all duration-300 font-semibold"
               >
                 Contact Me on WhatsApp
               </a>
               <a
                 href="mailto:kareemkhamis2030@gmail.com"
-                className="inline-block px-8 py-3 rounded-lg text-base sm:text-lg border border-teal-500/40 text-teal-400 hover:bg-teal-500/10 hover:border-teal-400 transform hover:scale-105 transition-all duration-300 font-semibold"
+                className="inline-block px-8 py-3 rounded-lg text-base sm:text-lg border border-teal-500/40 text-teal-400 hover:bg-teal-500/10 hover:border-teal-400 transition-all duration-300 font-semibold"
               >
                 Send Email
               </a>
