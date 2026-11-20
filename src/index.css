@@ -3,59 +3,27 @@
 @tailwind utilities;
 
 @layer base {
-  body {
-    @apply bg-gray-900;
-    scroll-behavior: smooth;
+  html {
+    scroll-behavior: auto;
   }
 
-  * {
-    @apply transition-colors duration-200;
+  body {
+    @apply bg-gray-900 text-white;
+    /* Avoid GPU layer thrash that blanks content on mobile scroll */
+    overflow-x: hidden;
+  }
+
+  img,
+  video {
+    content-visibility: visible;
   }
 }
 
 @layer utilities {
-  /* Smooth video fade transitions */
-  video {
-    transition: opacity 0.6s ease-in-out;
-  }
-
-  /* Custom animations for video cards */
-  @keyframes fadeIn {
-    from {
-      opacity: 0;
-      transform: translateY(20px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-
-  .video-card-enter {
-    animation: fadeIn 0.5s ease-out;
-  }
-
-  /* Smooth scale animation */
-  @keyframes scaleIn {
-    from {
-      transform: scale(0.95);
-      opacity: 0;
-    }
-    to {
-      transform: scale(1);
-      opacity: 1;
-    }
-  }
-
-  .scale-in {
-    animation: scaleIn 0.4s ease-out;
-  }
-
-  /* Slide down animation for mobile menu */
   @keyframes slideDown {
     from {
       opacity: 0;
-      transform: translateY(-20px);
+      transform: translateY(-8px);
     }
     to {
       opacity: 1;
@@ -64,61 +32,9 @@
   }
 
   .animate-slideDown {
-    animation: slideDown 0.3s ease-out;
+    animation: slideDown 0.15s ease-out;
   }
 
-  /* Pulsing circle animations for dynamic effects */
-  @keyframes pulse-slow {
-    0%, 100% {
-      transform: translate(-50%, -50%) scale(1);
-      opacity: 0.3;
-    }
-    50% {
-      transform: translate(-50%, -50%) scale(1.1);
-      opacity: 0.6;
-    }
-  }
-
-  @keyframes pulse-slower {
-    0%, 100% {
-      transform: translate(-50%, -50%) scale(1);
-      opacity: 0.2;
-    }
-    50% {
-      transform: translate(-50%, -50%) scale(1.15);
-      opacity: 0.4;
-    }
-  }
-
-  @keyframes pulse-slowest {
-    0%, 100% {
-      transform: translate(-50%, -50%) scale(1);
-      opacity: 0.1;
-    }
-    50% {
-      transform: translate(-50%, -50%) scale(1.2);
-      opacity: 0.3;
-    }
-  }
-
-  .animate-pulse-slow {
-    animation: pulse-slow 3s ease-in-out infinite;
-  }
-
-  .animate-pulse-slower {
-    animation: pulse-slower 4s ease-in-out infinite;
-  }
-
-  .animate-pulse-slowest {
-    animation: pulse-slowest 5s ease-in-out infinite;
-  }
-
-  /* Smooth scroll behavior */
-  html {
-    scroll-behavior: smooth;
-  }
-
-  /* Custom scrollbar */
   ::-webkit-scrollbar {
     width: 10px;
   }
@@ -133,5 +49,15 @@
 
   ::-webkit-scrollbar-thumb:hover {
     @apply bg-teal-400;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
   }
 }
