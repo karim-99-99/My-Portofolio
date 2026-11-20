@@ -67,7 +67,7 @@ function ContactForm({ locale }) {
     return (
       <div className="min-h-screen flex items-center justify-center px-4 py-20">
         <div className="text-center text-white max-w-2xl mx-auto">
-          <div className="bg-gradient-to-br from-teal-600/20 to-teal-500/20 backdrop-blur-md p-8 sm:p-12 rounded-2xl shadow-2xl">
+          <div className="bg-gradient-to-br from-teal-600/20 to-teal-500/20 p-8 sm:p-12 rounded-2xl shadow-2xl">
             <div className="mb-6">
               <svg
                 className="w-16 h-16 sm:w-20 sm:h-20 mx-auto text-teal-400"
@@ -113,7 +113,7 @@ function ContactForm({ locale }) {
         </div>
 
         {/* Form Container */}
-        <div className="bg-slate-800/50 backdrop-blur-sm rounded-2xl p-6 sm:p-8 lg:p-10 shadow-2xl">
+        <div className="bg-slate-800/50 rounded-2xl p-6 sm:p-8 lg:p-10 shadow-2xl">
           {/* Email Field */}
           <div className="mb-6 sm:mb-8">
             <label
@@ -161,7 +161,7 @@ function ContactForm({ locale }) {
           <button
             type="submit"
             disabled={formState.submitting}
-            className="w-full sm:w-auto px-8 sm:px-10 py-3 sm:py-4 rounded-lg text-base sm:text-lg bg-gradient-to-r from-teal-600 to-teal-500 text-white hover:from-teal-500 hover:to-teal-400 shadow-lg hover:shadow-teal-500/50 transform hover:scale-105 transition-all duration-300 font-semibold disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100"
+            className="w-full sm:w-auto px-8 sm:px-10 py-3 sm:py-4 rounded-lg text-base sm:text-lg bg-gradient-to-r from-teal-600 to-teal-500 text-white hover:from-teal-500 hover:to-teal-400 shadow-lg hover:shadow-teal-500/50 transition-all duration-300 font-semibold disabled:opacity-50 disabled:cursor-not-allowed"
           >
             {formState.submitting ? (
               <span className="flex items-center justify-center gap-2">
@@ -203,7 +203,7 @@ function ContactForm({ locale }) {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label={t.ariaGitHub}
-                className="flex items-center justify-center w-12 h-12 sm:w-14 sm:h-14 rounded-full border border-teal-400/40 bg-slate-700/50 text-teal-300 hover:text-white hover:bg-teal-500/20 hover:border-teal-400 hover:scale-110 transition-all duration-300"
+                className="flex items-center justify-center w-12 h-12 sm:w-14 sm:h-14 rounded-full border border-teal-400/40 bg-slate-700/50 text-teal-300 hover:text-white hover:bg-teal-500/20 hover:border-teal-400 transition-all duration-300"
               >
                 <Github className="w-6 h-6 sm:w-7 sm:h-7" aria-hidden="true" />
               </a>
@@ -212,7 +212,7 @@ function ContactForm({ locale }) {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label={t.ariaLinkedIn}
-                className="flex items-center justify-center w-12 h-12 sm:w-14 sm:h-14 rounded-full border border-teal-400/40 bg-slate-700/50 text-teal-300 hover:text-white hover:bg-teal-500/20 hover:border-teal-400 hover:scale-110 transition-all duration-300"
+                className="flex items-center justify-center w-12 h-12 sm:w-14 sm:h-14 rounded-full border border-teal-400/40 bg-slate-700/50 text-teal-300 hover:text-white hover:bg-teal-500/20 hover:border-teal-400 transition-all duration-300"
               >
                 <Linkedin className="w-6 h-6 sm:w-7 sm:h-7" aria-hidden="true" />
               </a>
@@ -224,7 +224,7 @@ function ContactForm({ locale }) {
               href="https://wa.me/201036064417"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center justify-center gap-3 w-full sm:w-auto mx-auto px-8 sm:px-10 py-3 sm:py-4 rounded-lg text-base sm:text-lg bg-gradient-to-r from-green-600 to-green-500 text-white hover:from-green-500 hover:to-green-400 shadow-lg hover:shadow-green-500/50 transform hover:scale-105 transition-all duration-300 font-semibold"
+              className="flex items-center justify-center gap-3 w-full sm:w-auto mx-auto px-8 sm:px-10 py-3 sm:py-4 rounded-lg text-base sm:text-lg bg-gradient-to-r from-green-600 to-green-500 text-white hover:from-green-500 hover:to-green-400 shadow-lg hover:shadow-green-500/50 transition-all duration-300 font-semibold"
             >
               <svg
                 className="w-5 h-5 sm:w-6 sm:h-6"

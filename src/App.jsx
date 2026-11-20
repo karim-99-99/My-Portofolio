@@ -16,7 +16,7 @@ function App({ locale }) {
   }, []);
 
   return (
-    <div className="min-h-screen bg-gray-900 transition-colors duration-200 relative">
+    <div className="min-h-screen bg-gray-900 relative">
       <AnimatedSpadeBackground />
       <section id="home" className="relative z-10">
         <Home locale={locale} />
@@ -30,7 +30,6 @@ function App({ locale }) {
       <section id="contact" className="relative z-10">
         <ContactForm locale={locale} />
       </section>
-      <div className="spotlight-overlay"></div>
     </div>
   );
 }
