@@ -5,18 +5,19 @@ const ProjectCard = ({ project, onClick }) => {
   return (
     <div
       onClick={() => onClick(project)}
-      className="relative bg-slate-800 border border-slate-700/60 rounded-2xl overflow-hidden hover:border-teal-500/40 hover:shadow-xl hover:shadow-teal-500/10 group cursor-pointer"
+      className="relative bg-slate-800 border border-slate-700 rounded-2xl overflow-hidden hover:border-teal-500/50 cursor-pointer"
     >
       <div className="relative w-full aspect-video bg-slate-900 overflow-hidden">
         <img
           src={project.poster}
           alt={project.title}
-          loading="lazy"
-          decoding="async"
-          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+          loading="eager"
+          decoding="sync"
+          fetchPriority="high"
+          className="w-full h-full object-cover"
         />
-        <div className="absolute inset-0 flex items-center justify-center bg-black/30 group-hover:bg-black/20 transition-colors duration-200">
-          <div className="w-14 h-14 rounded-full bg-teal-500/90 flex items-center justify-center group-hover:bg-teal-400 transition-colors duration-200">
+        <div className="absolute inset-0 flex items-center justify-center bg-black/30">
+          <div className="w-14 h-14 rounded-full bg-teal-500 flex items-center justify-center">
             <svg
               className="w-7 h-7 text-white ml-1 rtl:ml-0 rtl:mr-1"
               fill="currentColor"
@@ -30,7 +31,7 @@ const ProjectCard = ({ project, onClick }) => {
       </div>
 
       <div className="relative p-6 sm:p-8">
-        <h3 className="text-xl sm:text-2xl font-bold mb-3 text-teal-400 group-hover:text-teal-300 transition-colors duration-200">
+        <h3 className="text-xl sm:text-2xl font-bold mb-3 text-teal-400">
           {project.title}
         </h3>
         <p className="text-sm sm:text-base text-gray-300 leading-relaxed line-clamp-2">

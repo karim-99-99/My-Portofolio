@@ -40,8 +40,8 @@ function Home({ locale }) {
   }, [isOpen]);
 
   return (
-    <div className="min-h-[87.5vh] sm:min-h-screen h-full text-white relative overflow-hidden">
-      <div className="relative z-10 justify-center w-full">
+    <div className="min-h-[87.5vh] sm:min-h-screen h-full text-white">
+      <div className="justify-center w-full">
         <nav className="flex justify-between items-center py-4 sm:py-6 mt-4 sm:mt-5 gap-2">
           <div className="flex items-center gap-3 min-w-0">
             <img

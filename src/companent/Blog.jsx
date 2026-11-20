@@ -11,7 +11,7 @@ function BlogCard({ post }) {
   return (
     <div>
       <Link to={`/blog/${post.slug}`} className="block group">
-        <article className="bg-slate-800 border border-teal-500/10 rounded-2xl p-6 hover:border-teal-400/30 hover:shadow-2xl hover:shadow-teal-500/10 transition-all duration-300 h-full">
+        <article className="bg-slate-800 border border-teal-500/10 rounded-2xl p-6 hover:border-teal-400/30 h-full">
           {/* Category + Read time */}
           <div className="flex items-center justify-between mb-4">
             <span className="text-xs font-semibold px-3 py-1 rounded-full bg-teal-500/10 border border-teal-500/20 text-teal-400">
@@ -82,7 +82,7 @@ function Blog() {
       {/* Featured Post */}
       {featured && (
         <Link to={`/blog/${featured.slug}`} className="block group mb-12">
-          <article className="bg-slate-800 border border-teal-500/30 rounded-2xl p-8 hover:border-teal-400/50 hover:shadow-2xl hover:shadow-teal-500/15 transition-all duration-300">
+          <article className="bg-slate-800 border border-teal-500/30 rounded-2xl p-8 hover:border-teal-400/50">
             <div className="flex items-center gap-3 mb-4">
               <span className="text-xs font-bold px-3 py-1 rounded-full bg-teal-500/20 border border-teal-400/40 text-teal-300 tracking-wider uppercase">
                 Featured
@@ -118,7 +118,7 @@ function Blog() {
           <button
             key={cat}
             onClick={() => setActiveCategory(cat)}
-            className={`px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 ${
+            className={`px-4 py-2 rounded-lg text-sm font-medium ${
               activeCategory === cat
                 ? "bg-teal-500/20 border border-teal-400/60 text-teal-300"
                 : "bg-slate-800/50 border border-slate-700/50 text-gray-400 hover:text-gray-200 hover:border-slate-600"
@@ -146,7 +146,7 @@ function Blog() {
             href="https://wa.me/201036064417"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-block px-6 py-3 bg-gradient-to-r from-teal-600 to-teal-500 text-white rounded-lg font-semibold hover:from-teal-500 hover:to-teal-400 transition-all duration-300"
+            className="inline-block px-6 py-3 bg-gradient-to-r from-teal-600 to-teal-500 text-white rounded-lg font-semibold hover:from-teal-500 hover:to-teal-400"
           >
             Get in Touch
           </a>

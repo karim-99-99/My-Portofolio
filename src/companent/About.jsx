@@ -50,7 +50,7 @@
 //           {stats.map((s, i) => (
 //             <div
 //               key={i}
-//               className="bg-slate-800 border border-teal-500/20 rounded-2xl p-5 text-center hover:shadow-2xl hover:shadow-teal-500/10 hover:border-teal-400/40 transition-all duration-300"
+//               className="bg-slate-800 border border-teal-500/20 rounded-2xl p-5 text-center hover:border-teal-400/40"
 //             >
 //               <div className="text-3xl sm:text-4xl font-bold text-teal-400 mb-1">
 //                 {s.number}
@@ -61,7 +61,7 @@
 //         </div>
 
 //         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 mb-12">
-//           <div className="bg-slate-800 rounded-2xl p-6 sm:p-8 lg:p-10 transition-all duration-300 hover:shadow-2xl hover:shadow-teal-500/10">
+//           <div className="bg-slate-800 rounded-2xl p-6 sm:p-8 lg:p-10">
 //             <h3 className="text-2xl sm:text-3xl font-bold mb-6 text-teal-400">
 //               {t.getToKnow}
 //             </h3>
@@ -75,7 +75,7 @@
 //               {t.bio3}
 //             </p>
 //             <a
-//               className="inline-block border-none px-6 py-3 rounded-lg text-base sm:text-lg bg-gradient-to-r from-teal-600 to-teal-500 text-white hover:from-teal-500 hover:to-teal-400 shadow-lg hover:shadow-teal-500/50 transform hover:scale-105 transition-all duration-300 font-semibold"
+//               className="inline-block border-none px-6 py-3 rounded-lg text-base sm:text-lg bg-gradient-to-r from-teal-600 to-teal-500 text-white hover:from-teal-500 hover:to-teal-400 shadow-lg font-semibold"
 //               href="https://wa.me/201036064417"
 //               target="_blank"
 //               rel="noopener noreferrer"
@@ -84,7 +84,7 @@
 //             </a>
 //           </div>
 
-//           <div className="bg-slate-800 rounded-2xl p-6 sm:p-8 lg:p-10 transition-all duration-300 hover:shadow-2xl hover:shadow-teal-500/10">
+//           <div className="bg-slate-800 rounded-2xl p-6 sm:p-8 lg:p-10">
 //             <h3 className="text-2xl sm:text-3xl font-bold mb-8 text-teal-400">
 //               {t.skillsTitle}
 //             </h3>
@@ -92,7 +92,7 @@
 //               {skills.map((skill, idx) => (
 //                 <div
 //                   key={idx}
-//                   className="bg-teal-900/40 border border-teal-400/30 p-3 sm:p-4 rounded-lg text-center text-sm sm:text-base text-teal-300 font-medium hover:bg-teal-600/30 hover:border-teal-400/60 hover:scale-105 transform transition-all duration-300 cursor-default shadow-md hover:shadow-teal-500/20"
+//                   className="bg-teal-900/40 border border-teal-400/30 p-3 sm:p-4 rounded-lg text-center text-sm sm:text-base text-teal-300 font-medium hover:bg-teal-600/30 hover:border-teal-400/60 transform cursor-default shadow-md"
 //                   style={{ animationDelay: `${idx * 0.1}s` }}
 //                 >
 //                   {skill}
@@ -103,7 +103,7 @@
 //         </div>
 
 //         <div className="mb-12">
-//           <div className="bg-slate-800 rounded-2xl p-6 sm:p-8 lg:p-10 hover:shadow-2xl hover:shadow-teal-500/10 transition-all duration-300">
+//           <div className="bg-slate-800 rounded-2xl p-6 sm:p-8 lg:p-10">
 //             <h3 className="text-2xl sm:text-3xl font-bold mb-3 text-teal-400">
 //               {t.faqTitle}
 //             </h3>
@@ -119,7 +119,7 @@
 //                     <span className="text-sm sm:text-base font-semibold text-white group-hover:text-teal-400 transition-colors duration-200">
 //                       {faq.q}
 //                     </span>
-//                     <span className="w-7 h-7 rounded-full border border-slate-600 flex items-center justify-center text-gray-400 group-hover:border-teal-400 group-hover:text-teal-400 transition-all duration-200 shrink-0 text-lg mt-0.5">
+//                     <span className="w-7 h-7 rounded-full border border-slate-600 flex items-center justify-center text-gray-400 group-hover:border-teal-400 group-hover:text-teal-400 shrink-0 text-lg mt-0.5">
 //                       {activeFaq === i ? "−" : "+"}
 //                     </span>
 //                   </button>
@@ -143,7 +143,7 @@
 //         </div>
 
 //         <div className="mb-12">
-//           <div className="bg-slate-800 rounded-2xl p-6 sm:p-8 lg:p-10 hover:shadow-2xl hover:shadow-teal-500/10 transition-all duration-300 relative overflow-hidden">
+//           <div className="bg-slate-800 rounded-2xl p-6 sm:p-8 lg:p-10 relative overflow-hidden">
 //             <span
 //               className="absolute top-0 right-6 text-[100px] leading-none text-teal-400 opacity-5 font-serif pointer-events-none select-none rtl:right-auto rtl:left-6"
 //               aria-hidden="true"
@@ -160,7 +160,7 @@
 //         </div>
 
 //         <div>
-//           <div className="bg-slate-800 border border-teal-500/20 rounded-2xl p-8 sm:p-12 text-center hover:shadow-2xl hover:shadow-teal-500/10 transition-all duration-300 relative overflow-hidden">
+//           <div className="bg-slate-800 border border-teal-500/20 rounded-2xl p-8 sm:p-12 text-center relative overflow-hidden">
 //             <div
 //               className="absolute inset-0 pointer-events-none"
 //               style={{
@@ -184,7 +184,7 @@
 //                 href="https://wa.me/201036064417"
 //                 target="_blank"
 //                 rel="noopener noreferrer"
-//                 className="inline-block px-8 py-3 rounded-lg text-base sm:text-lg bg-gradient-to-r from-teal-600 to-teal-500 text-white hover:from-teal-500 hover:to-teal-400 shadow-lg hover:shadow-teal-500/50 transform hover:scale-105 transition-all duration-300 font-semibold"
+//                 className="inline-block px-8 py-3 rounded-lg text-base sm:text-lg bg-gradient-to-r from-teal-600 to-teal-500 text-white hover:from-teal-500 hover:to-teal-400 shadow-lg font-semibold"
 //               >
 //                 {t.whatsapp}
 //               </a>
@@ -192,7 +192,7 @@
 //                 href="https://github.com/karim-99-99"
 //                 target="_blank"
 //                 rel="noopener noreferrer"
-//                 className="inline-block px-8 py-3 rounded-lg text-base sm:text-lg border border-teal-500/40 text-teal-400 hover:bg-teal-500/10 hover:border-teal-400 transform hover:scale-105 transition-all duration-300 font-semibold"
+//                 className="inline-block px-8 py-3 rounded-lg text-base sm:text-lg border border-teal-500/40 text-teal-400 hover:bg-teal-500/10 hover:border-teal-400 font-semibold"
 //               >
 //                 {t.github}
 //               </a>
@@ -414,7 +414,7 @@ function About({ locale = "en" }) {
           {stats.map((s, i) => (
             <div
               key={i}
-              className="bg-slate-800 border border-teal-500/20 rounded-2xl p-5 text-center hover:shadow-2xl hover:shadow-teal-500/10 hover:border-teal-400/40 transition-all duration-300"
+              className="bg-slate-800 border border-teal-500/20 rounded-2xl p-5 text-center hover:border-teal-400/40"
             >
               <div className="text-3xl sm:text-4xl font-bold text-teal-400 mb-1 leading-none">
                 {s.number}
@@ -430,7 +430,7 @@ function About({ locale = "en" }) {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 mb-12">
 
           {/* Left — Get To Know Me */}
-          <div className="bg-slate-800 rounded-2xl p-6 sm:p-8 lg:p-10 hover:shadow-2xl hover:shadow-teal-500/10">
+          <div className="bg-slate-800 rounded-2xl p-6 sm:p-8 lg:p-10">
             <h3 className="text-2xl sm:text-3xl font-bold mb-6 text-teal-400">
               Get To Know Me
             </h3>
@@ -495,7 +495,7 @@ function About({ locale = "en" }) {
             </p>
 
             <a
-              className="inline-block border-none px-6 py-3 rounded-lg text-base sm:text-lg bg-gradient-to-r from-teal-600 to-teal-500 text-white hover:from-teal-500 hover:to-teal-400 shadow-lg hover:shadow-teal-500/50 transform hover:scale-105 transition-all duration-300 font-semibold"
+              className="inline-block border-none px-6 py-3 rounded-lg text-base sm:text-lg bg-gradient-to-r from-teal-600 to-teal-500 text-white hover:from-teal-500 hover:to-teal-400 shadow-lg font-semibold"
               href="https://wa.me/201036064417"
               target="_blank"
               rel="noopener noreferrer"
@@ -505,7 +505,7 @@ function About({ locale = "en" }) {
           </div>
 
           {/* Right — Skills */}
-          <div className="bg-slate-800 rounded-2xl p-6 sm:p-8 lg:p-10 hover:shadow-2xl hover:shadow-teal-500/10">
+          <div className="bg-slate-800 rounded-2xl p-6 sm:p-8 lg:p-10">
             <h3 className="text-2xl sm:text-3xl font-bold mb-8 text-teal-400">
               My Skills
             </h3>
@@ -527,7 +527,7 @@ function About({ locale = "en" }) {
             ✅ E-E-A-T: Real work history with specific results
             ✅ LLM SEO: Companies, roles, achievements = citable */}
         <div className="mb-12">
-          <div className="bg-slate-800 rounded-2xl p-6 sm:p-8 lg:p-10 hover:shadow-2xl hover:shadow-teal-500/10 transition-all duration-300">
+          <div className="bg-slate-800 rounded-2xl p-6 sm:p-8 lg:p-10">
             <h3 className="text-2xl sm:text-3xl font-bold mb-8 text-teal-400">
               Experience
             </h3>
@@ -538,7 +538,7 @@ function About({ locale = "en" }) {
                 <button
                   key={i}
                   onClick={() => setActiveExp(i)}
-                  className={`text-xs sm:text-sm px-4 py-2 rounded-lg font-medium transition-all duration-200 ${
+                  className={`text-xs sm:text-sm px-4 py-2 rounded-lg font-medium ${
                     activeExp === i
                       ? "bg-teal-500/20 border border-teal-400/60 text-teal-300"
                       : "bg-slate-700/50 border border-slate-600/50 text-gray-400 hover:text-gray-200"
@@ -574,7 +574,7 @@ function About({ locale = "en" }) {
 
         {/* ══ FAQ ═══════════════════════════════════════════════ */}
         <div className="mb-12">
-          <div className="bg-slate-800 rounded-2xl p-6 sm:p-8 lg:p-10 hover:shadow-2xl hover:shadow-teal-500/10 transition-all duration-300">
+          <div className="bg-slate-800 rounded-2xl p-6 sm:p-8 lg:p-10">
             <h3 className="text-2xl sm:text-3xl font-bold mb-6 text-teal-400">
               Frequently Asked Questions
             </h3>
@@ -591,7 +591,7 @@ function About({ locale = "en" }) {
                     <span className="text-sm sm:text-base font-semibold text-white group-hover:text-teal-400 transition-colors duration-200">
                       {faq.q}
                     </span>
-                    <span className="w-7 h-7 rounded-full border border-slate-600 flex items-center justify-center text-gray-400 group-hover:border-teal-400 group-hover:text-teal-400 transition-all duration-200 flex-shrink-0 text-lg mt-0.5">
+                    <span className="w-7 h-7 rounded-full border border-slate-600 flex items-center justify-center text-gray-400 group-hover:border-teal-400 group-hover:text-teal-400 flex-shrink-0 text-lg mt-0.5">
                       {activeFaq === i ? "−" : "+"}
                     </span>
                   </button>
@@ -620,7 +620,7 @@ function About({ locale = "en" }) {
             ✅ LLM SEO: Third-person bio AI models cite directly
             ✅ E-E-A-T: Full credentials + links                */}
         <div className="mb-12">
-          <div className="bg-slate-800 rounded-2xl p-6 sm:p-8 lg:p-10 hover:shadow-2xl hover:shadow-teal-500/10 transition-all duration-300 relative overflow-hidden">
+          <div className="bg-slate-800 rounded-2xl p-6 sm:p-8 lg:p-10 relative overflow-hidden">
             <span className="absolute top-0 right-6 text-[100px] leading-none text-teal-400 opacity-5 font-serif pointer-events-none select-none">
               "
             </span>
@@ -656,7 +656,7 @@ function About({ locale = "en" }) {
               to="/blog"
               hrefLang="en"
               lang="en"
-              className="inline-flex items-center justify-center w-full sm:w-auto mb-6 px-6 py-3 rounded-lg text-base font-semibold bg-gradient-to-r from-teal-600/90 to-teal-500/90 text-white border border-teal-400/30 hover:from-teal-500 hover:to-teal-400 shadow-lg hover:shadow-teal-500/40 transition-all duration-300"
+              className="inline-flex items-center justify-center w-full sm:w-auto mb-6 px-6 py-3 rounded-lg text-base font-semibold bg-gradient-to-r from-teal-600/90 to-teal-500/90 text-white border border-teal-400/30 hover:from-teal-500 hover:to-teal-400 shadow-lg"
             >
               {t.blogCta}
             </Link>
@@ -665,7 +665,7 @@ function About({ locale = "en" }) {
                 href="https://github.com/karim-99-99"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-sm border border-teal-500/30 text-teal-400 hover:bg-teal-500/10 hover:border-teal-400/60 px-5 py-2.5 rounded-lg transition-all duration-300"
+                className="text-sm border border-teal-500/30 text-teal-400 hover:bg-teal-500/10 hover:border-teal-400/60 px-5 py-2.5 rounded-lg"
               >
                 GitHub
               </a>
@@ -673,7 +673,7 @@ function About({ locale = "en" }) {
                 href="https://www.linkedin.com/in/kareem-khamis-software-engineer/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-sm border border-teal-500/30 text-teal-400 hover:bg-teal-500/10 hover:border-teal-400/60 px-5 py-2.5 rounded-lg transition-all duration-300"
+                className="text-sm border border-teal-500/30 text-teal-400 hover:bg-teal-500/10 hover:border-teal-400/60 px-5 py-2.5 rounded-lg"
               >
                 LinkedIn
               </a>
@@ -681,7 +681,7 @@ function About({ locale = "en" }) {
                 href="https://ai-lab-alpha-five.vercel.app"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-sm border border-teal-500/30 text-teal-400 hover:bg-teal-500/10 hover:border-teal-400/60 px-5 py-2.5 rounded-lg transition-all duration-300"
+                className="text-sm border border-teal-500/30 text-teal-400 hover:bg-teal-500/10 hover:border-teal-400/60 px-5 py-2.5 rounded-lg"
               >
                 AI Lab (live)
               </a>
@@ -689,7 +689,7 @@ function About({ locale = "en" }) {
                 href="https://qodrateman.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-sm border border-teal-500/30 text-teal-400 hover:bg-teal-500/10 hover:border-teal-400/60 px-5 py-2.5 rounded-lg transition-all duration-300"
+                className="text-sm border border-teal-500/30 text-teal-400 hover:bg-teal-500/10 hover:border-teal-400/60 px-5 py-2.5 rounded-lg"
               >
                 Qodrateman
               </a>
@@ -697,7 +697,7 @@ function About({ locale = "en" }) {
                 href="https://wa.me/201036064417"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-sm bg-gradient-to-r from-teal-600 to-teal-500 text-white hover:from-teal-500 hover:to-teal-400 shadow-lg hover:shadow-teal-500/50 px-5 py-2.5 rounded-lg transition-all duration-300 font-semibold"
+                className="text-sm bg-gradient-to-r from-teal-600 to-teal-500 text-white hover:from-teal-500 hover:to-teal-400 shadow-lg px-5 py-2.5 rounded-lg font-semibold"
               >
                 Hire Me
               </a>
@@ -708,7 +708,7 @@ function About({ locale = "en" }) {
         {/* ══ CTA ══════════════════════════════════════════════
             ✅ AEO: Direct answer to "Is Karim available?"     */}
         <div>
-          <div className="bg-slate-800 border border-teal-500/20 rounded-2xl p-8 sm:p-12 text-center hover:shadow-2xl hover:shadow-teal-500/10 transition-all duration-300 relative overflow-hidden">
+          <div className="bg-slate-800 border border-teal-500/20 rounded-2xl p-8 sm:p-12 text-center relative overflow-hidden">
             <div
               className="absolute inset-0 pointer-events-none"
               style={{
@@ -741,13 +741,13 @@ function About({ locale = "en" }) {
                 href="https://wa.me/201036064417"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-block px-8 py-3 rounded-lg text-base sm:text-lg bg-gradient-to-r from-teal-600 to-teal-500 text-white hover:from-teal-500 hover:to-teal-400 shadow-lg hover:shadow-teal-500/50 transform hover:scale-105 transition-all duration-300 font-semibold"
+                className="inline-block px-8 py-3 rounded-lg text-base sm:text-lg bg-gradient-to-r from-teal-600 to-teal-500 text-white hover:from-teal-500 hover:to-teal-400 shadow-lg font-semibold"
               >
                 Contact Me on WhatsApp
               </a>
               <a
                 href="mailto:kareemkhamis2030@gmail.com"
-                className="inline-block px-8 py-3 rounded-lg text-base sm:text-lg border border-teal-500/40 text-teal-400 hover:bg-teal-500/10 hover:border-teal-400 transform hover:scale-105 transition-all duration-300 font-semibold"
+                className="inline-block px-8 py-3 rounded-lg text-base sm:text-lg border border-teal-500/40 text-teal-400 hover:bg-teal-500/10 hover:border-teal-400 font-semibold"
               >
                 Send Email
               </a>
