@@ -7,7 +7,7 @@
     scroll-behavior: auto;
   }
 
-  @media (prefers-reduced-motion: no-preference) {
+  @media (prefers-reduced-motion: no-preference) and (min-width: 768px) {
     html {
       scroll-behavior: smooth;
     }
@@ -15,6 +15,13 @@
 
   body {
     @apply bg-gray-900;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  img,
+  video {
+    max-width: 100%;
+    height: auto;
   }
 }
 

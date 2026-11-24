@@ -16,7 +16,7 @@ const projectIds = [
 const projectMedia = {
   aiLab: {
     video: "/ai-lab.mp4",
-    poster: "/ai-lab-poster.png",
+    poster: "/ai-lab-poster.jpg",
     technologies: [
       "Next.js 16",
       "TypeScript",
@@ -56,7 +56,7 @@ const projectMedia = {
   },
   youbloom: {
     video: "/youbloom project.mp4",
-    poster: "/youbloom project-poster.png",
+    poster: "/youbloom project-poster.jpg",
     technologies: ["React.js", "Tailwind CSS", "JavaScript", "RESTful APIs"],
     websiteLink: "https://youbloom-project.vercel.app/login",
     githubLink: "https://github.com/karim-99-99/youbloom_project",

@@ -1,7 +1,9 @@
 import React, { useEffect, useRef, useState } from "react";
 import { getProjectsForLocale, getTranslation } from "../i18n/translations";
 
-const ProjectCard = ({ project, onClick }) => {
+const MOBILE_PAGE_SIZE = 3;
+
+const ProjectCard = ({ project, onClick, priority = false }) => {
   return (
     <button
       type="button"
@@ -12,8 +14,11 @@ const ProjectCard = ({ project, onClick }) => {
         <img
           src={project.poster}
           alt=""
-          loading="lazy"
+          width={640}
+          height={360}
+          loading={priority ? "eager" : "lazy"}
           decoding="async"
+          fetchPriority={priority ? "high" : "low"}
           className="w-full h-full object-cover"
         />
         <div className="absolute inset-0 flex items-center justify-center bg-black/35 group-hover:bg-black/20 transition-colors duration-200">
@@ -42,11 +47,31 @@ const ProjectCard = ({ project, onClick }) => {
   );
 };
 
+function isPhoneViewport() {
+  return (
+    typeof window !== "undefined" &&
+    window.matchMedia("(max-width: 767px)").matches
+  );
+}
+
 function Project2({ locale }) {
   const t = getTranslation(locale).projects;
   const projects = getProjectsForLocale(locale);
   const [selectedProject, setSelectedProject] = useState(null);
+  const [visibleCount, setVisibleCount] = useState(() =>
+    isPhoneViewport() ? MOBILE_PAGE_SIZE : projects.length
+  );
   const videoRef = useRef(null);
+
+  useEffect(() => {
+    const mq = window.matchMedia("(max-width: 767px)");
+    const sync = () => {
+      setVisibleCount(mq.matches ? MOBILE_PAGE_SIZE : projects.length);
+    };
+    sync();
+    mq.addEventListener("change", sync);
+    return () => mq.removeEventListener("change", sync);
+  }, [projects.length]);
 
   const handleProjectClick = (project) => {
     setSelectedProject(project);
@@ -73,13 +98,17 @@ function Project2({ locale }) {
     if (!selectedProject || !videoRef.current) return;
 
     const video = videoRef.current;
+    const phone = isPhoneViewport();
+    video.preload = phone ? "metadata" : "auto";
     video.src = selectedProject.video;
     video.load();
-    const playPromise = video.play();
-    if (playPromise?.catch) {
-      playPromise.catch(() => {
-        /* autoplay may be blocked until user interacts with controls */
-      });
+
+    // Phones: do not autoplay — autoplay forces a full download on cellular.
+    if (!phone) {
+      const playPromise = video.play();
+      if (playPromise?.catch) {
+        playPromise.catch(() => {});
+      }
     }
   }, [selectedProject]);
 
@@ -99,6 +128,10 @@ function Project2({ locale }) {
     window.addEventListener("keydown", onKeyDown);
     return () => window.removeEventListener("keydown", onKeyDown);
   }, [selectedProject]);
+
+  const visibleProjects = projects.slice(0, visibleCount);
+  const canShowMore = visibleCount < projects.length;
+  const showMoreLabel = locale === "ar" ? "عرض المزيد" : "Show more";
 
   return (
     <div className="text-white min-h-screen py-12 sm:py-16 lg:py-20 w-full">
@@ -120,14 +153,31 @@ function Project2({ locale }) {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 relative">
-          {projects.map((project, idx) => (
+          {visibleProjects.map((project, idx) => (
             <ProjectCard
               key={project.id ?? idx}
               project={project}
               onClick={handleProjectClick}
+              priority={idx < 2}
             />
           ))}
         </div>
+
+        {canShowMore && (
+          <div className="mt-8 flex justify-center md:hidden">
+            <button
+              type="button"
+              onClick={() =>
+                setVisibleCount((n) =>
+                  Math.min(n + MOBILE_PAGE_SIZE, projects.length)
+                )
+              }
+              className="px-6 py-3 rounded-lg bg-teal-600 text-white font-semibold hover:bg-teal-500 transition-colors"
+            >
+              {showMoreLabel}
+            </button>
+          </div>
+        )}
       </div>
 
       {selectedProject && (
@@ -179,7 +229,7 @@ function Project2({ locale }) {
                   poster={selectedProject.poster}
                   controls
                   playsInline
-                  preload="auto"
+                  preload="none"
                   style={{
                     display: "block",
                     width: "100%",
@@ -226,19 +276,6 @@ function Project2({ locale }) {
                     rel="noopener noreferrer"
                     className="flex items-center justify-center gap-1.5 sm:gap-2 px-3 sm:px-4 py-2 bg-gradient-to-r from-teal-600 to-teal-500 text-white rounded-lg hover:from-teal-500 hover:to-teal-400 font-semibold text-xs sm:text-sm transition-colors duration-200"
                   >
-                    <svg
-                      className="w-3.5 h-3.5 sm:w-4 sm:h-4"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2}
-                        d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
-                      />
-                    </svg>
                     {t.visitSite}
                   </a>
                 )}
@@ -250,17 +287,6 @@ function Project2({ locale }) {
                     rel="noopener noreferrer"
                     className="flex items-center justify-center gap-1.5 sm:gap-2 px-3 sm:px-4 py-2 bg-gray-800 border border-teal-400/30 text-teal-400 rounded-lg hover:bg-gray-700 hover:border-teal-400 font-semibold text-xs sm:text-sm transition-colors duration-200"
                   >
-                    <svg
-                      className="w-3.5 h-3.5 sm:w-4 sm:h-4"
-                      fill="currentColor"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        fillRule="evenodd"
-                        d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"
-                        clipRule="evenodd"
-                      />
-                    </svg>
                     {t.viewGithub}
                   </a>
                 )}

@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
-import image from "../assets/kareem.png";
+import image from "../assets/kareem.jpg";
 import { getTranslation } from "../i18n/translations";
 import { LanguageToggle } from "./LanguageToggle";
 
@@ -40,15 +40,18 @@ function Home({ locale }) {
   }, [isOpen]);
 
   return (
-    <div className="min-h-[87.5vh] sm:min-h-screen h-full text-white relative overflow-hidden">
+    <div className="min-h-[100svh] sm:min-h-screen h-full text-white relative overflow-hidden">
       <div className="relative z-10 justify-center w-full">
         <nav className="flex justify-between items-center py-4 sm:py-6 mt-4 sm:mt-5 gap-2">
           <div className="flex items-center gap-3 min-w-0">
             <img
               src={image}
               alt={t.photoAlt}
+              width={64}
+              height={64}
               fetchPriority="high"
-              className="w-12 h-12 sm:w-14 sm:h-14 lg:w-16 lg:h-16 rounded-full bg-black border-2 border-teal-400 shadow-lg hover:shadow-teal-400/50 transition-shadow shrink-0"
+              decoding="async"
+              className="w-12 h-12 sm:w-14 sm:h-14 lg:w-16 lg:h-16 rounded-full bg-black border-2 border-teal-400 shadow-lg shrink-0"
             />
             <span className="font-bold text-lg sm:text-xl lg:text-2xl text-white truncate">
               {t.navBrand}

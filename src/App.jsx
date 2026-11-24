@@ -1,11 +1,14 @@
 import "./App.css";
+import { lazy } from "react";
 import Home from "./companent/Home";
-import About from "./companent/About.jsx";
-import ContactForm from "./companent/contact2";
-import Project2 from "./companent/project2";
 import AnimatedSpadeBackground from "./companent/AnimatedSpadeBackground";
+import DeferredSection from "./companent/DeferredSection";
 import { useEffect } from "react";
 import { useDocumentMeta } from "./hooks/useDocumentMeta";
+
+const About = lazy(() => import("./companent/About.jsx"));
+const Project2 = lazy(() => import("./companent/project2"));
+const ContactForm = lazy(() => import("./companent/contact2"));
 
 function App({ locale }) {
   useDocumentMeta(locale);
@@ -21,15 +24,15 @@ function App({ locale }) {
       <section id="home" className="relative z-10">
         <Home locale={locale} />
       </section>
-      <section id="about" className="relative z-10">
+      <DeferredSection id="about" minHeight="80vh">
         <About locale={locale} />
-      </section>
-      <section id="project2" className="relative z-10">
+      </DeferredSection>
+      <DeferredSection id="project2" minHeight="70vh">
         <Project2 locale={locale} />
-      </section>
-      <section id="contact" className="relative z-10">
+      </DeferredSection>
+      <DeferredSection id="contact" minHeight="50vh">
         <ContactForm locale={locale} />
-      </section>
+      </DeferredSection>
     </div>
   );
 }
