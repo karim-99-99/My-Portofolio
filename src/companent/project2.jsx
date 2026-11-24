@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
+import { createPortal } from "react-dom";
 import { getProjectsForLocale, getTranslation } from "../i18n/translations";
 
 const MOBILE_PAGE_SIZE = 3;
@@ -54,6 +55,29 @@ function isPhoneViewport() {
   );
 }
 
+function lockBodyScroll() {
+  const scrollY = window.scrollY;
+  document.body.dataset.scrollLockY = String(scrollY);
+  document.body.style.position = "fixed";
+  document.body.style.top = `-${scrollY}px`;
+  document.body.style.left = "0";
+  document.body.style.right = "0";
+  document.body.style.width = "100%";
+  document.body.style.overflow = "hidden";
+}
+
+function unlockBodyScroll() {
+  const scrollY = Number(document.body.dataset.scrollLockY || "0");
+  document.body.style.position = "";
+  document.body.style.top = "";
+  document.body.style.left = "";
+  document.body.style.right = "";
+  document.body.style.width = "";
+  document.body.style.overflow = "";
+  delete document.body.dataset.scrollLockY;
+  window.scrollTo(0, scrollY);
+}
+
 function Project2({ locale }) {
   const t = getTranslation(locale).projects;
   const projects = getProjectsForLocale(locale);
@@ -62,6 +86,7 @@ function Project2({ locale }) {
     isPhoneViewport() ? MOBILE_PAGE_SIZE : projects.length
   );
   const videoRef = useRef(null);
+  const panelScrollRef = useRef(null);
 
   useEffect(() => {
     const mq = window.matchMedia("(max-width: 767px)");
@@ -75,7 +100,7 @@ function Project2({ locale }) {
 
   const handleProjectClick = (project) => {
     setSelectedProject(project);
-    document.body.style.overflow = "hidden";
+    lockBodyScroll();
   };
 
   const handleCloseSidebar = () => {
@@ -85,7 +110,7 @@ function Project2({ locale }) {
       videoRef.current.load();
     }
     setSelectedProject(null);
-    document.body.style.overflow = "";
+    unlockBodyScroll();
   };
 
   const handleOverlayClick = (e) => {
@@ -94,50 +119,190 @@ function Project2({ locale }) {
     }
   };
 
+  // Desktop only: attach video after open. Phones wait for user tap on controls
+  // so opening a project never freezes on a large download.
   useEffect(() => {
     if (!selectedProject || !videoRef.current) return;
 
     const video = videoRef.current;
     const phone = isPhoneViewport();
-    video.preload = phone ? "metadata" : "auto";
+
+    if (phone) {
+      video.removeAttribute("src");
+      video.preload = "none";
+      video.poster = selectedProject.poster;
+      video.load();
+      return;
+    }
+
+    video.preload = "metadata";
     video.src = selectedProject.video;
     video.load();
-
-    // Phones: do not autoplay — autoplay forces a full download on cellular.
-    if (!phone) {
-      const playPromise = video.play();
-      if (playPromise?.catch) {
-        playPromise.catch(() => {});
-      }
-    }
   }, [selectedProject]);
 
   useEffect(() => {
     if (!selectedProject) return;
 
+    // Reset panel scroll to top each open
+    if (panelScrollRef.current) {
+      panelScrollRef.current.scrollTop = 0;
+    }
+
     const onKeyDown = (e) => {
       if (e.key !== "Escape") return;
-      if (videoRef.current) {
-        videoRef.current.pause();
-        videoRef.current.removeAttribute("src");
-        videoRef.current.load();
-      }
-      setSelectedProject(null);
-      document.body.style.overflow = "";
+      handleCloseSidebar();
     };
     window.addEventListener("keydown", onKeyDown);
     return () => window.removeEventListener("keydown", onKeyDown);
+    // eslint-disable-next-line react-hooks/exhaustive-deps -- close helper closes over latest video/project
   }, [selectedProject]);
+
+  useEffect(() => {
+    return () => {
+      // Safety: never leave body locked if component unmounts
+      if (document.body.style.position === "fixed") {
+        unlockBodyScroll();
+      }
+    };
+  }, []);
 
   const visibleProjects = projects.slice(0, visibleCount);
   const canShowMore = visibleCount < projects.length;
   const showMoreLabel = locale === "ar" ? "عرض المزيد" : "Show more";
 
+  const panel =
+    selectedProject &&
+    createPortal(
+      <div className="fixed inset-0 z-[80]" role="presentation">
+        <div
+          className="absolute inset-0 bg-black/75"
+          onClick={handleOverlayClick}
+          aria-hidden="true"
+        />
+
+        <div
+          role="dialog"
+          aria-modal="true"
+          aria-label={selectedProject.title}
+          className="absolute inset-y-0 right-0 rtl:right-auto rtl:left-0 flex h-[100dvh] max-h-[100dvh] w-full flex-col bg-gray-900 shadow-2xl sm:w-[380px] md:w-[440px] lg:w-[560px]"
+        >
+          <div className="flex shrink-0 items-center justify-between gap-3 border-b border-slate-800 px-4 py-3">
+            <h2 className="min-w-0 flex-1 truncate text-start text-lg font-bold text-teal-400 sm:text-xl">
+              {selectedProject.title}
+            </h2>
+            <button
+              type="button"
+              onClick={handleCloseSidebar}
+              className="shrink-0 rounded-full bg-gray-800 p-2 text-white hover:bg-gray-700 hover:text-teal-400"
+              aria-label={t.closeSidebar}
+            >
+              <svg
+                className="h-6 w-6"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M6 18L18 6M6 6l12 12"
+                />
+              </svg>
+            </button>
+          </div>
+
+          <div
+            ref={panelScrollRef}
+            className="min-h-0 flex-1 overflow-y-auto overscroll-contain px-4 py-4 sm:px-5 [-webkit-overflow-scrolling:touch]"
+          >
+            <div className="space-y-4 text-start text-white sm:space-y-5">
+              <div className="w-full overflow-hidden rounded-lg bg-gray-800">
+                <video
+                  ref={videoRef}
+                  className="block h-auto max-h-[220px] w-full object-contain"
+                  poster={selectedProject.poster}
+                  controls
+                  playsInline
+                  preload="none"
+                  controlsList="nodownload"
+                  onPlay={(e) => {
+                    // First interaction: attach source (phones start with no src).
+                    const video = e.currentTarget;
+                    if (video.dataset.srcReady === "1") return;
+                    if (!selectedProject.video) return;
+                    video.dataset.srcReady = "1";
+                    video.src = selectedProject.video;
+                    video.load();
+                    video.play().catch(() => {});
+                  }}
+                >
+                  {t.videoUnsupported}
+                </video>
+              </div>
+
+              {selectedProject.technologies?.length > 0 && (
+                <div>
+                  <h3 className="mb-2 text-base font-semibold text-teal-400 sm:mb-3 sm:text-lg">
+                    {t.techUsed}
+                  </h3>
+                  <div className="flex flex-wrap gap-2">
+                    {selectedProject.technologies.map((tech, index) => (
+                      <span
+                        key={index}
+                        className="inline-flex items-center rounded-full border border-teal-400/40 bg-teal-600/20 px-2.5 py-1 text-xs font-medium text-teal-300 sm:px-3 sm:py-1.5"
+                      >
+                        {tech}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              )}
+
+              <div>
+                <h3 className="mb-2 text-base font-semibold text-teal-400 sm:mb-3 sm:text-lg">
+                  {t.description}
+                </h3>
+                <p className="text-xs leading-relaxed text-gray-200 sm:text-sm">
+                  {selectedProject.description}
+                </p>
+              </div>
+
+              <div className="flex flex-col gap-2 pb-8 pt-2 sm:gap-3">
+                {selectedProject.websiteLink && (
+                  <a
+                    href={selectedProject.websiteLink}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center justify-center rounded-lg bg-gradient-to-r from-teal-600 to-teal-500 px-3 py-2.5 text-xs font-semibold text-white sm:px-4 sm:text-sm"
+                  >
+                    {t.visitSite}
+                  </a>
+                )}
+
+                {selectedProject.githubLink && (
+                  <a
+                    href={selectedProject.githubLink}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center justify-center rounded-lg border border-teal-400/30 bg-gray-800 px-3 py-2.5 text-xs font-semibold text-teal-400 sm:px-4 sm:text-sm"
+                  >
+                    {t.viewGithub}
+                  </a>
+                )}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>,
+      document.body
+    );
+
   return (
-    <div className="text-white min-h-screen py-12 sm:py-16 lg:py-20 w-full">
+    <div className="w-full min-h-screen py-12 text-white sm:py-16 lg:py-20">
       <div className="w-full">
-        <div className="text-center mb-12 sm:mb-16">
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4 sm:mb-6">
+        <div className="mb-12 text-center sm:mb-16">
+          <h2 className="mb-4 text-3xl font-bold sm:mb-6 sm:text-4xl lg:text-5xl">
             {t.heading ? (
               <>
                 {t.heading}{" "}
@@ -147,12 +312,12 @@ function Project2({ locale }) {
               <span className="text-teal-400">{t.headingAccent}</span>
             )}
           </h2>
-          <p className="text-base sm:text-lg lg:text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
+          <p className="mx-auto max-w-3xl text-base leading-relaxed text-gray-300 sm:text-lg lg:text-xl">
             {t.sub}
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 relative">
+        <div className="relative grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3 sm:gap-8">
           {visibleProjects.map((project, idx) => (
             <ProjectCard
               key={project.id ?? idx}
@@ -172,7 +337,7 @@ function Project2({ locale }) {
                   Math.min(n + MOBILE_PAGE_SIZE, projects.length)
                 )
               }
-              className="px-6 py-3 rounded-lg bg-teal-600 text-white font-semibold hover:bg-teal-500 transition-colors"
+              className="rounded-lg bg-teal-600 px-6 py-3 font-semibold text-white hover:bg-teal-500"
             >
               {showMoreLabel}
             </button>
@@ -180,121 +345,7 @@ function Project2({ locale }) {
         )}
       </div>
 
-      {selectedProject && (
-        <>
-          <div
-            className="fixed inset-0 bg-black/75 z-[60]"
-            onClick={handleOverlayClick}
-            aria-hidden="true"
-          />
-
-          <div
-            role="dialog"
-            aria-modal="true"
-            aria-label={selectedProject.title}
-            className="fixed top-0 right-0 rtl:right-auto rtl:left-0 h-full w-full sm:w-[360px] md:w-[420px] lg:w-[560px] bg-gray-900 shadow-2xl z-[70] overflow-y-auto"
-          >
-            <button
-              type="button"
-              onClick={handleCloseSidebar}
-              className="sticky top-4 float-right mr-4 mt-4 text-white hover:text-teal-400 transition-colors z-20 bg-gray-800 rounded-full p-2 hover:bg-gray-700 shadow-lg rtl:float-left rtl:ml-4 rtl:mr-0"
-              aria-label={t.closeSidebar}
-            >
-              <svg
-                className="w-6 h-6"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M6 18L18 6M6 6l12 12"
-                />
-              </svg>
-            </button>
-
-            <div className="p-4 sm:p-5 space-y-4 sm:space-y-5 text-white clear-both">
-              <div className="pt-12 sm:pt-4">
-                <h2 className="text-xl sm:text-2xl font-bold text-teal-400 mb-2">
-                  {selectedProject.title}
-                </h2>
-              </div>
-
-              <div className="w-full rounded-lg overflow-hidden bg-gray-800">
-                <video
-                  ref={videoRef}
-                  className="w-full h-auto object-contain"
-                  poster={selectedProject.poster}
-                  controls
-                  playsInline
-                  preload="none"
-                  style={{
-                    display: "block",
-                    width: "100%",
-                    maxHeight: "250px",
-                  }}
-                >
-                  {t.videoUnsupported}
-                </video>
-              </div>
-
-              {selectedProject.technologies &&
-                selectedProject.technologies.length > 0 && (
-                  <div>
-                    <h3 className="text-base sm:text-lg font-semibold mb-2 sm:mb-3 text-teal-400">
-                      {t.techUsed}
-                    </h3>
-                    <div className="flex flex-wrap gap-2">
-                      {selectedProject.technologies.map((tech, index) => (
-                        <span
-                          key={index}
-                          className="inline-flex items-center px-2.5 sm:px-3 py-1 sm:py-1.5 rounded-full text-xs font-medium bg-teal-600/20 border border-teal-400/40 text-teal-300"
-                        >
-                          {tech}
-                        </span>
-                      ))}
-                    </div>
-                  </div>
-                )}
-
-              <div>
-                <h3 className="text-base sm:text-lg font-semibold mb-2 sm:mb-3 text-teal-400">
-                  {t.description}
-                </h3>
-                <p className="text-gray-200 leading-relaxed text-xs sm:text-sm">
-                  {selectedProject.description}
-                </p>
-              </div>
-
-              <div className="flex flex-col gap-2 sm:gap-3 pt-2 pb-4">
-                {selectedProject.websiteLink && (
-                  <a
-                    href={selectedProject.websiteLink}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center justify-center gap-1.5 sm:gap-2 px-3 sm:px-4 py-2 bg-gradient-to-r from-teal-600 to-teal-500 text-white rounded-lg hover:from-teal-500 hover:to-teal-400 font-semibold text-xs sm:text-sm transition-colors duration-200"
-                  >
-                    {t.visitSite}
-                  </a>
-                )}
-
-                {selectedProject.githubLink && (
-                  <a
-                    href={selectedProject.githubLink}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center justify-center gap-1.5 sm:gap-2 px-3 sm:px-4 py-2 bg-gray-800 border border-teal-400/30 text-teal-400 rounded-lg hover:bg-gray-700 hover:border-teal-400 font-semibold text-xs sm:text-sm transition-colors duration-200"
-                  >
-                    {t.viewGithub}
-                  </a>
-                )}
-              </div>
-            </div>
-          </div>
-        </>
-      )}
+      {panel}
     </div>
   );
 }
